@@ -70,7 +70,6 @@ Five components have outlying maximum cell scores \ref{fig:SDA_diagnostics}. The
 	\label{fig:SDA_diagnostics}
 \end{figure}
 
-
 \section{Low Dimensional Visualisation}
 
 Despite reducing the dimensionality of the original dataset from 19,262 to 50 this is still too high to visualise the overall structure of the data. This can often be achieved by performing a second non-linear reduction such as tSNE or UMAP (normally PCA is the linear reduction) \cite{maaten2008visualizing, mcinnes2018uniform, Etienne2018Dimensionality}. We find a horseshoe like effect often found when reducing datasets with an underlying 1 dimensional structure \cite{Novembre2008, Podani2002}. By looking at genes with known expression patterns from the literature we can induce that in this case that the linear structure is developmental time of spermatogenesis and that the clusters in the centre are somatic cells.
@@ -96,7 +95,44 @@ We can perform the same visualisation on the transposed cell scores or gene load
 \end{figure}
 
 
-\section{Meiotic Sex Chromosome Inactivation}
+
+\section{Imputation}
+
+Due to low input material and limited transcript capture efficiency the original data is very sparse. 
+
+In the process of fitting the SDA model we have also effectively imputed the data. Multiplying out the cell scores and gene loadings matrix generates a matrix of the same dimensions as the original data but populated with the model's predicted values. Visualising these new expression vectors through pseudotime in comparison to the originals there are many fewer zero values when the gene is expressed as well as fewer outliers when it's unexpressed.
+
+A problem with validating this imputation scheme is that we can't evaluate against the true value for each cell because we don't know the true values. Instead we partition the dataset by randomly assigning each original read to either a training or test dataset and then run SDA and imputation on the training dataset only. If the imputation is working then we should be able to predict the rankings of the gene expression in the test data.
+
+
+
+As comparisons we either simply used the reads from the corresponding cell in the training dataset or an average over all cells. If we use the training data, we do ok for the highly expressed genes but then we run out of reads and basically guessing at random for the rest. Using an average we do better for the lower expressed genes, but of course if you take the average over all cells you may as well have done a bulk sequencing experiment. We can take the area under these curves to visualise comparative accuracy for all cells, compared to the cellwise training data we do almost allways better using the imputation, particuarly well when the library size is low. Using the average we also do almost always better, and best when the cell type is not like the average as you might expect.
+
+
+\section{Components}
+
+\subsection{Telocytes}
+
+\subsection{Leydig Cells}
+
+\subsection{Macrophages}
+
+\subsection{Lymphocytes}
+
+\subsection{Spermatogonia}
+
+\subsection{Telocytes}
+
+\subsection{Leptotene - Zygotene}
+
+During meiosis there is an extended prophase I (lasting 14 days in mice), which is itself divided into a number of stages: Leptotene, Zygotene, Pachytene, and Diplotene. In Leptotene and Zygotene the homologous chromosomes undergo presynaptic pairing, aided by meiosis-specific cohesin, and Spo11 creates several hundred programmed double-strand breaks at sites bound by Prdm9, the only known mammalian speciation gene (Mihola et al., 2009). We find a component (5) in which many of the genes required for this process have high loadings, including Prdm9 itself, Spo11 partner Top6bl (Gm960) (Robert et al., 2016; Vrielynck et al., 2016), Dmc1 which is required for DNA strand exchange \cite{Brown2014-wg}, proteins involved in the loading of Dmc1: Brca2 \cite{Martinez2016-qj} and Tex15 \cite{Yang2008-nj} as well as  components of the meiotic cohesin complex Rad21l, Smc1b, Smc3, and Esco2 \cite{Rankin2015-jz}. (Figure 3C-D; Table S3).
+
+This component is also highly enriched for GWAS hits of recombination rate in humans \cite{Halldorsson2019-vk}. Of the 24 significant GWAS loci identified with confidently associated causal genes, more than half (13) rank within the top 300 genes of this component, and almost all (20) rank within the top 1300 genes (p = 5.2x10-18, OR = 77.8 [95\% CI:36.4,Inf] and p = 2.4x10-20, OR = 70.1 [95\% CI:26.9,Inf]] respectively by fisher's exact test [FET], Figure 3F). One of the hits, Msh4, is not ranked highly in this component (2734th out of 19262), however, it is known to function as a heterodimer with Msh5, which ranks 34th \cite{Rakshambikai2013-qi}. This highlights one of the advantages of single cell RNAseq compared to GWAS for target discovery in that it does not rely on the presence of (perhaps rare, small effect) genetic variants. In addition it directly provides a list of genes rather than SNPs affecting unknown causal genes, For example the previous GWAS had identified a SNP in the intron of Ccdc43, however our expression data strongly suggested the adjacent gene Meioc as the causal gene (ranked 183rd vs 13,651st in component 5) in addition to the subsequent reports that Meioc is responsible for maintaining an extended meiotic prophase \cite{Abby2016-kc, Kong2014-ae, Soh2017-vq}. 
+
+The strong enrichment of genes involved in recombination in this component suggests other highly ranked genes of unknown function could also play key roles in this process. This proved to be the case for two such genes during the preparation of this manuscript. Firstly Ankrd31 (ranked 102nd) was found to control the number, timing, and location of double strand breaks in meiosis \cite{Boekhout2018-wr, Papanikos2018-jp} and Hsf2bp (now Meilb2, ranked 194th) was found to be a master regulator of meiotic recombinases \cite{Zhang2019-fb}.
+
+
+\subsection{Pachytene}
 During zygotene the paternal and maternal homologues pair with one another in preparation for recombination in pachytene. When partners fail to synapse they are marked by HORMAD1, HORMAD2 and BRCA1. This is followed by recruitment of ATR and the creation of $\gamma$H2AX resulting in transcriptional silencing (Meiotic Silencing of Unsynapsed Chromatin). As the X and Y chromosomes are only partially homologous they fail to fully synapse and are silenced by this processes (Meiotic Sex Chromosome Inactivation, MSCI). We are able to clearly see this effect in the ratio of X to autosomal expression through pseudotime (Fig \ref{fig:MSCI}) We can also see this in the gene loadings of pachytene components with an almost complete lack of loadings on the sex chromosomes.
 
 \begin{figure}[H]
@@ -110,28 +146,27 @@ In addition to MSCI we are able to address another curiosity of spermatogenesis 
 
 There remains a possibility that some individual or group of genes are not shared, such as has been observed for autosomal genes in a mutant heterozygous context: the t-complex responder mutant (SmokTcr) which functions as an antidote in the poison-antidote meiotic drive system of the t-complex \cite{Veron2009retention} and Spam1 which causes transmission ratio distortion in Robertsonian (Rb) translocation-bearing mice \cite{martin2005spam1}.
 
+% Haploid Cytoplasmic Sharing
 
-\section{Hormad1 X Chromosome Activation}
+\subsection{Hormad1 X Chromosome Activation}
 In addition to some components with lack of loadings on the sex chromosome there is also a component with an \textit{excess} relative to the autosomes. This component is active exclusively in a subset of Hormad1 KO cells positioned in zygotene stage. As previously mentioned HORMAD1 marks unsynapsed chromosomes, when HORAMD1 is completely absent as in the KO it appears as though the sex chromosomes are fully synapsed and so they fail to be transcriptionally silenced. We find that not only does Hormad1 KO fail to silence previously expressed sex-linked genes, many previously \textit{unexpressed} sex-linked genes such as Rhox2h have high expression. Interestingly, there are also multiple autosomal genes with high loadings. This may be due to ectopic expression of sex-linked transcription factors; for example, Zfy1 and Zfy2 were previously shown to cause pachytene arrest when misexpressed \cite{royo2010evidence}. We find a very strong association between genes in this component and genes overexpressed in mice which have mutations in either Hormad1 ($p<10^{-35}$) or Trip13 ($p<10^{-150}$) \cite{ortega2016surveillance}.
 
-\section{Prdm9 Component}
 
-During meiosis there is an extended prophase I (lasting 14 days in mice), which is itself divided into a number of stages: Leptotene, Zygotene, Pachytene, and Diplotene. In Leptotene and Zygotene the homologous chromosomes undergo presynaptic pairing, aided by meiosis-specific cohesin, and Spo11 creates several hundred programmed double-strand breaks at sites bound by Prdm9, the only known mammalian speciation gene (Mihola et al., 2009). We find a component (5) in which many of the genes required for this process have high loadings, including Prdm9 itself, Spo11 partner Top6bl (Gm960) (Robert et al., 2016; Vrielynck et al., 2016), Dmc1 which is required for DNA strand exchange \cite{Brown2014-wg}, proteins involved in the loading of Dmc1: Brca2 \cite{Martinez2016-qj} and Tex15 \cite{Yang2008-nj} as well as  components of the meiotic cohesin complex Rad21l, Smc1b, Smc3, and Esco2 \cite{Rankin2015-jz}. (Figure 3C-D; Table S3).
+\subsection{Meiotic Divisions}
 
-This component is also highly enriched for GWAS hits of recombination rate in humans \cite{Halldorsson2019-vk}. Of the 24 significant GWAS loci identified with confidently associated causal genes, more than half (13) rank within the top 300 genes of this component, and almost all (20) rank within the top 1300 genes (p = 5.2x10-18, OR = 77.8 [95\% CI:36.4,Inf] and p = 2.4x10-20, OR = 70.1 [95\% CI:26.9,Inf]] respectively by fisher's exact test [FET], Figure 3F). One of the hits, Msh4, is not ranked highly in this component (2734th out of 19262), however, it is known to function as a heterodimer with Msh5, which ranks 34th \cite{Rakshambikai2013-qi}. This highlights one of the advantages of single cell RNAseq compared to GWAS for target discovery in that it does not rely on the presence of (perhaps rare, small effect) genetic variants. In addition it directly provides a list of genes rather than SNPs affecting unknown causal genes, For example the previous GWAS had identified a SNP in the intron of Ccdc43, however our expression data strongly suggested the adjacent gene Meioc as the causal gene (ranked 183rd vs 13,651st in component 5) in addition to the subsequent reports that Meioc is responsible for maintaining an extended meiotic prophase \cite{Abby2016-kc, Kong2014-ae, Soh2017-vq}. 
+\subsection{Round Spermatid}
 
-The strong enrichment of genes involved in recombination in this component suggests other highly ranked genes of unknown function could also play key roles in this process. This proved to be the case for two such genes during the preparation of this manuscript. Firstly Ankrd31 (ranked 102nd) was found to control the number, timing, and location of double strand breaks in meiosis \cite{Boekhout2018-wr, Papanikos2018-jp} and Hsf2bp (now Meilb2, ranked 194th) was found to be a master regulator of meiotic recombinases \cite{Zhang2019-fb}.
+\subsection{Spermatocytes}
 
-\section{Respiration}
+\subsection{Respiration}
 
 As well as meiotic specific processes we found components with broader functions such as respiration. Component 9 contains 41 out of 57 of the respiratory complex I, III, and IV genes (complex II is an alternative pathway) (p = 7.4x10-53, OR = 104 [95\% CI: 62.1,Inf] FET).
 
-\section{Batch Effects}
+\subsection{Batch Effects}
 
 In addition to transcriptional programmes we 
 
 \section{Motif Inference}
-
 
 \subsection{Enrichment of Known Transcription Factor Targets}
 
@@ -157,18 +192,6 @@ As we inferred these motifs de novo we were able to discover previously unknown 
 
 Almost all of the motif acting pre-meiotic division include a CpG in their motif, and none of the post division motifs do, so there sees to be this broad switch between classes of TF during meiosis. Indeed we found an even stronger pattern of association simply using the count of CpG occurrences.
 
-
-\section{Imputation}
-
-Due to low input material and limited transcript capture efficiency the original data is very sparse. 
-
-In the process of fitting the SDA model we have also effectively imputed the data. Multiplying out the cell scores and gene loadings matrix generates a matrix of the same dimensions as the original data but populated with the model's predicted values. Visualising these new expression vectors through pseudotime in comparison to the originals there are many fewer zero values when the gene is expressed as well as fewer outliers when it's unexpressed.
-
-A problem with validating this imputation scheme is that we can't evaluate against the true value for each cell because we don't know the true values. Instead we partition the dataset by randomly assigning each original read to either a training or test dataset and then run SDA and imputation on the training dataset only. If the imputation is working then we should be able to predict the rankings of the gene expression in the test data.
-
-
-
-As comparisons we either simply used the reads from the corresponding cell in the training dataset or an average over all cells. If we use the training data, we do ok for the highly expressed genes but then we run out of reads and basically guessing at random for the rest. Using an average we do better for the lower expressed genes, but of course if you take the average over all cells you may as well have done a bulk sequencing experiment. We can take the area under these curves to visualise comparative accuracy for all cells, compared to the cellwise training data we do almost allways better using the imputation, particuarly well when the library size is low. Using the average we also do almost always better, and best when the cell type is not like the average as you might expect.
 
 
 \subsection{Limitations \& Extensions}

@@ -16,8 +16,9 @@ Much of science can be characterised as the creation of maps. The discovery, des
 
 The human genome project provided a single base pair map of our DNA, which not only accelerated research by providing a reference and enabling new bioinformatic analyses, but also uncovered many genes and conserved sequences of unknown function. Other atlases such as the Human Protein Atlas and GTEx which compiled gene expression data went some way to shed light on these genes by associating tissue specific genes with the function those tissues. Now the wave of single cell resolution expression atlases such as the Human Protein Atlas and Mouse Cell Atlas as well as other tissue specific maps including this one, provide even higher resolution clues for the function of unstudied genes.
 
-\section{Motivation}
+\section{Meiotic Recombination}
 
+\subsection{Significance and Motivation}
 The mechanisms of meiosis have important consequences for the evolution, fertility, and speciation of sexually reproducing organisms~\cite{Davies2016Reengineering,Hassold2007Origin}. RNA sequencing (RNAseq) has enabled the probing of these mechanisms at a transcriptional level. However, our current knowledge of the meiotic gene expression programme is low resolution. This is partly due to heterogeneity of the cell population in testes which is averaged by bulk tissue RNAseq~\cite{YasuhiroFUJIWAR2014Differential} as well as the relative inability to culture mammalian meiotic cells in vitro~\cite{Zhou2016Complete}. The recent introduction of single cell RNAseq (scRNAseq)~\cite{Gawad2016Singlecell}, raises the possibility of identifying the gene expression profile associated with different stages of meiosis. This may enable the identification of the meiotic transcriptional network as well as aid in the discovery and understanding of meiotic mechanisms.
 
 %The identification of genes expressed in meiosis and their relative timing of expression
@@ -25,10 +26,8 @@ The mechanisms of meiosis have important consequences for the evolution, fertili
 %(which genes are expressed when and where)
 %(for example if proteins acting in a complex are co-expressed)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Background}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Biological}
+\subsection{Stages of Meiosis}
 Meiosis is a type of cell division in which the number of chromosomes is reduced by half to produce haploid gametes (sperm and egg cells)~\cite{Ohkura2015Meiosis}. When meiosis proceeds correctly, recombination and independent assortment of homologous chromosomes generate genetic diversity and hence enable natural selection and evolution. However, errors in meiosis can cause infertility as well as aneuploidy~\cite{Handel2010Genetics,Hassold2007Origin}. Hence, understanding the molecular mechanisms of meiosis is a key goal of both the reproductive medicine and evolutionary research communities.
 
 Some studies such as GTEx (Genotype-Tissue Expression), HPA (Human Proteome Atlas), and FANTOM (Functional Annotation Of Mammalian genome) consortia have transcriptionally profiled many whole tissues in humans~\cite{Mele2015Human,Uhlen2015Tissuebased,Uhlen2016Transcriptomics}. This data enables the identification of tissue specific genes and hence a preliminary list of proteins which could be involved in meiosis. Testis have the highest number of tissue enriched genes out of the 32 tissues profiled in the HPA (defined as at least five-fold higher mRNA levels in a particular tissue as compared to all other tissues), with 1,057 enriched genes compared to 2,489 in total over 32 tissues~\cite{TheHumanProteinAtlasHuman}. However, this could be due to generally pervasive transcription in germ cells due to permissive chromatin~\cite{Soumillon2013Cellular}. Furthermore, testes are a mixture of cells including spermatogonia, which give rise to primary and secondary spermatocytes, which themselves develop into early and late spermatids, Sertoli cells which engulf and nurse the spermatocytes, as well as Leydig (interstitial) cells which secrete androgen hormones~(figure~\ref{fig:histology}). Many of these cells are not meiotic and so the gene expression values from bulk tissue are an average of all these cells and so can not be used to fully delineate gene expression patterns in meiosis itself.
@@ -48,11 +47,20 @@ Knowledge of the yeast gene regulatory programme of meiosis is relatively well k
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Statistical}
+\section{Single Cell RNAseq Technologies}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Bulk RNAseq}
+
+
+\subsection{Droplet Based Technologies}
+
+\subsection{Extensions}
+
+\section{Statistical Methods}
+
 Although the methods and workflow for analysing bulk RNAseq are now fairly mature and standardised, scRNAseq data has characteristics such as sparsity and high N which are poorly handled by bulk RNAseq tools. In addition scRNAseq data has opened up new analysis possibilities such as pseudotemporal ordering which is not possible with bulk data. This has motivated the development of many (\textgreater 120) new methods and analysis packages to meet the new demands and challenges of analysing scRNAseq data~\cite{Zappia2017ScRNAtools}.
- 
+
 The sparse nature and low signal-to-noise ratio of scRNAseq data is partly due to the low number of molecules being measured. For example many transcripts are present at \textless 10 copies per cell, and yet these transcripts could be important given protein to mRNA ratios commonly exceed 1,000~\cite{Lahtvee2017Absolute,Marguerat2012Quantitative}. In addition there is large natural variation in expression between comparable cells due to stochastic bursting gene expression kinetics~\cite{Raj2006Stochastic}. These challenges are compounded by inefficiencies and biases at each step of the library preparation procedure (cell lysis, mRNA capture, reverse-transcription, amplification) resulting in losses of 50 to 90\%~\cite{Islam2012Highly}.
 
 There two major analysis modes for scRNAseq: ordering of cells (in the case of differentiating cells), and clustering of cells into types (either to discover new cell types, or for downstream analysis on each type for example to define the transcriptional profile). However, before this is done dimensionality reduction is often performed on the (log transformed) gene by cell count matrix. Standard Principal Components Analysis (PCA) or Independent Component Analysis (ICA) are popular methods due to their speed and ease of interpretation~\cite{Satija2015Spatial,Trapnell2014Dynamics}. Other linear reductions such as Non-Negative Matrix Factorisation (NMF)~\cite{Shao2017Robust} and factor analysis~\cite{Buettner2015Computational} have also been used. Some of these methods have been adapted specifically for single cell analysis, for example ZIFA is a factor analysis which accounts for the sparsity of single cell data by including a zero-inflation component in the model (Zero Inflated Factor Analysis)~\cite{Pierson2015ZIFA}.
@@ -70,4 +78,13 @@ After dimensionality reduction, downstream analysis such as clustering of cells 
 
 
 % Similar aims (delineating lineage hierarchies and transcriptional networks) have been achieved using single cell RNA-seq in tissues other than testis, highlighting the feasibility of this study~\cite{Trapnell2014Dynamics,Treutlein2014Reconstructing,DurruthyDurruthy2014Reconstruction,Moignard2013Characterization,Stegle2015Computational}.
- 
+
+
+\subsection{Principal Components Analysis}
+
+\subsection{Factor Analysis}
+
+\subsection{Sparsity}
+
+%Frequentist
+%Bayesian
