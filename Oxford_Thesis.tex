@@ -52,8 +52,10 @@
 % Either way, you'll have to choose and configure an appropriate bibliography format...
 
 % The science-type option: numerical in-text citation with references in order of appearance.
-\usepackage[style=numeric-comp, sorting=none, backend=biber, doi=false, isbn=false]{biblatex}
+\usepackage[style=authoryear, sorting=none, backend=biber, doi=false, isbn=false]{biblatex}
 \newcommand*{\bibtitle}{References}
+
+\usepackage{float}
 
 % The humanities-type option: author-year in-text citation with an alphabetical works cited.
 %\usepackage[style=authoryear, sorting=nyt, backend=biber, maxcitenames=2, useprefix, doi=false, isbn=false]{biblatex}
@@ -73,9 +75,9 @@
 
 %%%%% THESIS / TITLE PAGE INFORMATION
 % Everybody needs to complete the following:
-\title{Suitably impressive thesis title}
-\author{Your Name}
-\college{Your College}
+\title{Delineation of Meiotic Gene\\ Expression in Male Mice}
+\author{Daniel John Wells}
+\college{Linacre College}
 
 % Master's candidates who require the alternate title page (with candidate number and word count)
 % must also un-comment and complete the following three lines:
@@ -88,7 +90,7 @@
 % Your full degree name.  (But remember that DPhils aren't "in" anything.  They're just DPhils.)
 \degree{Doctor of Philosophy}
 % Term and year of submission, or date if your board requires (eg most masters)
-\degreedate{Michaelmas 2014}
+\degreedate{Michaelmas 2020}
 
 
 %%%%% YOUR OWN PERSONAL MACROS
@@ -188,7 +190,7 @@
 % This example includes a list of abbreviations.  Look at text/abbreviations.tex to see how that file is
 % formatted.  The template can handle any kind of list though, so this might be a good place for a
 % glossary, etc.
-\include{text/abbreviations}
+\input{text/abbreviations}
 
 % The Roman pages, like the Roman Empire, must come to its inevitable close.
 \end{romanpages}
@@ -197,24 +199,26 @@
 %%%%% CHAPTERS
 % Add or remove any chapters you'd like here, by file name (excluding '.tex'):
 \flushbottom
-\include{text/ch1-intro}
-\include{text/ch2-litreview}
-
+\input{text/ch1-intro}
+\input{text/ch2-SDA}
+\input{text/ch3-Zcw}
 
 %% APPENDICES %% 
 % Starts lettered appendices, adds a heading in table of contents, and adds a
 %    page that just says "Appendices" to signal the end of your main text.
 \startappendices
 % Add or remove any appendices you'd like here:
-\include{text/appendix-1}
+\input{text/appendix-1}
 
 
 %%%%% REFERENCES
 
 % JEM: Quote for the top of references (just like a chapter quote if you're using them).  Comment to skip.
 \begin{savequote}[8cm]
-The first kind of intellectual and artistic personality belongs to the hedgehogs, the second to the foxes \dots
-  \qauthor{--- Sir Isaiah Berlin \cite{berlin_hedgehog_2013}}
+\textit{S'il se produit la quatre spores et pas deux, c'est qu'elles doivent avoir chacune quelque chose de particulier.}
+
+If four spores occur and not two, then each must have something special.
+  \qauthor{--- \cite{Janssens1909}}
 \end{savequote}
 
 \setlength{\baselineskip}{0pt} % JEM: Single-space References
