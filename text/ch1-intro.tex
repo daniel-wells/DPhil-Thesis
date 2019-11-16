@@ -5,32 +5,86 @@ There must be a form of nuclear division in which the ancestral germ plasms cont
   \qauthor{--- \cite{Weismann1887Ueber}}
 \end{savequote}
 
-\chapter{\label{ch:1-intro}Introduction} 
+\chapter{\label{ch:1-intro}Background}
 
 \minitoc
 
 
+\section{Aims}
+Meiosis is a type of cell division in which the number of chromosomes is reduced by half to produce haploid gametes (sperm and egg cells)~\cite{Ohkura2015Meiosis}. The primary aims of this research was to delineate the gene expression during this process. That is to identify which genes are expressed, their relative timing, strength, and location of expression. This enables the secondary aims of inferring the regulatory network of this expression as well as the function of unassigned genes.
 
-\section{Sexual Reproduction}
-Reproduction is a fundamental property of all known life. Of the two empires of life Eukaryotes/Eukarya are able to reproduce sexually, and almost all do. The dominance of this trait has been estimated at rougly 99.9\% with examples of exceptions being the Bdelloid rotifers who lost. This shared characteristic was likely present in the common ancestor of this empire and hence synapomorphic. The sexual life cycle consists of an alternating halving of the genetic material/ploidy (by meiosis) to form haploid cells, followed by karyogamy (nuclear fusion). Meiosis is a specialised form of cell division, in which genetic material is exchanged between the parental genomes, ensuring balanced segregation at the reductional division which follows (no naturally occurring eukaryotes have a single chromosome - a synthetic yeast has been engineered).
+\section{Motivations}
 
-Sexual repoduction is the dominant life cycle among eukaryotes \cite{White1978Modes}. This process requires a specialised form of cell division: Meiosis (from Ancient Greek, meíōsis, “a lessening”), in which the 
+\subsection{Sexual Reproduction}
+Reproduction is a fundamental property of all known life. Of the two empires of life Eukaryotes/Eukarya are able to reproduce sexually, and almost all do. The dominance of this trait has been estimated at roughly 99.9\% with examples of exceptions being the Bdelloid rotifers who lost. This shared characteristic was likely present in the common ancestor of this empire and hence synapomorphic. The sexual life cycle consists of an alternating halving of the genetic material/ploidy (by meiosis) to form haploid cells, followed by karyogamy (nuclear fusion). Meiosis (from Ancient Greek, meíōsis, “a lessening”) is a specialised form of cell division, in which genetic material is exchanged between the parental genomes (recombination). Recombination and independent assortment of homologous chromosomes generate genetic diversity and hence enable natural selection and evolution. Recombination also ensures balanced segregation at the reductional division which follows (no naturally occurring eukaryotes have a single chromosome - a synthetic yeast has been engineered).
 
-\subsection{Significance and Motivation}
-The mechanisms of meiosis have important consequences for the evolution, fertility, and speciation of sexually reproducing organisms~\cite{Davies2016Reengineering,Hassold2007Origin}. RNA sequencing (RNAseq) has enabled the probing of these mechanisms at a transcriptional level. However, our current knowledge of the meiotic gene expression programme is low resolution. This is partly due to heterogeneity of the cell population in testes which is averaged by bulk tissue RNAseq~\cite{YasuhiroFUJIWAR2014Differential} as well as the relative inability to culture mammalian meiotic cells in vitro~\cite{Zhou2016Complete}. The recent introduction of single cell RNAseq (scRNAseq)~\cite{Gawad2016Singlecell}, raises the possibility of identifying the gene expression profile associated with different stages of meiosis. This may enable the identification of the meiotic transcriptional network as well as aid in the discovery and understanding of meiotic mechanisms.
-
-%The identification of genes expressed in meiosis and their relative timing of expression
-%(which genes activate the transcription of which other genes)
-%(which genes are expressed when and where)
-%(for example if proteins acting in a complex are co-expressed)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cite{White1978Modes}
 
 
+The mechanisms of meiosis have important consequences for the evolution, fertility, and speciation of sexually reproducing organisms~\cite{Davies2016Reengineering,Hassold2007Origin}. 
+
+
+\subsection{Disease}
+As the process of gamete generation, errors in meiosis can cause genetic disease. In some sense the most extreme version is complete infertility, affecting around 1 in 10 (with many being of unexplained cause) \parencite{Datta2016Prevalence, Hamada2011Unexplained}. Other errors can be compatible with fertilisation but not full gestation resulting in miscarriage (affecting around 13\% of pregnancies overall, but over 50\% for mothers over the age of 45 years \parencite{Magnus2019Role}). Others errors are compatible with birth but result in incurable disease such as some anuploidies \parencite{Hassold2007Origin}. Determining the factors required for \emph{in vitro} spermatogenesis could enable the treatment of male infertility in addition to facilitating further research \parencite{Zhou2016Complete}.
+
+While enabling the production of healthy offspring is one aim of reproductive medicine, \emph{preventing} fertilisation (usually but not always, temporarily) is also extremely important for the health of both mother and child \parencite{Cleland2012Contraception}. Hence the development of contraceptives is another key goal of reproductive science, and one for which a clearer delineation of testis specific genes could aid \parencite{Schultz2003multitude}.
+
+
+\subsection{Curiosity}
+As with many scientific endeavours curiosity is a major driver of this research. The testis is a most unusual tissue especially at the transcriptional level. Testis has the highest number of tissue enriched genes out of the 32 tissues profiled in the Human Protein Atlas ($>$ five-fold higher mRNA levels in one particular tissue as compared to any other), with 1,057 enriched genes out of a total 2,489 across the 32 tissues~\cite{Djureinovic2014human,Mele2015Human, Uhlen2015Tissuebased, Uhlen2016Transcriptomics, Atlashuman}. This is over twice as many as the second highest tissue the cerebral cortex which is perhaps considered the most complex tissue functionally, and with which the testis shares a surprising similarity \parencite{Guo2005Transcriptomic, Djureinovic2014human, Uhlen2015Tissuebased}. More recent studies using single-cell sequencing have underscored the distinct transcriptional state of the testis \parencite{Han2018Mapping} and \ref{fig:MCA_PCA}
+
+The testis is also one of a few immune privileged sites in the human body \parencite{Fijak2006testis}. The previous two properties have lead to the use of testis expressed genes as targets for cancer immunotherapy (cancer testis antigens) as when re-expressed in cancers they provide a distinguishing biomarker \parencite{Whitehurst2014Cause}.
+
+Chromatin undergoes massive remodelling during spermatogenesis ultimately resulting in most (90/99\% in human/mouse) of the histones being replaced by crosslinked protamines, leading to the cessation of transcription \parencite{Rathke2014Chromatin}. This necessitates long term mRNA storage ($>$5 days) before translation \parencite{}.
+
+Sperm are a highly specialised cell, despite being a single cell and unable to transcribe new mRNA they must perform many of the functions of the whole organism including motility, sensing the environment (chemotaxis), and defence from attack (from the female immune system) \parencite{Kaupp2008Mechanisms, Thompson1992Leukocytic}. Indeed they are able to survive and even fertilise after more than three days in the female reproductive tract \parencite{Gould1984Assessment,Wilcox1995Timing}.
+
+Meiosis itself of course is also unique, with paternal and maternal homologous chromosomes being blissfully unaware of each other in somatic cells and until pairing in meiosis in the germline.
+
+Incomplete cytokinesis
+
+
+\subsection{Mapping Projects of Science}
+
+Much of science can be characterised as the creation of maps. The discovery, description and cataloguing of various types of elements, which is often dismissed as 'merely descriptive', is a fundamental bedrock of many sciences \cite{Grimaldi2007Why}. Maps are often useful in two senses, they server as a reference of what's already known, but also arrange current knowledge in such a way as to provide a prediction of the unknown. For example Mendeleev's periodic table both catalogued the known elements but left gaps for new discoveries. Equally with the Standard Model in physics. Darwin and others made extensive catalogues of past and present diversity of life, eventually resulting in the concept of evolution by natural selection. Cataloguing the ratios of offspring lead to Mendels laws.
+
+The human genome project provided a single base pair map of our DNA, which not only accelerated research by providing a reference and enabling new bioinformatic analyses, but also uncovered many genes and conserved sequences of unknown function. Other atlases such as the Human Protein Atlas and GTEx which compiled gene expression data went some way to shed light on these genes by associating tissue specific genes with the function those tissues. Now the wave of single cell resolution expression atlases such as the Human Protein Atlas and Mouse Cell Atlas as well as other tissue specific maps including this one, provide even higher resolution clues for the function of unstudied genes of which there are many \parencite{X}.
+
+
+
+
+\section{Gametogenesis}
+Gametogenesis is the process by which primordial germ cells develop into either spermatozoa in the male (spermatogenesis) or ovum in the female (oogenesis).
+
+\subsection{Oogenesis}
+Whilst equally important to spermatogenesis oogenesis process is studied far less (1,099 vs 359 articles indexed in PubMed 2018). This is likely partially due to difficulties in studying oogenesis compared to spermatogenesis. In oogenesis prophase I up to diplotene occurs in the ovary of the fetus before birth at which point meiosis is arrested (``Dictyate''), making experiments more challenging.
 
 \subsection{Stages of Meiosis}
-Meiosis is a type of cell division in which the number of chromosomes is reduced by half to produce haploid gametes (sperm and egg cells)~\cite{Ohkura2015Meiosis}. When meiosis proceeds correctly, recombination and independent assortment of homologous chromosomes generate genetic diversity and hence enable natural selection and evolution. Errors during meiosis can cause infertility as well as aneuploidy~\cite{Handel2010Genetics,Hassold2007Origin}. Hence, understanding the molecular mechanisms of meiosis is a key goal of both the reproductive medicine and evolutionary research communities.
+\subsubsection{Meiosis I}
+Meiosis is preceeded by DNA replication much like in mitosis and so initiates from cells that are 2n, 4c (n = ploidy / number of centromeres; c = number of chromosomes).
+\subsubsection{Prophase I}
+Prophase is much longer in meiosis than mitosis and so is itself split into a number of phases.
 
-Some studies such as GTEx (Genotype-Tissue Expression), HPA (Human Proteome Atlas), and FANTOM (Functional Annotation Of Mammalian genome) consortia have transcriptionally profiled many whole tissues in humans~\cite{Mele2015Human,Uhlen2015Tissuebased,Uhlen2016Transcriptomics}. This data enables the identification of tissue specific genes and hence a preliminary list of proteins which could be involved in meiosis. Testis have the highest number of tissue enriched genes out of the 32 tissues profiled in the HPA (defined as at least five-fold higher mRNA levels in a particular tissue as compared to all other tissues), with 1,057 enriched genes compared to 2,489 in total over 32 tissues~\cite{Atlashuman}. However, this could be due to generally pervasive transcription in germ cells due to permissive chromatin~\cite{Soumillon2013Cellular}. Furthermore, testes are a mixture of cells including spermatogonia, which give rise to primary and secondary spermatocytes, which themselves develop into early and late spermatids, Sertoli cells which engulf and nurse the spermatocytes, as well as Leydig (interstitial) cells which secrete androgen hormones~(figure~\ref{fig:histology}). Many of these cells are not meiotic and so the gene expression values from bulk tissue are an average of all these cells and so can not be used to fully delineate gene expression patterns in meiosis itself.
+During meiosis there is an extended prophase I (lasting 14 days in mice), which is itself divided into a number of stages: Leptotene, Zygotene, Pachytene, and Diplotene. In Leptotene and Zygotene the homologous chromosomes undergo presynaptic pairing, aided by meiosis-specific cohesin, and Spo11 creates several hundred programmed double-strand breaks at sites bound by Prdm9, the only known mammalian speciation gene (Mihola et al., 2009). 
+
+
+\subsubsection{Leptotene}
+
+\subsubsection{Zygotene}
+\subsubsection{Pachytene}
+\subsubsection{Diplotene}
+\subsubsection{Diakinesis}
+\subsubsection{Metaphase I}
+\subsubsection{Anaphase I}
+\subsubsection{Telophase I}
+
+\subsubsection{Meiosis II}
+
+
+\subsection{Stages of Spermatogenesis}
+In males meiosis takes place during a broader developmental program called spermatogenesis which encompasses the path from spermatogonial stem cells through to maturing spermatozoa. This process it itself supported by a number of somatic cells both within and surrounding the seminiferous tubules.
+
+ Furthermore, testes are a mixture of cells including spermatogonia, which give rise to primary and secondary spermatocytes, which themselves develop into early and late spermatids, Sertoli cells which engulf and nurse the spermatocytes, as well as Leydig (interstitial) cells which secrete androgen hormones~(figure~\ref{fig:histology}). Many of these cells are not meiotic and so the gene expression values from bulk tissue are an average of all these cells and so can not be used to fully delineate gene expression patterns in meiosis itself.
 
 \begin{figure}[H]
 	\centering
@@ -45,23 +99,45 @@ Other studies have transcriptionally profiled only testis tissue and have tried 
 
 Knowledge of the yeast gene regulatory programme of meiosis is relatively well known, however, the lack of sequence similarity and inability to culture mammalian meiotic cells has hampered efforts to translate this network to more complex eukaryotes~\cite{Brar2011HighResolution,Mata2002transcriptional,Chu1998Transcriptional,Handel2010Genetics}.
 
-\section{Mapping Projects of Science}
-
-Much of science can be characterised as the creation of maps. The discovery, description and cataloguing of various types of elements, which is often dismissed as 'merely descriptive', is a fundamental bedrock of many sciences \cite{Grimaldi2007Why}. Maps are often useful in two senses, they server as a reference of what's already known, but also arrange current knowledge in such a way as to provide a prediction of the unknown. For example Mendeleev's periodic table both catalogued the known elements but left gaps for new discoveries. Equally with the Standard Model in physics. Darwin and others made extensive catalogues of past and present diversity of life, eventually resulting in the concept of evolution by natural selection. Cataloguing the ratios of offspring lead to Mendels laws.
-
-The human genome project provided a single base pair map of our DNA, which not only accelerated research by providing a reference and enabling new bioinformatic analyses, but also uncovered many genes and conserved sequences of unknown function. Other atlases such as the Human Protein Atlas and GTEx which compiled gene expression data went some way to shed light on these genes by associating tissue specific genes with the function those tissues. Now the wave of single cell resolution expression atlases such as the Human Protein Atlas and Mouse Cell Atlas as well as other tissue specific maps including this one, provide even higher resolution clues for the function of unstudied genes.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Single Cell RNAseq Technologies}
+\section{Measuring Gene Expression}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Expression is the process in which information contained in the genome is 
+There are a number of different technologies available to quantify the amount of mRNA each providing different information.
+
+\subsection{In Situ Hybridization}
+In Situ Hybridisation uses a probe (either RNA or DNA) which is incubated with fixed cells and binds to a target mRNA by complementary binding. 
+
+Radioactive labelling was low resolution, expensive, unstable, and dangerous. but this was overcome by biotinylated probes couples with secondary detection \parencite{Singer1982Actin} and later directly flourescent probes \parencite{Kislauskis1993Isoformspecific}.
+
+This technique has been extended to measure individual mRNA molecules by using multiple probes per target RNA (single molecule smFISH) \parencite{Raj2008Imaging, Femino1998Visualization}. In addition to multiplexed detection to enable many (up to X) RNA targets to be measured at once \parencite{}.
+
+
+\subsection{RT-qPCR}
+Reverse transcription quantitative real-time PCR measures PCR products during the amplification by using fluorescent detectors \parencite{Gibson1996novel, Heid1996Real, Chiang1996Use}. This technique is able to detect a single molecule, however any spatial information is lost.
+
+Due to the exponential amplification, small differences in reverse transcription, primer efficiency, or initial starting amounts and contamination can lead to inaccurate quantification. Therefore, efficiency and validated reference genes must be established by separate experiments \parencite{Bustin2009MIQE}.
+
+\subsection{Northern Blot}
+The Northern blot (RNA extraction, separation by gel electrophoresis, followed by transfer by blotting onto a membrane and finally detection by complementary hybridisation with a radioactive/fluorescent probe)  is one of the earliest methods for measuring mRNA levels \parencite{Alwine1977Method}. Northern blotting still remains a useful technique when information about the relative sizes of transcripts is required.
+
+\subsection{Microarrays}
+
 
 \subsection{Bulk RNAseq}
 
 
+\subsection{Single Cell RNAseq}
+
+
 \subsection{Droplet Based Technologies}
 
+
 \subsection{Extensions}
+
 
 \section{Statistical Methods}
 
@@ -94,3 +170,14 @@ After dimensionality reduction, downstream analysis such as clustering of cells 
 
 %Frequentist
 %Bayesian
+
+
+
+\section{Prior Work}
+
+
+Some studies such as GTEx (Genotype-Tissue Expression), HPA (Human Proteome Atlas), and FANTOM (Functional Annotation Of Mammalian genome) consortia have transcriptionally profiled many whole tissues in humans~\cite{Mele2015Human,Uhlen2015Tissuebased,Uhlen2016Transcriptomics}. This data enables the identification of tissue specific genes and hence a preliminary list of proteins which could be involved in meiosis.  However, this could be due to generally pervasive transcription in germ cells due to permissive chromatin~\cite{Soumillon2013Cellular}.
+
+
+
+RNA sequencing (RNAseq) has enabled the probing of these mechanisms at a transcriptional level. However, our current knowledge of the meiotic gene expression programme is low resolution. This is partly due to heterogeneity of the cell population in testes which is averaged by bulk tissue RNAseq~\cite{YasuhiroFUJIWAR2014Differential} as well as the relative inability to culture mammalian meiotic cells in vitro~\cite{Zhou2016Complete}. The recent introduction of single cell RNAseq (scRNAseq)~\cite{Gawad2016Singlecell}, raises the possibility of identifying the gene expression profile associated with different stages of meiosis. This may enable the identification of the meiotic transcriptional network as well as aid in the discovery and understanding of meiotic mechanisms.
