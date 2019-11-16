@@ -52,7 +52,7 @@
 % Either way, you'll have to choose and configure an appropriate bibliography format...
 
 % The science-type option: numerical in-text citation with references in order of appearance.
-\usepackage[style=authoryear, sorting=none, backend=biber, doi=false, isbn=false]{biblatex}
+\usepackage[natbib=true, style=authoryear, sorting=none, backend=biber, doi=false, isbn=false]{biblatex}
 \newcommand*{\bibtitle}{References}
 
 \usepackage{float}
@@ -101,6 +101,8 @@
 	\newcommand{\nd}{\textsuperscript{nd}}
 	\renewcommand{\st}{\textsuperscript{st}}
 	\newcommand{\rd}{\textsuperscript{rd}}
+
+\usepackage{textgreek}
 
 %%%%% THE ACTUAL DOCUMENT STARTS HERE
 \begin{document}
@@ -218,7 +220,7 @@
 \textit{S'il se produit la quatre spores et pas deux, c'est qu'elles doivent avoir chacune quelque chose de particulier.}
 
 If four spores occur and not two, then each must have something special.
-  \qauthor{--- \cite{Janssens1909}}
+  \qauthor{--- \cite{Janssens1909theorie}}
 \end{savequote}
 
 \setlength{\baselineskip}{0pt} % JEM: Single-space References
