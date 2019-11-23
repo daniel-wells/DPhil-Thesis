@@ -56,10 +56,6 @@ Genes in the lower third of expression means were then removed and cells were no
 
 When performing a dimensionality reduction such as matrix factorisation we must somehow determine the number of latent components. Too low and we may miss some real components, too high and we may find spurious components due to overfitting. One way the method can overfit is by assigning a whole component to an individual cell, which we observed (Fig \ref{fig:single_cell_component}). We found when increasing the number of components from 50 to, 75, 100, 200 and 500 we got more of these single cell components rather than new normal components. With 50 components we had five individual cell components (1,4,8,14, and 46 - fig \ref{fig:SDA_diagnostics}) which we judged to be an acceptable balance between over and underfitting. We also ran SDA with five different random seeds to confirm stability of the results with different initialisations.
 
-By inspecting the change in free energy as well as the change in fraction of gene loadings with PIP < 0.5 we can confirm that the algorithm had converged within the 10,000 iterations for which it was run \ref{fig:SDA_diagnostics}. In addition the results are almost identical after 1,000 iterations. Mean runtime for 10,000 iterations was 41.8 hours on a single core of Intel Xeon E5-2667 v4. As expected in line with previous reports from \cite{Hore2016Tensor} the PIPs have a bimodal distribution \ref{fig:SDA_diagnostics}.
-
-The gene loadings are sparse with 79.8\% of the gene loadings having a PIP of less than 0.5. These genes have a tight distribution of loadings around 0 with a maximum absolute loading of 0.011 and 99\% of the loadings lying within the range (-0.0033, 0.0036). Of the gene loadings with a PIP of greater than 0.5 the maximum absolute loading is 1.31 and the mean is 0.062.
-
 
 \begin{figure}[H]
 	\centering
@@ -75,6 +71,8 @@ The gene loadings are sparse with 79.8\% of the gene loadings having a PIP of le
 	\label{fig:single_cell_component}
 \end{figure}
 
+By inspecting the change in free energy as well as the change in fraction of gene loadings with PIP < 0.5 we can confirm that the algorithm had converged within the 10,000 iterations for which it was run \ref{fig:SDA_diagnostics}. In addition the results are almost identical after 1,000 iterations (fig \ref{fig:10k}. Mean runtime for 10,000 iterations was 41.8 hours on a single core of Intel Xeon E5-2667 v4. The computational complexity of SDA scales with $NLC^2$ where N=number of cells, L=number of genes, and C=number of components. We acknowledge SDA is not the fastest way to analyse single cell RNA-seq data, however we prefer additional insight over gains in speed which for datasets of similar size to ours will be small relative to the time for data generation and analysis overall. As expected in line with previous reports from \cite{Hore2016Tensor} the PIPs have a bimodal distribution \ref{fig:SDA_diagnostics}.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{figures/SDA_diagnostics.pdf}
@@ -86,12 +84,31 @@ The gene loadings are sparse with 79.8\% of the gene loadings having a PIP of le
 	\label{fig:SDA_diagnostics}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/1k_vs_10k.pdf}
+	\caption{Correlation of gene loadings between set inferrred using 1,000 iterations vs those using 10,000 iterations.}
+	\label{fig:10k}
+\end{figure}
 
+
+The gene loadings are sparse with 79.8\% of the gene loadings having a PIP of less than 0.5 (fig \ref{fig:SDA}B,C). These genes have a tight distribution of loadings around 0 with a maximum absolute loading of 0.011 and 99\% of the loadings lying within the range (-0.0033, 0.0036). Of the gene loadings with a PIP of greater than 0.5 the maximum absolute loading is 1.31 and the mean is 0.062.
 
 
 \section{Low Dimensional Visualisation}
 
-Despite reducing the dimensionality of the original dataset from 19,262 to 50 this is still too high to visualise the overall structure of the data. This can be achieved by performing a second non-linear reduction such as tSNE or UMAP (normally PCA is the linear reduction) \cite{Maaten2008Visualizing, McInnes2018UMAPa, Becht2018Dimensionality}. We find a horseshoe like effect often found when reducing datasets with an underlying 1 dimensional structure \cite{Novembre2008Interpreting, Podani2002RESEMBLANCE}. By looking at genes with known expression patterns from the literature we can induce that in this case that the linear structure is developmental time of spermatogenesis and that the clusters in the centre are somatic cells.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/tsne_random_seeds.png}
+	\caption{
+		\textbf{(A-C)} To quantify our uncertainty in the t-SNE embedding, we performed multiple t-SNE analyses with different random seeds. The cells are coloured by the same pseudotime values used throughout. Somatic cells are coloured gray. t-SNE coordinates are rotated about the origin to aid comparison.
+		\textbf{(D)} We also performed dimensionality reduction using UMAP and confirmed that it gave a pseudotime embedding consistent with t-SNE. Cells are again coloured using the same psueodtime values as A-C}
+	\label{fig:tSNEseeds}
+\end{figure}
+
+Despite reducing the dimensionality of the original dataset from 19,262 to 50 this is still too high to visualise the overall structure of the data. This can be achieved by performing a second non-linear reduction such as tSNE or UMAP (normally PCA is the linear reduction) \cite{Maaten2008Visualizing, McInnes2018UMAPa, Becht2018Dimensionality}. We find a horseshoe like effect often found when reducing datasets with an underlying 1 dimensional structure \cite{Novembre2008Interpreting, Podani2002RESEMBLANCE} (Fig \ref{fig:tSNEseeds}). By looking at genes with known expression patterns from the literature we can induce that in this case that the linear structure is developmental time of spermatogenesis and that the clusters in the centre are somatic cells (Fig \ref{fig:Marker_Genes}).
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{figures/Marker_Genes.pdf}
