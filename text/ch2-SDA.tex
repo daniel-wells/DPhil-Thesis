@@ -210,6 +210,27 @@ By visualising the rotation matrix from the procrustean analysis we can see whic
 \end{figure}
 
 
+\section{Non Meiotic Components}
+
+Given we combined multiple experimental batches it's important to correct for batch effects and SDA provides a simple approach as some inferred components will capture these effects and can be removed.
+
+Component 22 gene loadings are highly enriched in ribosomal proteins (50 of the top 100 loadings are non pseudogene ribosomal genes - of which there are 99, Fig \ref{fig:NonMeiotic}A). However unlike ribosomal component 43, the cell scores for component 22 are associated with whether the sequencing was done on MiSeq or HiSeq Illumina machines and so this component is likely a batch effect (Fig \ref{fig:NonMeiotic}B).
+
+Component 12 has high cell loadings for \textit{Hormad1\textsuperscript{-/-}} cells, but these loadings are largely positive for the first two libraries, and negative for the last library (Fig \ref{fig:NonMeiotic}C,D).
+
+Component 9 contains 41 out of 57 of the respiratory complex I, III, and IV genes (complex II is an alternative pathway) Fig \ref{fig:NonMeiotic}E,F (p = 7.4x10-53, OR = 104 [95\% CI: 62.1,Inf] FET). It's not clear whether this component reflects real meiotic biology or potentially reflects cell stress induced by experimental processing (still a real biological process but not one that exists in vivo).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/NonMeiotic_Components.pdf}
+	\caption{
+		\textbf{(A \& B)} Gene loadings and cell scores for component 22.
+		\textbf{(C and D)} Gene loadings and cell scores for component 12.
+		\textbf{(E)} Gene loadings for component 9. Genes that are (non-assembly) components of the electron transport chain proton pump genes are highlighted in red. This gene set is defined by the genes that match the regex ‘Uqc|Cox|Ndu’. Pseudogenes, and genes with ‘assembly|like’ in their name were excluded.
+		\textbf{(F)} Enrichment of genes that are (non-assembly) components of the electron transport chain proton pump genes in the top 500 genes from each component.
+	}
+	\label{fig:NonMeiotic}
+\end{figure}
 
 
 \section{Components}
@@ -349,29 +370,6 @@ Round spermatid component 30 contains many genes associated with the acrosome, a
 \subsection{Spermatocytes}
 
 The spermiogenesis components 17, 18 and 34 all contain many genes known to be expressed at the latest stages of spermatogenesis, before transcriptional arrest due to replacement of histones with protamines (Sassone-Corsi, 2002) (Supplementary file 3). In addition, \textit{Abhd5} (aka CGI-58), a protein previously detected in testis lipid droplets (Wang et al., 2015), has high loadings specifically in these late components (17 and 18) and we show by immunofluorescence that it serves as an excellent marker of the residual body (Figure 2B).
-
-\subsection{Batch Effects}
-
-In addition to transcriptional programmes we also found components representing likely batch effects. 
-
-Component 22 gene loadings are highly enriched in ribosomal proteins (50 of the top 100 loadings are non pseudogene ribosomal genes - of which there are 99, Fig \ref{fig:NonMeiotic}A). However unlike ribosomal component 43, the cell scores for component 22 are associated with whether the sequencing was done on MiSeq or HiSeq Illumina machines and so this component is likely a batch effect (Fig \ref{fig:NonMeiotic}B).
-
-Component 12 has high cell loadings for \textit{Hormad1\textsuperscript{-/-}} cells, but these loadings are largely positive for the first two libraries, and negative for the last library (Fig \ref{fig:NonMeiotic}C,D).
-
-Component 9 contains 41 out of 57 of the respiratory complex I, III, and IV genes (complex II is an alternative pathway) Fig \ref{fig:NonMeiotic}E,F (p = 7.4x10-53, OR = 104 [95\% CI: 62.1,Inf] FET). It's not clear whether this component reflects real meiotic biology or potentially reflect cell stress induced by experimental processing (still a real biological process but not one that exists in vivo).
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{figures/NonMeiotic_Components.pdf}
-	\caption{
-		\textbf{(A \& B)} Gene loadings and cell scores for component 22.
-		\textbf{(C and D)} Gene loadings and cell scores for component 12.
-		\textbf{(E)} Gene loadings for component 9. Genes that are (non-assembly) components of the electron transport chain proton pump genes are highlighted in red. This gene set is defined by the genes that match the regex ‘Uqc|Cox|Ndu’. Pseudogenes, and genes with ‘assembly|like’ in their name were excluded.
-		\textbf{(F)} Enrichment of genes that are (non-assembly) components of the electron transport chain proton pump genes in the top 500 genes from each component.
-	}
-	\label{fig:NonMeiotic}
-\end{figure}
 
 
 \begin{figure}[H]
