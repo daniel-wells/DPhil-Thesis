@@ -92,11 +92,16 @@ The gene loadings are sparse with 79.8\% of the gene loadings having a PIP of le
 \section{Low Dimensional Visualisation}
 
 Despite reducing the dimensionality of the original dataset from 19,262 to 50 this is still too high to visualise the overall structure of the data. This can be achieved by performing a second non-linear reduction such as tSNE or UMAP (normally PCA is the linear reduction) \cite{Maaten2008Visualizing, McInnes2018UMAPa, Becht2018Dimensionality}. We find a horseshoe like effect often found when reducing datasets with an underlying 1 dimensional structure \cite{Novembre2008Interpreting, Podani2002RESEMBLANCE}. By looking at genes with known expression patterns from the literature we can induce that in this case that the linear structure is developmental time of spermatogenesis and that the clusters in the centre are somatic cells.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/Marker_Genes.pdf}
+	\caption{Imputed expression for genes with a range of expression patterns across cells}
+	\label{fig:Marker_Genes}
+\end{figure}
 
 To generate a pseudo-timeline we used a similar approach to that implemented in SCUBA \cite{Marco2014Bifurcation}. We iteratively fit a principal curve through the t-SNE plot with increasing degrees of freedom from 4 to 9 using the curve from the previous run as the starting point \cite{Hastie1989Principal}. Each cell was then assigned to the closest position on this curve. Somatic cells and the Hormad1 X-activated cells (component 38 score >3) were excluded during pseudotime construction but the \textit{Hormad1\textsuperscript{-/-}} X-activated cells were given pseudotimes post-hoc. Somatic cells were defined by thresholding the cell scores of somatic components (if the absolute cell score of a given cell passed any of the following component thresholds 26, 11, 3, 32, 45, 24 > 2; 37 > 1.5; 40 > 1; or mt-Rnr2 expression >3).
 
 The temporal order of components was determined by using a weighted mean of the pseudotime values, where the weights are the cell scores of the component. In addition, only those cells with an absolute cell score of greater than two contribute to the mean.
-
 
 Although the model used for inference is symmetric for positive/negative gene weightings, many identified components showed strong biases towards positive or negative weights, consistent with expectations for identifying a group of co-activated (or co-repressed) genes (e.g. figure \ref{fig:SDA}E). Likewise, the cell loadings of each component frequently highlight specific cellular subsets that localize in t-SNE space and pseudotime (Figure \ref{fig:SDA} and \ref{fig:Cell_Scores})
 
@@ -112,20 +117,6 @@ Although the model used for inference is symmetric for positive/negative gene we
 		\textbf{(F)} Enrichment for GWAS hits of human recombination rate for all components. OR: Odds Ratio. P value by FET (main text). Positive (P) and negative (N) loadings are tested separately. For one-sided components (cell score range ratio >5) the minor side is omitted. Red horizontal line: p=0.05 after Bonferroni correction for multiple testing.
 	}
 	\label{fig:SDA}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{figures/Marker_Genes.pdf}
-	\caption{Imputed expression for genes with a range of expression patterns across cells}
-	\label{fig:Marker_Genes}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{figures/Cell_Scores.png}
-	\caption{}
-	\label{fig:Cell_Scores}
 \end{figure}
 
 We can perform the same dimensionality reduction on the transposed cell scores or gene loadings to see how the components relate to each other (Fig \ref{fig:tSNE_Components}). We find 7 major clusters of components and with hindsight these correspond to: 1) Spermatogonia, 2) Leptotene/Zygotene 3) Pachytene 4) Round Spermatid (Acrosomal) 5) Spermiogenesis 6) Somatic and 7) Somatic (Sertoli). We can see that our manual labelling of the components is consistent with the clusters.
@@ -192,7 +183,18 @@ In addition to obviating the need for further clustering and differential expres
 
 \section{Components}
 
-Assigning a cytologically defined stage to each component requires considerable manual work due to lack of any high resolution data. There are a number of issues that complicate assignment. Firstly as we have seen components activities are gradual and so there may be no well defined set of cells or start and end to a component. Components can be mixed sign (positive/negative) and one sign may represent a different stage to the other. Stages themselves are not well defined in the literature with multiple definitions being used by different groups. Due to translational regulation the transcription of genes may not correspond to the detection of the protein, hence using commonly performed antibody based immunofluorescence can be misleading and if available mRNA detection methods should be used for reference. In addition any literature references from human, or even rat, can have different expression patterns than mouse and so this evidence must be used with caution. Nonetheless using a combination of evidence types from multiple genes for each component we were able to assign almost all components to a stage(s) or cell type(s).
+Assigning a cytologically defined stage to each component requires considerable manual work due to lack of any high resolution data. There are a number of issues that complicate assignment. Firstly as we have seen components activities are gradual and so there may be no well defined set of cells or start and end to a component. Components can be mixed sign (positive/negative) and one sign may be active in a different stage to the other. Stages themselves are not well defined in the literature with multiple definitions being used by different groups. Due to translational regulation the transcription of genes may not correspond to the detection of the protein, hence using commonly performed antibody based immunofluorescence can be misleading and if available mRNA detection methods should be used for reference. In addition any literature references from human, or even rat, can have different expression patterns than mouse and so this evidence must be used with caution. Nonetheless using a combination of evidence types from multiple genes for each component we were able to assign almost all components to a stage(s) or cell type(s).
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/Cell_Scores.png}
+	\caption{}
+	\label{fig:Cell_Scores}
+\end{figure}
+
+
+
 
 \subsection{Telocytes}
 Recently telocytes were discovered to be present in the mammalian (human) testis \parencite{Marini2018Reappraising, Kuroda2004Distribution}. We find one component (\#32) matching the known combination of markers for telocytes (\textit{Cd34} and \textit{Pdgfra} positive, \textit{Kit}, \textit{Pecam} and \textit{Acta2}/\textalpha-SMA negative) in addition to many other genes specific to this cluster (\textit{Dcn}, \textit{Col1a2}, \textit{Col1a2}, \textit{Col3a1}, \textit{Col6a1}, \textit{Col4a4}, \textit{Col4a1}, \textit{Col1a1}, \textit{Lamb1}, \textit{Lama2}, \textit{Lamb2}, \textit{Gsn}, \textit{Adamts5}, \textit{Mgp}) representing potential novel markers for this cell type in the testis. This component is highly enriched for the GO term "extracellular matrix organization" (p=4.3e-16, OR=10.3). Their expression pattern matches what was described as an unknown mesenchymal cell population by \cite{Green2018Comprehensive} with expression of \textit{Tcf21}, \textit{Arx}, \textit{Vim}, and \textit{Col1A1}, but not \textit{Acta2} (\textalpha-SMA), or \textit{Cyp17a1}.
