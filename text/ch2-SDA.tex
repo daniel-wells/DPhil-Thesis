@@ -178,6 +178,37 @@ In addition to obviating the need for further clustering and differential expres
 	\label{fig:imputation_supp}
 \end{figure}
 
+\section{Mutant Genotypes}
+
+Given we combined both wild-type and mutant cells in our analysis it is important to check that the components representing wild type processes are not unduly affected by this mixing. In order to quantify the robustness of our conclusions to this decision to combine mutant and wild-type strains, we performed a separate SDA analysis using just wild-type cells (the ‘WT’ analysis) and compared the results.
+
+Factor analyses naturally have a degree of unidentifiability, whereas in SDA the sparsity prior helps to make the model identifiable across different seeds. For different data however the gene loadings matrix may be a rotated version in which components are linearly split or combined. A procrustean rotation can align two matrices (here gene loadings) onto an equivalent set of axes. Therefore, for fair comparison across SDA runs with different datasets, we compared the correlation of the gene loadings after procrustan rotation which tells us if the components inferred are effectively the same.
+
+We found that most components generated from an SDA analysis of only wild-type data were also observed in the joint analysis of wild-type and mutant data. The most important WT components (those with high total cell score) have high correlations with components in the mixed SDA run (fig \ref{WT_vs_Mixed}). Some components such as Mix38 X activation are not represented in the WT decomposition because they represent mutant-specific processes. Other components such as Mix44 Leptotene-Zygotene do not appear as these cells are numerous only in mutant samples which lack the more abundant later stages of cells.
+
+By visualising the rotation matrix from the procrustean analysis we can see which components have been rotated. For example Mix component 17 spermiogenesis is a linear combination of WT component 46 and 7 (fig \ref{fig:WT_Mix_Rotation}). We can also visualise the correlations directly as in figure \ref{fig:WT_Mix_Correlation}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/correlation_matrix_rotated.pdf}
+	\caption{Here we show as a heatmap the pearson correlation of component gene loadings between a procrustean rotation of the WT gene loadings and the Mixed SDA gene loadings. The ‘sum abs cell score’ annotation shows the sum of the absolute cell scores for that component (larger number indicates a more important component). The ‘max cell score’ annotation indicates the maximum cell score for each component (a larger maximum indicates overfitting to a single/small number of cells).}
+	\label{fig:WT_vs_Mixed}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/rotation_matrix_sparseNEW.pdf}
+	\caption{This heatmap shows the procrustean rotation matrix (with absolute values < 0.35 rounded down to 0).}
+	\label{fig:WT_Mix_Rotation}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/UdifSpg_gene_scatterplot.pdf}
+	\caption{An example scatterplot comparing the gene loadings for one cognate SDA component (C31) between WT and Mixed SDA runs. The correlation is high.}
+	\label{fig:WT_Mix_Correlation}
+\end{figure}
+
 
 
 
