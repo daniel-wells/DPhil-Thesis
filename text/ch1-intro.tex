@@ -63,51 +63,23 @@ Our maps of protein function are woefully incomplete, with more than 3,000 (15\%
 
 
 
-\section{Gametogenesis}
-Gametogenesis is the process by which primordial germ cells develop into either spermatozoa in the male (spermatogenesis) or ovum in the female (oogenesis).
-
-\subsection{Oogenesis}
-Whilst equally important to spermatogenesis oogenesis process is studied far less (1,099 vs 359 articles indexed in PubMed 2018). This is likely partially due to difficulties in studying oogenesis compared to spermatogenesis. In oogenesis prophase I up to diplotene occurs in the ovary of the fetus before birth at which point meiosis is arrested (``Dictyate''), making experiments more challenging.
-
-\subsection{Stages of Meiosis}
-\subsubsection{Meiosis I}
-Meiosis is preceeded by DNA replication much like in mitosis and so initiates from cells that are 2n, 4c (n = ploidy / number of centromeres; c = number of chromosomes).
-\subsubsection{Prophase I}
-Prophase is much longer in meiosis than mitosis and so is itself split into a number of phases.
-
-During meiosis there is an extended prophase I (lasting 14 days in mice), which is itself divided into a number of stages: Leptotene, Zygotene, Pachytene, and Diplotene. In Leptotene and Zygotene the homologous chromosomes undergo presynaptic pairing, aided by meiosis-specific cohesin, and Spo11 creates several hundred programmed double-strand breaks at sites bound by Prdm9, the only known mammalian speciation gene (Mihola et al., 2009). 
 
 
-\subsubsection{Leptotene}
-
-\subsubsection{Zygotene}
-\subsubsection{Pachytene}
-\subsubsection{Diplotene}
-\subsubsection{Diakinesis}
-\subsubsection{Metaphase I}
-\subsubsection{Anaphase I}
-\subsubsection{Telophase I}
-
-\subsubsection{Meiosis II}
 
 
-\subsection{Stages of Spermatogenesis}
-In males meiosis takes place during a broader developmental program called spermatogenesis which encompasses the path from spermatogonial stem cells through to maturing spermatozoa. This process it itself supported by a number of somatic cells both within and surrounding the seminiferous tubules.
 
- Furthermore, testes are a mixture of cells including spermatogonia, which give rise to primary and secondary spermatocytes, which themselves develop into early and late spermatids, Sertoli cells which engulf and nurse the spermatocytes, as well as Leydig (interstitial) cells which secrete androgen hormones~(figure~\ref{fig:histology}). Many of these cells are not meiotic and so the gene expression values from bulk tissue are an average of all these cells and so can not be used to fully delineate gene expression patterns in meiosis itself.
+
+
+
+
+
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/histology.png}
-	\caption{Cross section of a seminiferous tubule in testis with the main cell types labelled, reproduced from~\cite{Junqueira2005Basic}}
-	\label{fig:histology}
 \end{figure}
 
-Other studies have transcriptionally profiled only testis tissue and have tried to target specific meiotic cells. For example the initial wave of spermatogenesis is somewhat synchronous and so sampling during this time could in theory yield homogeneous cell types/stages. However it is likely there is some variation in synchronicity resulting in impure samples and uncertain classification~\cite{Laiho2013Transcriptome,Ball2016Regulatory}. One study utilised the greater synchrony of meiosis in fetal ovaries in combination with germ cell depleted mutant mice to delineate the meiotic prophase gene regulatory programme~\cite{Soh2015Gene}. Other approaches include either size based centrifugal sorting~\cite{Soumillon2013Cellular,Buard2009Distinct,Grabske1975Centrifugal} or FACS (Flourescence Activated Cell Sorting) using a DNA stain~\cite{daCruz2016Transcriptome}, both of which result in a limited number of (possibly quite heterogeneous) cell populations. Immunohistochemistry enables single cell resolution of protein expression but is low throughput~\cite{Djureinovic2014human}. There is one study using single cell transcriptomics however they focus mainly on pre-meiotic foetal development~\cite{Li2017SingleCell}.
 
-%Recent studies have combined this approach with an in silico deconvolution or machine learning algorithms~\cite{Margolin2014Integrated,Li2013Identification}.
 
-Knowledge of the yeast gene regulatory programme of meiosis is relatively well known, however, the lack of sequence similarity and inability to culture mammalian meiotic cells has hampered efforts to translate this network to more complex eukaryotes~\cite{Brar2011HighResolution,Mata2002transcriptional,Chu1998Transcriptional,Handel2010Genetics}.
 
 
 
@@ -135,21 +107,33 @@ Due to the exponential amplification, small differences in reverse transcription
 The Northern blot (RNA extraction, separation by gel electrophoresis, followed by transfer by blotting onto a membrane and finally detection by complementary hybridisation with a radioactive/fluorescent probe)  is one of the earliest methods for measuring mRNA levels \parencite{Alwine1977Method}. Northern blotting still remains a useful technique when information about the relative sizes of transcripts is required.
 
 \subsection{Microarrays}
+\section{Gametogenesis}
+Gametogenesis is the process by which primordial germ cells develop into either spermatozoa in the male (spermatogenesis) or ovum in the female (oogenesis). Whilst equally important to spermatogenesis, oogenesis is studied far less (1,099 vs 359 articles indexed in PubMed 2018). This is likely partially due to difficulties in studying oogenesis compared to spermatogenesis. In oogenesis prophase I up to diplotene occurs in the ovary of the fetus before birth at which point meiosis is arrested (``Dictyate''), making experiments more challenging.
+
+\subsection{Testis Anatomy}
+Whilst the fundamental features of spermatogenesis and oogenesis are the same, spermatogenesis is organised into a specific structure. The testis is composed of seminiferous tubules surrounded by somatic accessory cells such as Leydig cells which produce testosterone. Germ cells are located within the tubule supported by a somatic cell type named Sertoli cells. The germ stem cells are located at the basal surface next to the tubule wall, and more differentiated germ cells are located progressively inwards towards the lumen/apical surface of the tubule (figure~\ref{fig:histology}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/intro/histology.png}
+	\caption[Testis Anatomy]{Cross section of a seminiferous tubule in testis with the main cell types labelled, reproduced from~\cite{Junqueira2005Basic}}
+	\label{fig:histology}
+\end{figure}
+
+Within a given region of tubule, entry into spermatogenesis is coordinated such that each developing germ cell belongs to a cohort of the same stage. The rate of entry is precisely timed (every 8.6 days in mice) and shorter than the total developmental time (35 days in mice, >70 in humans) such that in any given tubule section different generations of germ cells occur in layers of particular cell type combinations (figure \ref{fig:cycle}, \cite{Oakberg1956Duration,Clermont1969Duration, Heller1969Human}). This is called the cycle of the seminiferous epithelium and it's possible to stage each combination of cells using periodic acid‐fuchsin sulfurous acid staining (14 combinations in rat, and 12 in mouse) \parencite{Leblond1952Spermiogenesis, Leblond1952Definition, Oakberg1956description}. The cycle starts at a different time laterally along the tubule (in a so called ``wave''), ensuring continuous production of sperm, although the very first wave is synchronous - a property sometimes used to purify or enrich for specific stages.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/intro/cycle.png}
+	\caption[Seminiferous Cycle]{Association of different germ cells during the seminiferous epithelial cycle~\cite[Reproduced from ][]{Monesi1978Chapter}}
+	\label{fig:cycle}
+\end{figure}
 
 
-\subsection{Bulk RNAseq}
 
 
-\subsection{Single Cell RNAseq}
 
 
-\subsection{Droplet Based Technologies}
-
-
-\subsection{Extensions}
-
-
-\section{Statistical Methods}
 
 Although the methods and workflow for analysing bulk RNAseq are now fairly mature and standardised, scRNAseq data has characteristics such as sparsity and high N which are poorly handled by bulk RNAseq tools. In addition scRNAseq data has opened up new analysis possibilities such as pseudotemporal ordering which is not possible with bulk data. This has motivated the development of many (\textgreater 120) new methods and analysis packages to meet the new demands and challenges of analysing scRNAseq data~\cite{Zappia2017scRNAtools}.
 
@@ -169,25 +153,19 @@ Nonlinear dimensionality reduction is also used, especially t-SNE (t-distributed
 After dimensionality reduction, downstream analysis such as clustering of cells is then achieved using methods such as k-means, hierarchical clustering, density clustering, or consensus clustering~\cite{Zurauskiene2016pcaReduce,Kiselev2017SC3,Guo2015SINCERA,Satija2015Spatial}. Pseudo-temporal ordering of cells is typically achieved by creating a minimum spanning tree and then projecting cells onto the shortest path to create a timeline~\cite{Trapnell2014dynamics,Ji2016TSCAN} (figure~\ref{fig:pseudotime_methods}). Alternatively a principal curve or graph can be used~\cite{Marco2014Bifurcation,Qiu2017Reversed}.
 
 
-% Similar aims (delineating lineage hierarchies and transcriptional networks) have been achieved using single cell RNA-seq in tissues other than testis, highlighting the feasibility of this study~\cite{Trapnell2014Dynamics,Treutlein2014Reconstructing,DurruthyDurruthy2014Reconstruction,Moignard2013Characterization,Stegle2015Computational}.
 
 
-\subsection{Principal Components Analysis}
 
-\subsection{Factor Analysis}
 
-\subsection{Sparsity}
 
-%Frequentist
-%Bayesian
 
 
 
 \section{Prior Work}
 
 
-Some studies such as GTEx (Genotype-Tissue Expression), HPA (Human Proteome Atlas), and FANTOM (Functional Annotation Of Mammalian genome) consortia have transcriptionally profiled many whole tissues in humans~\cite{Mele2015Human,Uhlen2015Tissuebased,Uhlen2016Transcriptomics}. This data enables the identification of tissue specific genes and hence a preliminary list of proteins which could be involved in meiosis.  However, this could be due to generally pervasive transcription in germ cells due to permissive chromatin~\cite{Soumillon2013Cellular}.
+Some of these methods have been adapted specifically to account for the sparsity of scRNAseq datasets, the idea being that some technical effects caused ``dropouts'' that should be corrected or accounted for. ZIFA (Zero Inflated Factor Analysis) is one example, which accounts for the sparsity by including a zero-inflation component in the model \parencite{Pierson2015ZIFA}. However, it is likely this apparent inflation of zeros is actually an artefact of normalising count data and a negative binomial model fits well for tag based scRNAseq datasets \parencite{Vieth2017powsimR, Svensson2019Droplet, Townes2019Feature}.
+
+Beyond matrix factorization, there are other frameworks with similar goals that have been applied successfully to single cell data. One set of methods are those based on neural networks, such as self-organizing maps \parencite{Loffler-Wirth2015oposSOM, Kim2015SingleCell} and auto-encoder neural networks (DCA \& scVI) \parencite{Eraslan2019Singlecell, Lopez2018Deep}. These methods (much like t-SNE) create a non-linear embedding of the high dimensional data, resulting in a lower dimensional set of scores for each cell. This approach does not, however, provide the equivalent to gene loadings and so an additional differential expression analysis on a hard clustering of the latent embeddings has to be performed in order to find genes associated with the latent dimensions. However, more recently a hybrid approach has been proposed sacrificing some of the flexibility to gain in interpretability \parencite{Svensson2019Interpretable}.
 
 
-
-RNA sequencing (RNAseq) has enabled the probing of these mechanisms at a transcriptional level. However, our current knowledge of the meiotic gene expression programme is low resolution. This is partly due to heterogeneity of the cell population in testes which is averaged by bulk tissue RNAseq~\cite{YasuhiroFUJIWAR2014Differential} as well as the relative inability to culture mammalian meiotic cells in vitro~\cite{Zhou2016Complete}. The recent introduction of single cell RNAseq (scRNAseq)~\cite{Gawad2016Singlecell}, raises the possibility of identifying the gene expression profile associated with different stages of meiosis. This may enable the identification of the meiotic transcriptional network as well as aid in the discovery and understanding of meiotic mechanisms.
