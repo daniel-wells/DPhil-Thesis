@@ -52,8 +52,22 @@
 % Either way, you'll have to choose and configure an appropriate bibliography format...
 
 % The science-type option: numerical in-text citation with references in order of appearance.
-\usepackage[natbib=true, style=authoryear, sorting=none, backend=biber, doi=false, isbn=false]{biblatex}
+\usepackage[
+natbib=true, 
+style=authoryear, 
+sorting=none, 
+backend=biber, 
+doi=true, 
+backref=true,  
+url=false, 
+maxcitenames=1,
+giveninits=true,
+uniquelist=minyear,
+isbn=false]{biblatex}
 \newcommand*{\bibtitle}{References}
+
+\AtEveryBibitem{\clearfield{pmid}}
+\AtEveryCitekey{\clearfield{pmid}}
 
 \usepackage{float}
 
