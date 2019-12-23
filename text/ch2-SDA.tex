@@ -69,9 +69,9 @@ When performing a dimensionality reduction such as matrix factorisation we must 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/single_cell_component.pdf}
-	\caption{Component 4 is represents a single cell.
-		\textbf{(A)} Cell scores for component 4 ordered by value.
+	\includegraphics[width=\textwidth]{figures/singlecell/single_cell_component.pdf}
+	\caption[A Single Cell Component]{Component 4 is represents a single cell.
+		\textbf{(A)} Cell scores for component 4 ordered by value. An individual cell has outlying value.
 		\textbf{(B)} Gene loadings for component 4.
 		\textbf{(C)} Predicted expression using only component 4 vs Raw Normalised Gene Expression. Pearson's correlation is quoted (equal to correlation with the gene loadings) . All of the genes with high expression in this cell have a high gene loading in this component.
 		\textbf{(D)} As in C but for the cell with the second highest association. The correlation is much lower. 
@@ -85,8 +85,8 @@ By inspecting the change in free energy as well as the change in fraction of gen
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/SDA_diagnostics.pdf}
-	\caption{Checking convergence of SDA.
+	\includegraphics[width=\textwidth]{figures/singlecell/SDA_diagnostics.pdf}
+	\caption[SDA Convergence]{Checking convergence of SDA.
 		\textbf{(A)} Change in free energy is often 0 by the 10,000th iteration.
 		\textbf{(B)} Change in fraction of PIP <0.5 is less than 0.005\%
 		\textbf{(C)} Distribution of maximum scores and loadings for each component.
@@ -96,8 +96,8 @@ By inspecting the change in free energy as well as the change in fraction of gen
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/1k_vs_10k.pdf}
-	\caption{Correlation of gene loadings between set inferrred using 1,000 iterations vs those using 10,000 iterations.}
+	\includegraphics[width=\textwidth]{figures/singlecell/1k_vs_10k.pdf}
+	\caption[10k vs 1k SDA Iterations]{Correlation of gene loadings between set inferred using 1,000 iterations vs those using 10,000 iterations.}
 	\label{fig:10k}
 \end{figure}
 
@@ -109,8 +109,8 @@ The gene loadings are sparse with 79.8\% of the gene loadings having a PIP of le
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/tsne_random_seeds.png}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/tsne_random_seeds.png}
+	\caption[tSNE random seed stability]{
 		\textbf{(A-C)} To quantify our uncertainty in the t-SNE embedding, we performed multiple t-SNE analyses with different random seeds. The cells are coloured by the same pseudotime values used throughout. Somatic cells are coloured gray. t-SNE coordinates are rotated about the origin to aid comparison. Each was run for 1,000 iterations with a perplexity parameter of 50.
 		\textbf{(D)} We also performed dimensionality reduction using UMAP and confirmed that it gave a pseudotime embedding consistent with t-SNE. Cells are again coloured using the same psueodtime values as A-C}
 	\label{fig:tSNEseeds}
@@ -121,8 +121,8 @@ Despite reducing the dimensionality of the original dataset from 19,262 to 50 th
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/Marker_Genes.pdf}
-	\caption{Imputed expression for genes with a range of expression patterns across cells}
+	\includegraphics[width=\textwidth]{figures/singlecell/Marker_Genes.pdf}
+	\caption[Marker Genes]{Imputed expression for genes with a range of expression patterns across cells}
 	\label{fig:Marker_Genes}
 \end{figure}
 
@@ -134,8 +134,8 @@ Although the model used for inference is symmetric for positive/negative gene we
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/SDA.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/SDA.pdf}
+	\caption[SDA]{
 		\textbf{(A)} Schematic illustrating SDA
 		\textbf{(B)} Density of gene loadings over all components with loadings separated into genes with PIPs > 0.5 (20\%) versus <0.5, indicating the sparsity of resulting gene loadings. PIP = Posterior Inclusion Probability that a gene loading is not equal to zero (i.e. not in the spike).
 		\textbf{(C)} For each method, the fraction of all absolute gene loadings exceeding a ‘no loading’ sparsity threshold is shown, normalized by the maximum absolute loading across all components for that method. 
@@ -150,8 +150,8 @@ We can perform the same dimensionality reduction on the transposed cell scores o
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/tSNE_Components.pdf}
-	\caption{A low dimensional representation of the components shows 7 clusters.}
+	\includegraphics[width=\textwidth]{figures/singlecell/tSNE_Components.pdf}
+	\caption[tSNE of Components]{A low dimensional representation of the components shows 7 clusters.}
 	\label{fig:tSNE_Components}
 \end{figure}
 
@@ -159,8 +159,8 @@ Visualisation of components through pseudotime shows that transcription during s
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/SDA_Overlaping.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/SDA_Overlaping.pdf}
+	\caption[Overlapping SDA Components]{
 		\textbf{(A)} For five example components, the cell scores for each cell are plotted through pseudotime, showing overlapping dynamic component activity. Component signs were chosen to be mainly positive (components have arbitrary sign). Color mappings as in panel B.
 		\textbf{(B)} Stacked bar plot of cell component loadings for 14 germ components sorted by cell pseudotime. Each column corresponds to an individual cell and the total positive component loadings for each are normalized to one after flipping components to be mainly positive.
 		\textbf{(C)} Shown are the top 10 gene loadings for each of the components in (B) represented as a heatmap. Most genes have strong loading on only one component.
@@ -183,8 +183,8 @@ In addition to obviating the need for further clustering and differential expres
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/imputation&NNMF.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/imputation&NNMF.pdf}
+	\caption[SDA Imputation]{
 		\textbf{(A)} For seven genes expressed at various stages of spermatogenesis unimputed normalised gene expression is shown alongside SDA imputed expression.
 		\textbf{(B)} Prediction accuracy of seven predictors of gene expression trained on test data for an example individual cell. ‘Unimputed’ uses the training data directly, ‘Mean Cell’ uses the mean across all cells, matrix factorisation approaches SDA, PCA, ICA, NNMF, and a dedicated imputation approach, MAGIC.
 		\textbf{(C)} Comparison of AUCs (Area under the curve) for all cells using various methods (same colour scheme as part B).
@@ -196,10 +196,10 @@ In addition to obviating the need for further clustering and differential expres
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/Imputation_Supp.pdf}
-	\caption{
-		\textbf{(A)} Imputed expression of an example gene (\textit{Smok2b}) for different methods, to illustrate the similar predictions as shown in Figure \ref{fig:imputation}B and \ref{fig:imputation}C.
-		\textbf{(B)} Overall, NNMF infers similar components to SDA. The heatmap shows Pearson correlations between different pairs of gene loading vectors from SDA and NNMF (with procrustes rotation applied, Materials and methods).
+	\includegraphics[width=\textwidth]{figures/singlecell/Imputation_Supp.pdf}
+	\caption[Imputation Supplement]{
+		\textbf{(A)} Imputed expression of an example gene (\textit{Smok2b}) for different methods, to illustrate the similar predictions as shown in figure \ref{fig:imputation}B and \ref{fig:imputation}C.
+		\textbf{(B)} Overall, NNMF infers similar components to SDA. The heatmap shows Pearson correlations between different pairs of gene loading vectors from SDA and NNMF (with procrustes rotation applied, methods section \ref{sec:imputation_methods}).
 		\textbf{(C)} The fold improvement in AUC when comparing SDA imputation to the unimputed data, plotted as a function of cell library size.
 	}
 	\label{fig:imputation_supp}
@@ -217,22 +217,22 @@ By visualising the rotation matrix from the procrustean analysis we can see whic
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/correlation_matrix_rotated.pdf}
-	\caption{Here we show as a heatmap the pearson correlation of component gene loadings between a procrustean rotation of the WT gene loadings and the Mixed SDA gene loadings. The ‘sum abs cell score’ annotation shows the sum of the absolute cell scores for that component (larger number indicates a more important component). The ‘max cell score’ annotation indicates the maximum cell score for each component (a larger maximum indicates overfitting to a single/small number of cells).}
+	\includegraphics[width=\textwidth]{figures/singlecell/correlation_matrix_rotated.pdf}
+	\caption[Wild Type vs Mixed SDA]{Here we show as a heatmap the pearson correlation of component gene loadings between a procrustean rotation of the WT gene loadings and the Mixed SDA gene loadings. The ‘sum abs cell score’ annotation shows the sum of the absolute cell scores for that component (larger number indicates a more important component). The ‘max cell score’ annotation indicates the maximum cell score for each component (a larger maximum indicates overfitting to a single/small number of cells).}
 	\label{fig:WT_vs_Mixed}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/rotation_matrix_sparseNEW.pdf}
-	\caption{This heatmap shows the procrustean rotation matrix (with absolute values < 0.35 rounded down to 0).}
+	\includegraphics[width=\textwidth]{figures/singlecell/rotation_matrix_sparseNEW.pdf}
+	\caption[Procrustean Rotation Matrix]{This heatmap shows the procrustean rotation matrix (with absolute values < 0.35 rounded down to 0).}
 	\label{fig:WT_Mix_Rotation}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/UdifSpg_gene_scatterplot.pdf}
-	\caption{An example scatterplot comparing the gene loadings for one cognate SDA component (C31) between WT and Mixed SDA runs. The correlation is high.}
+	\includegraphics[width=\textwidth]{figures/singlecell/UdifSpg_gene_scatterplot.pdf}
+	\caption[Component 31 WT vs Mixed]{An example scatterplot comparing the gene loadings for one cognate SDA component (C31) between WT and Mixed SDA runs. The correlation is high.}
 	\label{fig:WT_Mix_Correlation}
 \end{figure}
 
@@ -249,8 +249,8 @@ Component 9 contains 41 out of 57 of the respiratory complex I, III, and IV gene
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/NonMeiotic_Components.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/NonMeiotic_Components.pdf}
+	\caption[Non Meiotic Components]{
 		\textbf{(A \& B)} Gene loadings and cell scores for component 22.
 		\textbf{(C and D)} Gene loadings and cell scores for component 12.
 		\textbf{(E)} Gene loadings for component 9. Genes that are (non-assembly) components of the electron transport chain proton pump genes are highlighted in red. This gene set is defined by the genes that match the regex ‘Uqc|Cox|Ndu’. Pseudogenes, and genes with ‘assembly|like’ in their name were excluded.
@@ -267,8 +267,8 @@ Assigning a cytologically defined stage to each component requires considerable 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/Cell_Scores.png}
-	\caption{}
+	\includegraphics[width=\textwidth]{figures/singlecell/Cell_Scores.png}
+	\caption[SDA Cell Scores]{Cell scores as coloured tSNE plots, excluding single cell components}
 	\label{fig:Cell_Scores}
 \end{figure}
 
@@ -343,8 +343,8 @@ Pseudotime analysis provides quantitative, high-resolution insights into meiotic
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/MSCI.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/MSCI.pdf}
+	\caption[Meiotic Sex Chromosome Inactivation]{
 		\textbf{(A)} The sum of imputed expression for all genes on the X chromosome divided by that of the autosomes (y-axis).
 		\textbf{(B)} We do not observe that haploid cells obviously split into two populations due to lack of sex chromosome transcript sharing, in part A. Here were simulate what we might expect to see if there was indeed a lack of sharing (methods).
 		\textbf{(C)} Smoothed expression values (unimputed, adaptive GAM smoothing with formula ‘y ~ s(x, bs = ad)") are shown for each gene reported to escape MSCI \parencite{daCruz2016Transcriptome} excepting \textit{H2al1e}, \textit{H2al1c}, and \textit{Gm10096} which were below our dataset's expression detection threshold.
@@ -356,8 +356,8 @@ Pseudotime analysis provides quantitative, high-resolution insights into meiotic
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/MSCI_supp.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/MSCI_supp.pdf}
+	\caption[MSCI Supplement]{
 		\textbf{(A)} As for Figure \ref{fig:MSCI}A, but Y chromosome instead of X. Due to lower number of expressed genes on the Y chromosome MSCI is not as clear and individual genes can influence the overall ratio to a large degree.
 		\textbf{(B)} As for Figure \ref{fig:MSCI}C, but each gene is shown individually.}
 	\label{fig:MSCI_supp}
@@ -373,8 +373,8 @@ In addition to the pachytene components with lack of loadings on the sex chromos
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/Hormad1_two.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/Hormad1_two.pdf}
+	\caption[Hormad1 KO Component]{
 		\textbf{(A)} Gene loadings for component \#39 shown along the genome.
 		\textbf{(B)} Gene expression for high loadings genes from chromosome 1 (\textit{A830018L16Rik}) and X (\textit{Rhox2h}).
 	}
@@ -384,8 +384,8 @@ In addition to the pachytene components with lack of loadings on the sex chromos
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/Fig4_S3.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/Fig4_S3.pdf}
+	\caption[Misc. Components]{
 		\textbf{(A)} Enrichment of component 38 gene loadings for genes previously identified as overexpressed in both \textit{Trip13\textsuperscript{-/-}} and \textit{Hormad1\textsuperscript{-/-}} mutants. Component 38 (X Activation) gene loadings are shown ordered by rank (high-to-low) with the genes previously identified as overexpressed in \textit{Hormad1\textsuperscript{-/-}} and \textit{Trip13\textsuperscript{-/-}} mice highlighted as rug plots.
 		\textbf{(B)} Fisher’s test was used to test for enrichment of genes previously identified as overexpressed in \textit{Hormad1\textsuperscript{-/-}} and \textit{Trip13\textsuperscript{-/-}} mice in the top 500 genes of each component. Positive and negative loadings for each component are analysed separately; thus 38N is the negative gene loadings for component 38 and 38P the positive ones. The positive loadings of component 38 are highly and specifically enriched for these genes. Component enrichments are further coloured red and blue to indicate the primary cell type with loading on each component (red = germ cell, blue = somatic cell). 
 		\textbf{(C)} Cell scores for component 38 in t-SNE space. The cells with component 38 active are localized to a group of cells which diverge from the pseudotime-line just before pachytene.
@@ -405,9 +405,9 @@ Similarly, the cells from \textit{Cnp} mutant mice did not form distinct cluster
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/tsne_groups.pdf}
-	\caption{
 		Cells are shown projected by tSNE into two dimension, with cells coloured by genotype or stage as seperated by FACS (SPG: Spermatogonia, SPCI: Primary Spermatocytes, SPCII: Secondary Spermatocytes, SPD: Spermatids).
+	\includegraphics[width=\textwidth]{figures/singlecell/tsne_groups.pdf}
+	\caption[Experimental groups in tSNE space]{
 	}
 	\label{fig:tsneGroups}
 \end{figure}
@@ -452,8 +452,8 @@ Another enriched GO term is ``fusion of sperm to egg plasma membrane involved in
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/IF.pdf}
-	\caption{
+	\includegraphics[width=\textwidth]{figures/singlecell/IF.pdf}
+	\caption[Novel Immunofluorescence Markers]{
 		This figure is by Min Jung. Thin scale bar, 50 µm; thick scale bar, 20 µm.
 		NOL8, a nucleolar protein, marks primary spermatocytes while LRRC34 marks nucleoli in round spermatids (white arrowheads).
 		Within the tubules, ABHD5 marks specific cytoplasmic regions of elongating spermatids destined to form the residual body (white arrow head) and staining intensity peaks during seminiferous tubule stages IV-V.
@@ -503,9 +503,9 @@ There are some transcription factors that are known to regulate meiotic gene exp
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/TF_Enrichment.png}
-	\caption{
 	As part of the validation that some SDA components represent biological co-expression we tested for enrichment of ChIP-seq defined target genes (Materials and methods) of well-known meiotic transcription factors (A) STRA8, (B) MYBL1, (C) RFX2, and (D) CREM. Enrichment was calculated using Fisher’s test against the top 500 genes in each component (positive and negative loadings separately). OR = Odds Ratio. Red line represents bonferroni corrected p=0.05.
+	\includegraphics[width=\textwidth]{figures/singlecell/TF_Enrichment.png}
+	\caption[Known Transcription Factor Targets Enrichment]{
 	}
 	\label{fig:TF_Enrichment}
 \end{figure}
@@ -518,10 +518,10 @@ This resulted in 16 groups of motifs (fig \ref{fig:Motifs}A). In comparing to th
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/Motifs.png}
-	\caption{
 		\textbf{(A)} Motifs discovered from the promoter sequences of genes with high component loadings. In each motif logo pair the lower logo shows the de novo inferred motif and the upper logo shows the motif in the HOCOMOCO database best matching the de novo motif. Orange ‘T’ indicates this transcription factor is highest expressed in testis in the GTEx database (half T indicates second highest). Green ‘I’ indicates that a mouse knockout of this gene is infertile. Blue ‘L’ indicates a mouse knockout of this gene is embryonic lethal. Red ‘M’ indicates this gene is required for macrophage development. The notation ‘Crem-t (Atf1)’ indicates that we suspect that the true transcription factor recognizing the motif is not the closest matching database-motif (Atf1). * the (upper) STRA8 motif shown is from Kojima et al., rather than the HOCOMOCO database.
 		\textbf{(B)} Association of gene loadings with the probability each de novo identified motif is found in the genes for each component. Colouring is a Z-score from a correlation test between gene loadings and motif probabilities, where red (blue) indicates positive (negative) association. The germ cell components (rows) are ordered by pseudotime. The correlation was calculated for positive and negative parts of the component separately and in the cases where the component is mainly one-sided the other side has been omitted, as have the single cell components. The additional column ‘CpG’ shows the same association test, but with count of promoter CpG dinucleotides, for each component. Across the top of the panel, colour bars indicate the maximum probability of there being a CpG at any one position in the denovo motif, and whether that probability is greater than 0.3. See Figure 7—figure supplement 2 for an analogous plot using the HOCOMOCO motif probabilities. We find high and specific enrichment of ChIP-seq targets of STRA8, MYBL1, RFX2 and CREM in the gene loadings of components associated with those motifs, validating our interpretation that covariation of expression of genes within many components reflects shared transcriptional regulation (Figure 7—figure supplement 1).
+	\includegraphics[width=\textwidth]{figures/singlecell/motifs.pdf}
+	\caption[Denovo Motifs]{
 	}
 	\label{fig:Motifs}
 \end{figure}
