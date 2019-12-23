@@ -72,47 +72,75 @@ A protein's structure is often more conserved than its sequence and can give dir
 Recently, droplet based single cell RNAseq technologies have enabled higher resolution high-throughput characterisation of gene co-transcription. A number of mapping projects have been launched including the Human Cell Atlas and Mouse Cell Atlas as well as other tissue specific maps including the one we present here, helping to provide much higher resolution clues for the function of unstudied genes \parencite{Regev2017Human,Regev2018Human,Han2018Mapping,TheTabulaMurisConsortium2018Singlecell}.
 
 
-
-
-
-
-
-
-
-
-\begin{figure}[H]
-	\centering
-\end{figure}
-
-
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Measuring Gene Expression}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Expression is the process in which information contained in the genome is 
-There are a number of different technologies available to quantify the amount of mRNA each providing different information.
+Expression is the process in which information contained within the genome manifests as a phenotype. This involves generation a functional biomolecule such as proteins but sometimes RNA (most importantly the ribosome). The first step in expression is the generation of messenger(m) RNA and there are a number of different technologies available to quantify the amount of mRNA - each providing different types and amounts of information.
+
+Physical limits make it challenging to sensitively and accurately quantify gene expression. mRNA is <5\% of total RNA in a cell, with the rest comprising of ribosomal and transfer RNA \parencite{Warner1999economics}. Total RNA content per eukaryotic cell is approximately 20pg, with <1pg of mRNA, corresponding to roughly <500,000 mRNA molecules \parencite{Roozemond1976Ultramicrochemical, Uemura1980Agerelated, Tang2011Development}. Most genes have mRNA copy numbers of 1-100 per cell, up to a maximum of perhaps 1,000 \parencite{Marguerat2012Quantitative, Macaulay2014Single}. At the level of individual cells, mRNA synthesis is ``bursty'' introducing further biological heterogeneity in expression measurements \parencite{Raj2006Stochastic, Chubb2006Transcriptional}.
 
 \subsection{In Situ Hybridization}
-In Situ Hybridisation uses a probe (either RNA or DNA) which is incubated with fixed cells and binds to a target mRNA by complementary binding. 
+In Situ Hybridisation, first described by \cite{Gall1969Formation}, uses a probe (either RNA or DNA) which is incubated with fixed cells and binds to a target mRNA by complementary binding and can then be visualised. This has the advantage of being single cell resolution, and even allowing subcellular localisation to be observed.
 
-Radioactive labelling was low resolution, expensive, unstable, and dangerous. but this was overcome by biotinylated probes couples with secondary detection \parencite{Singer1982Actin} and later directly flourescent probes \parencite{Kislauskis1993Isoformspecific}.
+Visualisation of the probe initially used radioactive labelling which was low resolution, expensive, unstable, and dangerous. However, this was overcome by using biotinylated probes couples with secondary detection \parencite{Singer1982Actin} and later directly fluorescent probes (FISH) \parencite{Kislauskis1993Isoformspecific}.
 
-This technique has been extended to measure individual mRNA molecules by using multiple probes per target RNA (single molecule smFISH) \parencite{Raj2008Imaging, Femino1998Visualization}. In addition to multiplexed detection to enable many (up to X) RNA targets to be measured at once \parencite{}.
+This sensitivity of this technique has been further increased by using multiple probes per target RNA, enabling the detection of individual mRNA molecules (single molecule smFISH - \cite{Femino1998Visualization, Raj2008Imaging}. In addition, multiplexed detection schemes using multiple cycles of sequential hybridization and imaging such as SeqFISH(+) \parencite{Lubeck2014Singlecell,Eng2017Profiling,Eng2019Transcriptomescale} and MERFISH \parencite{Chen2015Spatially, Moffitt2016Highthroughput, Moffitt2016Highperformance, Xia2019Multiplexed} are able to measure many (up to 10,000) RNA targets. These methods have the advantage that amplification is not necessarily required and the high sensitivity allows single molecules to be detected. Furthermore, by measuring nuclear vs cytoplasmic localisation or by using probes to introns, mRNA dynamics (``RNA velocity'') and isoform usage can also be measured \parencite{Shah2018Dynamics, Xia2019Spatial}.
 
+%(barcodes??)
 
 \subsection{RT-qPCR}
-Reverse transcription quantitative real-time PCR measures PCR products during the amplification by using fluorescent detectors \parencite{Gibson1996novel, Heid1996Real, Chiang1996Use}. This technique is able to detect a single molecule, however any spatial information is lost.
+Reverse transcription quantitative real-time PCR measures PCR products during the amplification by using fluorescent detectors \parencite{Gibson1996novel, Heid1996Real, Chiang1996Use}. This technique is able to detect a single mRNA molecule, and has become the gold standard in expression quantification. However, primers must be designed for each gene and any spatial information is lost \parencite{Palmer2003New, Wong2005Realtime}.
 
-Due to the exponential amplification, small differences in reverse transcription, primer efficiency, or initial starting amounts and contamination can lead to inaccurate quantification. Therefore, efficiency and validated reference genes must be established by separate experiments \parencite{Bustin2009MIQE}.
+Furthermore, due to the exponential amplification, small differences in reverse transcription, primer efficiency, or initial starting amounts and contamination can lead to inaccurate quantification. Therefore, efficiency and validated reference genes must be established by separate experiments \parencite{Bustin2009MIQE}.
 
 \subsection{Northern Blot}
-The Northern blot (RNA extraction, separation by gel electrophoresis, followed by transfer by blotting onto a membrane and finally detection by complementary hybridisation with a radioactive/fluorescent probe)  is one of the earliest methods for measuring mRNA levels \parencite{Alwine1977Method}. Northern blotting still remains a useful technique when information about the relative sizes of transcripts is required.
+The Northern blot  is one of the earliest methods for measuring mRNA levels \parencite{Alwine1977Method}. It consists of RNA extraction, separation by gel electrophoresis, followed by transfer by blotting onto a membrane and finally detection by complementary hybridisation with a radioactive/fluorescent probe. Northern blotting still remains a useful technique when information about the relative sizes of transcripts is required.
 
 \subsection{Microarrays}
+A microarray is typically a glass slide coated with cDNA oligomers. mRNA with polyA tails can be extracted from total RNA using oligo(dT) beads, reverse transcribed to cDNA, fluorescently labelled, and washed over the array \parencite{Schena1995Quantitative, DeRisi1996Use, Schulze2001Navigating}. The fluorescent intensity is a measure to the abundance of mRNA in the sample. This approach allowed whole transcriptome quantification and was wildly popular, with the EBI ArrayExpress database passing 100,000 hybridisations in 2008 \parencite{Rustici2008Data}.
+
+\subsection{Bulk RNA Sequencing}
+No sooner however, the reducing cost of DNA sequencing among other things led to the use of this technology to quantify the transcriptome \parencite{Mortazavi2008Mapping, Cloonan2008Stem, Wilhelm2008Dynamic, Lister2008Highly, Nagalakshmi2008Transcriptional}. mRNA is extracted as for microarrays, fragmented, and sequenced using short read NGS technology before being re-mapped to the genome. This has the advantage over microarrays that the sequence of hybridisation probes does not need to be designed from an already known transcriptome reference. Enabling, for example, novel transcripts and splice isoforms to be discovered. RNAseq provides a digital read out in comparison to the analogue signal from microarrays which limited its replicability across platforms. In addition, the dynamic range is much greater than for microarrays in which the signal saturates when all probes are bound and at low concentrations non-binding is favoured \parencite{Zhao2014Comparison}. RNAseq also enables detection of sequence variants and allele specific expression. For these reasons RNAseq has become the standard method for profiling the transcriptome \parencite{Stark2019RNA}.
+
+As it's based on standard sequencing technology RNAseq benefits from advances in next generation sequencing. For example, long read technology from PacBio enables full transcript (cDNA) sequencing - enabling the unambiguous identification of transcript isoforms which has to be inferred using the fragmentation approach of short read sequencing \parencite{Sharon2013singlemolecule, Cartolano2016cDNA}.
+Oxford Nanopore sequencing infers the sequence of polynucleotides from the change in current as they pass through a nanopore embedded within a membrane across a voltage. In addition to being able to sequence long reads like PacBio \parencite{Oikonomopoulos2016Benchmarking}, this technology is also able to sequence mRNA directly, bypassing the fragmentation, reverse transcription, PCR amplification and size selection steps, reducing opportunities for bias \parencite{Garalde2018Highly, Workman2019Nanopore}. Furthermore Oxford Nanopore sequencing is able to quantify polyA lengths and detect RNA modifications such as N6-methyladenine.
+
+\subsection{Single Cell RNA Sequencing}
+RNA sequencing of single cells (scRNAseq) was first performed by \cite{Tang2009mRNASeq} using a modified amplification protocol previously used in single cell microarray studies, generating a dataset of five cells. By incorporating a cell-unique barcode during reverse transcription, cells can be multiplexed (pooled post mRNA capture and separated in silico) reducing cost and increasing the cell throughput to \textasciitilde100 \parencite{Islam2012Highly}. Using automated liquid handling robots and 384 well plates enabled the generation of a 4,468 cell dataset \parencite{Jaitin2014Massively}. Such scale is also possible using subnanolitre well arrays \parencite{Bose2015Scalable, Fan2015Combinatorial, Gierahn2017SeqWell}. The use of oil immersed nano-droplets to encapsulate individual cells with lysis buffer and polyT coated beads further increased throughput up to 44,808 cells \parencite{Macosko2015Highly, Klein2015Droplet}. Both microwell and nanodroplet isolation methods have now been used to generate datasets at an additional magnitude of scale with 400k, and 690k cells respectively \parencite{Saunders2018Molecular, Han2018Mapping}. This exponential scaling of single cell RNAseq datasets appears to be continuing with one dataset including more than 2 million cells \parencite{Cao2019singlecell} and creation of datasets with tens of thousands of cells being common especially using the commercial Chromium platform from 10X genomics (figure \ref{fig:scStudies}, \cite{Zheng2017Massively, Svensson2018Exponential}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/intro/scStudies.pdf}
+	\caption[scRNAseq Publications]{Exponential scaling of Single Cell RNAseq studies. Data from~\cite{Svensson2019curated}}
+	\label{fig:scStudies}
+\end{figure}
+
+In scRNAseq, due to the low amount of starting material, many rounds of PCR amplification are required to generate sufficient material for sequencing. However this amplification step introduces significant bias, skewing the resulting levels \parencite{Best2015Computational}. To alleviate this unique barcodes named UMIs (unique molecular identifier) can be included in each poly-dT probe, in addition to the unique barcode for each cell (1 per bead) \parencite{Kivioja2012Counting,Islam2014Quantitative}. This enables each original mRNA molecule to be counted as a single molecule, in effect providing an absolute count of molecules rather than relative abundance as in standard bulk RNAseq. However, UMIs do not alleviate bias due to preferential sampling of molecules by RT or PCR primers \parencite{Kou2016Benefits}. In addition, as the UMI and cellular barcode is on the 3' end of the transcript, after fragmentation only the fragments at the 3' end will be sequenced. This bias is in addition to the 3' bias from polyA selection \parencite{Wan2012Modeling, Lahens2014IVTseq}. This 3' bias precludes analysis of transcript isoforms as only the 3' end of the fragment is sequenced (as most transcripts sharing the 3' UTR, and the 5' read contains only the UMI and cell barcode). However, some isoform information is available due to the use of alternative 3' UTRs (and possibly by internal polyA priming), if pseudo-alignment is used to generate transcript compatibility counts \parencite{Nam2002Oligo, Ntranos2019discriminative}.
+
+Despite what the name suggests, some cells will actually be multiple cells, due to two (or more) cells being captured into the same droplet or well, named ``doublets''. The doublet rate is determined by concentration of cells in the solution / flow rate into the droplets. By Poisson sampling a flow rate can be calculated to minimise doublets but also balance the cost of empty beads. The doublet rate can be determined experimentally by mixing single cells from two different species, in which case double species encapsulations can be detected by the different gene sequences (and the total number of doublets calculated as double that) \parencite{Macosko2015Highly}.  Doublets can also be detected by natural genetic variation when multiplexing multiple genetically distinct individuals of the same species \parencite{Kang2018Multiplexed}. Artificial genetic variation can also be added by using oligonucleotide-tagged antibodies \parencite{Stoeckius2018Cell}. Recently a method using whole-transcriptome pre-indexing was proposed, enabling overloading of droplets and a corresponding massive increase in throughput \parencite{Datlinger2019Ultrahigh}. A number of computational tools have also been created to attempt identification of doublets by simulating artificial doublets \parencite{Wolock2019Scrublet, McGinnis2019DoubletFinder}. Another way in which mRNA can cross contaminate across cells is if damaged cells leak mRNA into the solution which is then captured.
+
+
+
+\subsection{Spatial Sequencing}
+A disadvantage in most single cell RNAseq methods is the loss of spatial information during cell dissociation and isolation. New methods have been developed to combine the spatial advantages of In Situ Hybridisation and the transcriptome wide nature of scRNAseq. One type of method ``in situ sequencing'' typically uses rolling circle amplification of an mRNA target resulting in a DNA nano-ball which is sequenced by ligation, achieving a resolution of 0.5-1$\mu$m for up to 1,000 genes \parencite{Lee2014Highly, Wang2018Threedimensional, Qian2018spatial}. Another approach ``spatial transcriptomics'' uses a spatially barcoded bead array which captures mRNA from an overlaid tissue, enabling quantification of all genes but with lower spatial resolution (2-100$\mu$m) than in situ sequencing \parencite{Stahl2016Visualization, Rodriques2019Slideseq, Vickovic2019Highdefinition}
+
+
+\subsection{Nascent RNA Sequencing}
+Although we say the previous methods measure ``expression'' we are actually measuring the total mRNA, which is the cumulative result of transcription minus mRNA degradation. Methods such as GRO/PRO/NET-seq allow profiling of nascent mRNA, revealing which genes are being transcribed at a specific time-point \parencite{Core2008Nascent, Churchman2011Nascent, Mahat2016Basepairresolution}.
+
+
+\subsection{Proteomics}
+Given that we (mostly) ultimately care about \emph{protein} function, using mRNA as a proxy for this deserves some caveats and justification. Quantification of the full proteome, either by mass-spectrometry approaches or by nanopore protein sequencing, hold promise (with proteins being present in higher copy number than mRNA) but has yet to be fully realised \parencite[Reviewed in][]{Specht2018Transformative,Marx2019dream}. Whilst there are many factors resulting in a decoupling of mRNA and protein levels, protein levels are largely determined by mRNA concentrations \parencite[Reviewed in][]{Liu2016Dependency}.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \section{Gametogenesis}
 Gametogenesis is the process by which primordial germ cells develop into either spermatozoa in the male (spermatogenesis) or ovum in the female (oogenesis). Whilst equally important to spermatogenesis, oogenesis is studied far less (1,099 vs 359 articles indexed in PubMed 2018). This is likely partially due to difficulties in studying oogenesis compared to spermatogenesis. In oogenesis prophase I up to diplotene occurs in the ovary of the fetus before birth at which point meiosis is arrested (``Dictyate''), making experiments more challenging.
 
