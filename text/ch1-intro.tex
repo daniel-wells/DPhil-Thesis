@@ -291,3 +291,71 @@ Some of these methods have been adapted specifically to account for the sparsity
 Beyond matrix factorization, there are other frameworks with similar goals that have been applied successfully to single cell data. One set of methods are those based on neural networks, such as self-organizing maps \parencite{Loffler-Wirth2015oposSOM, Kim2015SingleCell} and auto-encoder neural networks (DCA \& scVI) \parencite{Eraslan2019Singlecell, Lopez2018Deep}. These methods (much like t-SNE) create a non-linear embedding of the high dimensional data, resulting in a lower dimensional set of scores for each cell. This approach does not, however, provide the equivalent to gene loadings and so an additional differential expression analysis on a hard clustering of the latent embeddings has to be performed in order to find genes associated with the latent dimensions. However, more recently a hybrid approach has been proposed sacrificing some of the flexibility to gain in interpretability \parencite{Svensson2019Interpretable}.
 
 
+\subsection{Sparse Decomposition of Arrays}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/intro/matrix_decomp_cells.pdf}
+	\caption[SDA Matrix Factorisation]{Schematic of the SDA matrix factorisation. From \parencite{Hore2015Latent}}
+	\label{fig:SDAfactorisation}
+\end{figure}
+
+Sparse decomposition of Arrays (SDA) is a sparse Bayesian factor analysis method, originally developed for decomposing a tensor of multi-tissue bulk RNAseq data, but can also be used in a group factor decomposition mode or to decompose a single 2D matrix (figure \ref{fig:SDAfactorisation}) \parencite{Hore2015Latent, Hore2016Tensor}. The full model for the single matrix decomposition is given in equation \ref{eq:SDA} and in figure \ref{fig:SDAmodel}.
+
+\begin{equation}
+\begin{aligned}
+y_{n l} &= \sum_{c=1}^{C} a_{n c} x_{c l}+\epsilon_{n l} \\
+P(\mathcal{Y} | \theta) &=\prod_{l} \mathcal{N}_{N}\left(\mathbf{y}_{l} | \sum_{c} \mathbf{a}_{\cdot c} x_{c l}, \lambda_{l}^{-1} I_{N}\right) \\ 
+P\left(a_{n c}\right) &=\mathcal{N}\left(a_{n c} | 0,1\right) \\
+x_{c l} &= w_{c l} s_{c l} \\
+P\left(w_{c l} | \beta_{c}\right) &=\mathcal{N}\left(w_{c l} | 0, \beta_{c}^{-1}\right) \\
+P\left(\beta_{c}\right) &=\mathcal{G}\left(\beta_{c} | e, f\right) \\ 
+P\left(s_{c l} | \psi_{c l}, \phi_{c l}\right) &=\mathcal{B} \text{ernoulli}\left(s_{c l} | p_{c l}\right) \\ 
+p_{c l} &= \psi_{c l} \phi_{c l} \\
+P\left(\psi_{c l}\right) &=\mathcal{B} \operatorname{eta}\left(\psi_{c l} | g, h\right) \\
+P\left(\phi_{c l} | \rho_{c}\right) &=\mathcal{B} \text{ernoulli}\left(\phi_{c l} | \rho_{c}\right) \\
+P\left(\rho_{c}\right) &=\mathcal{B} \operatorname{eta}\left(\rho_{c} | r, z\right) \\
+P\left(\lambda_{l}\right) &=\mathcal{G}\left(\lambda_{l} | u, v\right) 
+\label{eq:SDA}
+\end{aligned}
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{figures/intro/SDA.pdf}
+	\caption[SDA Model]{Schematic of the SDA Hierarchical Bayesian Model}
+	\label{fig:SDAmodel}
+\end{figure}
+
+$\mathcal{Y}$ is an $N$ by $L$ matrix of cells by genes, $\mathcal{A}$ is a matrix of $N$ cells by $C$ components, and $\mathcal{X}$ is a matrix of $C$ components by $L$ genes, and $\mathcal{E}$ is an $N$ by $L$ matrix of independent Gaussian noise.
+
+A key feature of this model is the element wise sparsity of the gene loadings which eases interpretation of the model, forms a kind of regularisation, and prevents the solution from being rotationally invariant. Moreover this reflects a prior that generally only a subset of genes should be involved in any one biological process. This sparsity is achieved by using a spike and slab prior which is a mixture of a point mass at 0 (spike) and a normal distribution (slab). The slab $w$ has a precision of $\beta_{c}$ which has a Gamma prior with hyper-parameters $e = 10^{-6}$ and $f = 10^{-6}$ (uninformative). The spike $s$ is modelled as a Bernoulli distribution with probability parameter $p_{cl}$ representing the probability of an individual gene loading being non-zero. The prior on this parameter is itself a spike and slab with the slab $\psi_{c l}$ having a Beta prior with hyper-parameters $g=0$ and $h=0$ (a prior with half mass at 0 and half at 1). The spike $\phi_{c l}$ again has a Bernoulli prior with parameter $\rho_{c}$ which also has a Beta prior with hyper-parameters $r=1$ and $z=1$ (flat). This hierarchical structure encourages sparsity as when $\rho_{c}$ is close to 0 the prior on the main spike and slab will be dominated by the spike. The factored spike and slab is equivalent to the pure mixture as in equation \ref{eq:SSMix} but aids inference.
+
+\begin{equation}
+P\left(x_{c l} | p_{c l}, \beta_{c}\right)=p_{c l} \mathcal{N}\left(x_{c l} | 0, \beta_{c}^{-1}\right)+\left(1-p_{c l}\right) \delta_{0}\left(x_{c l}\right)
+\label{eq:SSMix}
+\end{equation}
+
+Each cell score has a standard normal prior. Due to scaling indeterminacy (for example the cell scores could be multiplied by two and gene loadings halved with equivalent fit), the variances are set to 1 with any scaling occurring in the $\beta_{c}$ of the gene loadings. The sign of the components is also unidentifiable, in addition to permutation of the components.
+
+Each gene has a noise precision parameter $\lambda_{l}$ with a Gamma prior where the hyper-parameters are set to $u = 10^{-6}$ and $v = 10^{-6}$ giving an uninformative prior. 
+
+The model is fit using variational Bayes as described in \parencite{Hore2015Latent, Hore2016Tensor}. As variational Bayes underestimates variances the mean of the posterior distributions are used rather than the distributions themselves \parencite{Jaakkola2000Bayesian}. Sparse factor analyses using the spike and slab prior have also previously been used \parencite{West2003Bayesian, Lucas2006Sparse}. The complexity is $\mathcal{O}(NLC^2)$ and the number of components must be chosen ahead of time, although SDA can set entire components to zero if too many components are set.
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=\textwidth]{figures/intro/pseudotime_methods.png}
+%	\caption[Pseudotime Methods]{Comparison of pseudotime inference methods, reproduced from~\cite{Cannoodt2016Computational}}
+%	\label{fig:pseudotime_methods}
+%\end{figure}
+
+
+% Similar aims (delineating lineage hierarchies and transcriptional networks) have been achieved using single cell RNA-seq in tissues other than testis, highlighting the feasibility of this study~\cite{Trapnell2014Dynamics,Treutlein2014Reconstructing,DurruthyDurruthy2014Reconstruction,Moignard2013Characterization,Stegle2015Computational}.
+
+%\subsection{Principal Components Analysis}
+
+%\subsection{Sparsity}
+
+%Frequentist
+%Bayesian
