@@ -11,7 +11,7 @@
 
 \section{Introduction}
 Cells are the fundamental unit of all living organisms, and with recently developed technologies such as DropSeq it is now possible to perform mRNA sequencing of individual cells for tens of thousands of cells.
-This enables discovery and characterisation of novel cell types,clues towards gene function via co-expression, as well as characterisation of transcriptional processes such as transcription factor binding.
+This enables discovery and characterisation of novel cell types, clues towards gene function via co-expression, as well as characterisation of transcriptional processes such as transcription factor binding.
 
 Here we have generated a dataset of >20,000 cells from both wild type and knockout mice testis, using a matrix factorisation approach to soft cluster cells, infer corresponding co-expressed gene markers, and impute noisy gene expression.
 This revealed novel marker genes, novel predicted functions for understudied genes, further characterisation of understudied cell types, pathology associated process, and insights into sex chromosome inactivation.
@@ -19,7 +19,7 @@ We also inferred, \emph{de novo} transcription factor binding motifs, revealing 
 
 \vspace{0.7cm}
 \begin{framed}
-\noindent All experimental work in this chapter was performed by Min Jung and colleges in Don Conrad's group at the University of Washington, St Louis.
+\noindent All experimental work in this chapter was performed by Min Jung and colleagues in Don Conrad's group at the University of Washington, St Louis.
 All analysis steps were performed by myself unless otherwise stated.
 Much of this chapter has been published as \cite{Jung2019Unified}, on which I am co-first author.
 \end{framed}
@@ -432,11 +432,11 @@ The most significant GO term is ``muscle tissue development'' ($q = 8.8\times10^
 Five components correspond to processes in spermatogonia.
 Component 31 represents undifferentiated spermatogonia expressing \textit{Zbtb16} (aka \textit{Plzf}) \parencite{Buaas2004Plzf} and \textit{Foxo1} \parencite{Goertz2011Foxo1}, while component 50 splits these cells into two subpopulations, the first expressing \textit{Glis3} \parencite{Kang2016Transcription} and \textit{Gfra1} - shown to be expressed in a subset of $A_s$ and required for $A_s$ self renewal by acting as a co-receptor for GNDF \parencite{Meng2000Regulation,He2007Gfra1}.
 The second subpopulation expresses \textit{Nanos3} \parencite{Suzuki2009heterogeneity}, \textit{Lin28a} \parencite{Zheng2009pluripotency} and \textit{Foxf1}.
-Component 7 likely represents $A_{1-4}$ spermatogonia as they express c-Kit which is expressed in differentiated (not undifferentiated) spermatogonia \parencite{Manova1990Gonadal,Schrans-Stassen1999Differential} and is required for the A1 to Al divisions \parencite{Yoshinaga1991Role}.
+Component 7 likely represents $A_{1-4}$ spermatogonia as they express c-Kit which is expressed in differentiated (not undifferentiated) spermatogonia \parencite{Manova1990Gonadal,Schrans-Stassen1999Differential} and is required for the A1 to AIn divisions \parencite{Yoshinaga1991Role}.
 These cells also express \textit{Stra8} which is expressed from type A spermatogonia through to preleptotene cells in response to retinoic acid \parencite{Oulad-Abdelghani1996Characterization,Zhou2008Expression,Endo2015Periodic} and is required for premeiotic DNA replication \parencite{Baltus2006germ}.
-We find they these cells are also well marked by \textit{Plppr3}, \textit{Sertad4}, \textit{Met}, \textit{Jade2}, \textit{Nanos1}, \textit{Glis1} and \textit{Glis2}.
+We find these cells are also well marked by \textit{Plppr3}, \textit{Sertad4}, \textit{Met}, \textit{Jade2}, \textit{Nanos1}, \textit{Glis1} and \textit{Glis2}.
 Component 2 includes \textit{Ctcfl}, \textit{Pou4f1}, and \textit{Esx1} - likely representing intermediate and type B spermatogonia \parencite{Sleutels2012male, Budhram-Mahadeo2001closely, Maezawa2018Dynamic, Li1997Esx1, Branford1997Spx1}.
-Component 33 is broad component covering all the stages of spermatogonia.
+Component 33 is a broad component covering all the stages of spermatogonia.
 
 
 \subsection{\label{sec:leptotene}(pre)Leptotene \& Zygotene}
@@ -446,13 +446,14 @@ This includes \textit{Prdm9} itself; components of the meiotic cohesin complex \
 
 This component is also highly enriched for GWAS hits of recombination rate in Icelandic humans \parencite{Halldorsson2019Characterizing}.
 Of the 24 significant GWAS loci identified with confidently associated causal genes, more than half (13) rank within the top 300 genes of this component, and almost all (20) rank within the top 1300 genes ($p = 5.2\times10^{-18}$, OR = 77.8 [95\% CI:36.4,Inf] and $p = 2.4\times10^{-20}$, OR = 70.1 [95\% CI:26.9,Inf] respectively by fisher's exact test [FET]).
-One of the hits, \textit{Msh4}, is not ranked highly in this component (2734th out of 19262), however, it is known to function as a heterodimer with \textit{Msh5}, which ranks 34th \parencite{Rakshambikai2013Structural}.
+One of the hits, \textit{Msh4}, is not ranked highly in this component (2,734th out of 19,262), however, it is known to function as a heterodimer with \textit{Msh5}, which ranks 34th \parencite{Rakshambikai2013Structural}.
 This highlights one of the advantages of single cell RNAseq compared to GWAS for target discovery in that it does not rely on the presence of (perhaps rare, small effect) genetic variants.
 In addition it directly provides a list of genes rather than SNPs affecting unknown causal genes, For example the previous GWAS had identified a SNP in the intron of \textit{Ccdc43}, however our expression data strongly suggested the adjacent gene \textit{Meioc} (aka \textit{C17orf104}) as the causal gene (ranked 183rd vs 13,651st in component 5) in addition to the subsequent reports that \textit{Meioc} is responsible for maintaining an extended meiotic prophase \parencite{Abby2016Implementation, Kong2014Common, Soh2017Meioc}.
 
 The strong enrichment of genes involved in recombination in this component suggests other highly ranked genes of unknown function could also play key roles in this process.
-This proved to be the case for two such genes during the preparation of this manuscript.
+This proved to be the case for two such genes during the preparation of the mauscript describing our findings.
 Firstly \textit{Ankrd31} (ranked 102nd) was found to control the number, timing, and location of double strand breaks in meiosis \parencite{Boekhout2018REC114, Papanikos2018ANKRD31} and \textit{Hsf2bp} (now \textit{Meilb2}, ranked 194th) was found to be a master regulator of meiotic recombinases \parencite{Zhang2019meiosisspecific}.
+After the publication of this work, \textit{Hells} (ranked 44th) was found to be required for PRDM9 binding to hotspots \parencite{Spruce2019HELLS}.
 One candidate, \textit{Zcwpw1}, will be the subject of chapter \ref{ch:3-Zcw}.
 
 
@@ -530,7 +531,7 @@ Indeed a recent report using hybrid mice claimed widespread haploid biased gene 
 
 
 \subsection{Hormad1 Sex Chromosome Activation}
-In addition to the pachytene components with lack of loadings on the sex chromosome we also find a component (\#38) with an \textit{excess} of sex chromosome loadings relative to the autosomes (figure \ref{fig:Hormad1}A).
+In addition to the pachytene components with lack of loadings on the sex chromosomes we also find a component (\#38) with an \textit{excess} of sex chromosome loadings relative to the autosomes (figure \ref{fig:Hormad1}A).
 This component is active exclusively in a subset of \textit{Hormad1\textsuperscript{-/-}} cells that diverge from the normal pseudotime around Zygotene stage \ref{fig:MiscComponents}C.
 Note that as \textit{Hormad1\textsuperscript{-/-}} mice arrest at early Pachytene, once the cells diverge the pseudotimes can no longer be compared to the wild type pachytene cells and are perhaps considerably compressed due to the almost perpendicular direction in t-SNE space \parencite{Shin2010Hormad1}.
 HORMAD1 marks unsynapsed chromosomes, so when HORMAD1 is absent (as in the KO) transcriptional silencing fails to occur.
@@ -627,7 +628,7 @@ LYZL4 was detected in mouse spermatozoa in the acrosomal region \parencite{Sun20
 In situ hybridisation analysis did not detect LYZL4 in human seminiferous tubules but instead in the epithelium of the epididymis \parencite{Zhang2005Molecular}.
 Lyzl4os (opposite strand antisense lncRNA) ranks 242nd.
 
-SPACA7 expression substantially increases post meiotic divisions as measured by immunofluorescence, and can be detected in the acrosome by Immunogold electron microscopy \parencite{Korfanty2012Identification,Nguyen2014SPACA7}.
+SPACA7 expression substantially increases post meiotic divisions as measured by immunofluorescence, and can be detected in the acrosome by immunogold electron microscopy \parencite{Korfanty2012Identification,Nguyen2014SPACA7}.
 SPACA4 (SAMP14) showed immunofluorescent staining restricted to the acrosomal region in washed human spermatozoa \parencite{Shetty2003SAMP14}.
 1700016D06Rik (aka GC14) contains a Spaca7 domain and was previously reported as expressed in pachytene spermatocytes in contrast with our results \parencite{Anway2003Expression}.
 Other acrosomal genes not covered by the GO term include Lyzl5, Fam170b, Acrv1 (Spaca2), and Spata31 (AEP1) (rank 320, 56, 4, and 30).
@@ -674,18 +675,18 @@ One of the accessory subunits \textit{Catsperz} which is required for structural
 \end{figure}
 
 
-\textit{Tekt1}, \textit{Tekt2}, \textit{Tekt3}, \textit{Tekt4} are components of flagella \parencite{Amos2008tektin} and also have high loadings in this component (rank 234, 34, 408, and 101) with expression reported in early pachytene, but with higher expression in round spermatids \parencite{Fallahi2010Global}.
+\textit{Tekt1}, \textit{Tekt2}, \textit{Tekt3}, and \textit{Tekt4} are components of flagella \parencite{Amos2008tektin} and also have high loadings in this component (rank 234, 34, 408, and 101) with expression reported in early pachytene, but with higher expression in round spermatids \parencite{Fallahi2010Global}.
 \textit{Tssk1} and \textit{Tssk4} (rank 137 \& 57) are members of a testis-specific serine kinase family that are almost exclusively expressed post meiotically in the testis \parencite{Li2011Expression}.
 For one high loading gene (rank 145), \textit{Lrrc34}, we verified by immunofluorescence that the protein is indeed localized to the acrosome of round spermatids (figure \ref{fig:IF}).
 
 Component 35 almost completely overlaps 30 but is strongly multi signed with positive loadings early flipping to negative loadings later in pseudotime.
 Highly ranked positive loadings in this component include those also very highly ranked (top 100) in the meiotic division component: \textit{Ssxb1}, \textit{Ssxb2}, \textit{Prss46}, \textit{Iqca} and 15 others.
 This has the result of increasing the expression of these genes during the meiotic division stage which overlaps with the first half of component 35.
-The opposite is true for the genes with negative loadings in component 30 (although to a lesser extent due to relatively smaller gene loadings) for example \textit{Lyzl6}, \textit{Spaca4}, \textit{Hyal5}, \textit{Izumo1} have expression biased later than one might expect based on their high loadings in component 30 alone.
+The opposite is true for the genes with negative loadings in component 35 (although to a lesser extent due to relatively smaller gene loadings compared to component 30) for example \textit{Lyzl6}, \textit{Spaca4}, \textit{Hyal5}, and \textit{Izumo1} have expression biased later than one might expect based on their high loadings in component 30 alone.
 
 Component 15 is active around the (pseudotime) end of component 30 and has high loadings for genes reported to be expressed in round spermatids.
 \textit{Hemgn}, \textit{Prss37} (required for fertility), and \textit{Calr3} (rank 3, 40, 34) \parencite{Shen2013Prss37}.
-\textit{Ccdc159} (rank 27) is a coiled-coil domain containing gene that causes infertility with no other significant phenotype in a knock out model and is most highly expressed; however nothing else is known about this gene.
+\textit{Ccdc159} (rank 27) is a coiled-coil domain containing gene that causes infertility with no other significant phenotype in a knock out model and is most highly expressed in the testis in GTEX; however nothing else is known about the function of this gene.
 
 \textit{Fam71a}, \textit{Fam71b} are both highly and specifically expressed at this stage (ranks 1 and 10).
 \textit{Fam71b} was previously detected in round and elongating spermatids \parencite{Petit2015Combining} and has been implicated in RNA biogenesis due to binding with FRG1P \parencite{vanKoningsbruggen2007FRG1Pmediated}.
@@ -693,7 +694,7 @@ However the exact function of these genes remains unknown.
 
 Interestingly the high loading genes in component 15 are enriched for the GO term ``regulation of humoral immune response'' (q = 0.01 OR = 17.3) driven by the genes \textit{Cd46}, \textit{Cd55}, \textit{Cd59b}, \textit{Cd37}, \textit{Cd59a} (rank 5, 7, 31, 157, 225) which normally protect autologous tissues from complement mediated lysis.
 CD46, CD55, and CD59 are present in the inner acrosomal membrane \parencite{Cummerson2006complement}, and disruption of \textit{Cd46} results in accelerated spontaneous acrosome reaction reducing fertility \parencite{Inoue2003Disruption}.
-\textit{Cd37} is a member of the tetraspanin family which includes Cd9, well known to be required for sperm-egg fusion \parencite{Kaji2000gamete, Naour2000Severely, Miyado2000Requirement}, however \textit{Cd37} deficient mice are fertile and its role in the testis is unknown \parencite{Knobeloch2000Targeted}.
+\textit{Cd37} is a member of the tetraspanin family which includes \textit{Cd9}, well known to be required for sperm-egg fusion \parencite{Kaji2000gamete, Naour2000Severely, Miyado2000Requirement}, however \textit{Cd37} deficient mice are fertile and its role in the testis is unknown \parencite{Knobeloch2000Targeted}.
 
 There is weak evidence of enrichment for ``histone-serine phosphorylation'' due to expression of \textit{Smok2b}, \textit{Smok2a}, \textit{4921509C19Rik}, \textit{Gm14151} (rank 44, 221, 112, and 230) which are located together in the genome in pairs and are homologues.
 In addition \textit{Gm14147} and \textit{Smok4a} (lncRNA) are also highly ranked (312, 453) each located nearby these gene clusters and in the case of \textit{Gm14147} is a homologue of the others at its location.
@@ -711,15 +712,16 @@ Component 17 is highly enriched for ``spermatid development'' and ``flagellated 
 \textit{H1fnt} (aka \textit{H1t2}, rank 3, 22, and 27 in component 36, 17, and 34) is a variant of the linker histone H1 which is specifically expressed in haploid spermatocytes and is required for DNA condensation and hence normal fertility \parencite{Martianov2005Polar, Tanaka2005HANP1}.
 \textit{Hils1} is another H1 variant exclusively expressed in elongating and condensing spermatids and reported to be required for fertility specifically on a \textit{Tnp2} knockout background (rank 2, 20, 110 in component 18, 34, 17) \parencite{Yan2003HILS1, Wu2009Genetic}.
 
+Spermatocytes have specialised energetic requirements and have developed correspondingly specialised apparatus to support this. While mitochondria, the site of oxidative phosphorylation, are localised to the midpiece glycolytic enzymes are localised to the fibrous sheath along the principal piece \parencite{Westhoff1997Glyceraldehyde, Krisfalusi2006Multiple}. This suggests glycolysis is required to satisfy the ATP demands far away from the mitochondria and indeed chemical inhibition of glycolysis resulted in reduced motility whereas mitochondrial inhibition did not \parencite{Mukai2004Glycolysis}.
 Many of the enzymes involved in the central metabolic pathway of glycolysis have altered expression or specific isozymes during spermatogenesis and especially spermiogenesis.
 The first step in glycolysis is catalysed by Hexokinase encoded by \textit{Hk1} (rank 29, 51, 229 in components 34, 18, and 17), which is expressed as a testis specific isozyme lacking the porin domain in spermiogenesis \parencite{Mori1993Unique,Nakamura2008Spermatogenic}.
 The second step is catalysed by Glucose-6-phosphate isomerase encoded by \textit{Gpi1} (rank 173, 200, and 283 in components 18, 34, and 17) which also has a splice variant specifically expressed in spermatogenesis \parencite{Buehr1981electrophoretically, Vemuganti2010Frequent}.
 \textit{Aldoart2} is a rodent specific retro-tranposed version of \textit{Aldoa} encoding aldolase which catalyses the fourth step of glycolysis (rank 241 and 264 in components 18 and 17) \parencite{Vemuganti2007Three, Vemuganti2010Frequent}.
 The products of this reaction can be interconverted by Triosephosphate isomerase which is encoded by \textit{Tpi1} (with ranks 250, 339 and 469 in components 18, 34 and 17) and also has testis specific isozymes \parencite{Ijiri2013Male}.
-The sixth and seventh reactions are catalysed by GAPDH and PGK respectively, and there are testis specific versions of the genes encoding these enzymes (\textit{Gapdhs}, \textit{Pgk2}) that are required for fertility and have high rankings in these components (rank 3 and 46 for component 18, rank 10 and 73 for component 17, and rank 146 and 161 for component 37) \parencite{McCarrey1987Human,Welch1992Expression, Miki2004Glyceraldehyde, Danshina2010Phosphoglycerate}.
+The sixth and seventh reactions are catalysed by GAPDH and PGK respectively, and there are testis specific versions of the genes encoding these enzymes (\textit{Gapdhs}, \textit{Pgk2}) that are required for motility and fertility and have high rankings in these components (rank 3 and 46 for component 18, rank 10 and 73 for component 17, and rank 146 and 161 for component 37) \parencite{McCarrey1987Human,Welch1992Expression, Miki2004Glyceraldehyde, Danshina2010Phosphoglycerate}.
 \textit{Pgam2} encoding PGAM-B which catalyses the 8th step, is specifically expressed from pachytene onwards but not earlier (rank 183 and 283 in component 17 and 18) \parencite{Fundele1987Developmental}.
 Lactate is produced from the final metabolite of glycolysis by lactate dehydrogenase.
-There is a testis specific gene \textit{Ldhc} which is required for fertility and whilst its expression starts earlier than the other isozymes is still expressed in the later stages with gene loading ranks of 149, 188, 197 in components 34, 17, and 18 \parencite{Sakai1987Molecular, Odet2008Expression}.
+There is a testis specific gene \textit{Ldhc} which is required for fertility, WT motility, and hyperactivation, and whilst its expression starts earlier than the other isozymes is still expressed in the later stages with gene loading ranks of 149, 188, 197 in components 34, 17, and 18 \parencite{Sakai1987Molecular, Odet2008Expression}.
 
 %Prm1/Tnp2/Prm2/Tnp1/Odf2/Cabs1/Oaz3/Tssk6/H1fnt/Spata6/Txndc2/Spata18/Prm3/Spem1/Spata19/Iqcf1/Spata24/1110017D15Rik/Tssk2/Ccdc136/Hook1/Meig1/Hspa1l/Ube2j1/Tcp11/Galntl5/Hils1/Mea1/Paip2/Tssk3/Ropn1/Spata20/Prdx4/Spata32
 %Smcp, Odf2, Oaz3,  and Cabs1 4+ Abhd5
@@ -810,7 +812,7 @@ This suggests that methylation may play a role in the mechanism by which the typ
 \label{sec:ssx}
 There are many genes that are expressed around the time of the meiotic divisions in component 20 and so could be effectors of this switch.
 However, one family of genes (\textit{Ssxb1}, \textit{Ssxb2}, \textit{Ssxb3}, \textit{Ssxb5}, and \textit{Ssxb6}) are all highly ranked (top 150) in this component.
-These genes are known to contain both an SSXRD and KRAB-related domain, the same two domains which are also present in Prdm9 (the only such gene for which this is true outside the Ssx X chromosome cluster).
+These genes are known to contain both an SSXRD and KRAB-related domain, the same two domains which are also present in \textit{Prdm9} (the only such gene for which this is true outside the Ssx X chromosome cluster).
 The KRAB-related domain has been studied in the context of \textit{Prdm9} where it was found to interact with a number of other proteins including the CpG binding protein CXXC1 \parencite{Imai2017PRDM9, Parvanov2017PRDM9}.
 The SSXRD domain has been studied in the context of the Ssxb family's involvement in synovial sarcomas, where it was found to interact with the CpG binding protein CXXC2 (aka KDM2B) \parencite{Banito2018SS18SSX}.
 Both CXXC1 and CXXC2, as their name suggests, are members of a protein family containing the ZF-CxxC domain which mediates recruitment to unmethylated CpG islands \parencite[reviewed in][]{Long2013ZFCxxC}.
@@ -830,7 +832,7 @@ The associations with components are much more cleanly separated into pre and po
 
 
 \section{Interactive Web App}
-In order to make these results as widely available to others in the spermatogenesis community, we created an interactive web app which enables users to look up the pattern of gene expression for any gene, as well as explore which genes are in which components, without having to download or install any software themselves (figure \ref{fig:shiny}).
+In order to make these results widely available to others in the spermatogenesis community, we created an interactive web app which enables users to browse the pattern of gene expression for any gene, as well as explore which genes are in which components, without having to download or install any software themselves (figure \ref{fig:shiny}).
 The app is based on the RShiny framework and is hosted using Amazon Web Services EC2 t2.micro instance (1CPU, 1GB RAM).
 The website can be viewed at \url{www.testisAtlas.ml} in addition to being archived within the github repository.
 

@@ -22,9 +22,9 @@ Finally, we aimed to carry out such characterisation for at least one of these t
 
 %\subsection{Sexual Reproduction}
 Reproduction is a fundamental property of all known life.
-Of the two empires of life Eukaryotes/Eukarya are able to reproduce sexually, and almost all do.
+Of the three domains of life Eukaryotes/Eukarya are able to reproduce sexually, and almost all do.
 The dominance of this trait has been estimated at roughly 99.9\% \parencite{White1978Modes}.
-Although many Eukaryotes are able to reproduce asexually, those which do so exclusively are typically confined to the youngest branches of life, an exception being the Bdelloid rotifers - who lost the ability to reproduce sexually 60 Mya, and appear to be evolving by horizontal gene transfer \parencite{Debortoli2016Genetic}.
+Although many Eukaryotes are able to reproduce asexually, those which do so exclusively are typically confined to the youngest branches of life, an often cited exception being the Bdelloid rotifers - although there is now evidence of rare sexual reproduction in this species \parencite{Debortoli2016Genetic, Laine2020Sexual}.
 This shared characteristic was likely present in the common ancestor of this empire and hence synapomorphic \parencite{Bernstein2013Evolutionary}.
 The sexual life cycle consists of an alternating halving of the genetic material/ploidy (by meiosis) to form haploid cells, followed by karyogamy (nuclear fusion).
 Meiosis (from Ancient Greek, meíōsis, “a lessening”) is a specialised form of cell division, in which genetic material is exchanged between the parental genomes (recombination).
@@ -73,7 +73,7 @@ This necessitates long term mRNA storage ($>$5 days) before translation \parenci
 Sperm are a highly specialised cell, despite being a single cell and unable to transcribe new mRNA they must perform many of the functions of the whole organism including motility, sensing the environment (chemotaxis), and defence from attack (from the female immune system) \parencite{Kaupp2008Mechanisms, Thompson1992Leukocytic}.
 Indeed they are able to survive and even fertilise after more than three days in the female reproductive tract \parencite{Gould1984Assessment,Wilcox1995Timing}.
 
-Meiosis itself of course is also unique, with paternal and maternal homologous chromosomes being blissfully unaware of each other in somatic cells, until pairing in meiosis in the germline.
+Meiosis itself of course is also unique, with paternal and maternal homologous chromosomes being relatively unaware of each other in somatic cells, until pairing in meiosis in the germline.
 In addition, it has been repeatedly observed that the majority (\textasciitilde80\%) of inherited single nucleotide mutations first arise in the testis \parencite{Kong2012Rate, Michaelson2012WholeGenome, Goldmann2016Parentoforiginspecific, Rahbari2016Timing, Jonsson2017Parental}.
 
 %Incomplete cytokinesis
@@ -161,7 +161,7 @@ Northern blotting still remains a useful technique when information about the re
 \subsection{Microarrays}
 A microarray is typically a glass slide coated with cDNA oligomers.
 mRNA with polyA tails can be extracted from total RNA using oligo(dT) beads, reverse transcribed to cDNA, fluorescently labelled, and washed over the array \parencite{Schena1995Quantitative, DeRisi1996Use, Schulze2001Navigating}.
-The fluorescent intensity is a measure to the abundance of mRNA in the sample.
+The fluorescent intensity is a measure of the abundance of mRNA in the sample.
 This approach allowed whole transcriptome quantification and was wildly popular, with the EBI ArrayExpress database passing 100,000 hybridisations in 2008 \parencite{Rustici2008Data}.
 
 \subsection{Bulk RNA Sequencing}
@@ -202,10 +202,10 @@ This enables each original mRNA molecule to be counted as a single molecule, in 
 However, UMIs do not alleviate bias due to preferential sampling of molecules by RT or PCR primers \parencite{Kou2016Benefits}.
 In addition, as the UMI and cellular barcode is on the 3' end of the transcript, after fragmentation only the fragments at the 3' end will be sequenced.
 This bias is in addition to the 3' bias from polyA selection \parencite{Wan2012Modeling, Lahens2014IVTseq}.
-This 3' bias precludes analysis of transcript isoforms as only the 3' end of the fragment is sequenced (as most transcripts sharing the 3' UTR, and the 5' read contains only the UMI and cell barcode).
+This 3' bias precludes analysis of transcript isoforms as only the 3' end of the fragment is sequenced (as most transcripts share the 3' UTR, and the 5' read contains only the UMI and cell barcode).
 However, some isoform information is available due to the use of alternative 3' UTRs (and possibly by internal polyA priming), if pseudo-alignment is used to generate transcript compatibility counts \parencite{Nam2002Oligo, Ntranos2019discriminative}.
 
-Despite what the name suggests, some cells will actually be multiple cells, due to two (or more) cells being captured into the same droplet or well, named ``doublets''.
+Despite what the name suggests, some ``single cells'' will actually be multiple cells, due to two (or more) cells being captured into the same droplet or well, named ``doublets''.
 The doublet rate is determined by concentration of cells in the solution / flow rate into the droplets.
 By Poisson sampling a flow rate can be calculated to minimise doublets but also balance the cost of empty beads.
 The doublet rate can be determined experimentally by mixing single cells from two different species, in which case double species encapsulations can be detected by the different gene sequences (and the total number of doublets calculated as double that) \parencite{Macosko2015Highly}.
@@ -362,13 +362,13 @@ However, general features of the recombination landscape are the same in Chimps,
 Similar results have also been obtained in mice \parencite{Paigen2008Recombinational, Brunschwig2012FineScale, Booker2017Recombination}, with some studies utilising the increased feasibility of experimental manipulation of mice to use alternative detection methods such as assaying the intermediates of recombination such as ssDNA bound DMC1 \parencite{Smagulova2011Genomewide, Khil2012Sensitive, Smagulova2016evolutionary}, SPO11 oligos \parencite{Lange2016Landscape}, as well as using single sperm sequencing of hybrids with genetic differences (much greater than in humans)\parencite{Hinch2019Factors}, and linked reads \parencite{Dreau2019Genomewide}.
 DMC1 mapping has also been applied to human samples revealing the contribution of individual \textit{Prdm9} alleles \parencite{Pratto2014Recombination} and recently low coverage high throughput single sperm sequencing has also been used on human samples \parencite{Bell2019Insights}.
 
-In Canids recombination rate is even more unequally distributed than in humans, is similarly increased towards the subtelomeres (especially in males), but is directed towards CpG rich sequences such as promoters as in yeast \parencite{Auton2013Genetic, Campbell2016PedigreeBased}; consistent with the loss of functional Prdm9 in the Canidae family \parencite{Munoz-Fuentes2011Prdm9}.
+In Canids recombination rate is even more unequally distributed than in humans, is similarly increased towards the subtelomeres (especially in males), but is directed towards CpG rich sequences such as promoters as in yeast \parencite{Auton2013Genetic, Campbell2016PedigreeBased}; consistent with the loss of functional \textit{Prdm9} in the Canidae family \parencite{Munoz-Fuentes2011Prdm9}.
 Similarly in birds, which also lack a functional \textit{Prdm9}, recombination hotspots exist but are conserved across species diverged by tens of millions of years and are enriched at CpG islands including transcription start sites - perhaps driven by nucleosome depletion and so increased accessibility to the recombination machinery \parencite{Singhal2015Stable}.
-Plants also lack Prdm9, and again crossovers are enriched at promoters, and other promoter associated marks such as H2A.Z and H3K4me3 \parencite{Choi2013Arabidopsis, Marand2017Meiotic}.
+Plants also lack \textit{Prdm9}, and again crossovers are enriched at promoters, and other promoter associated marks such as H2A.Z and H3K4me3 \parencite{Choi2013Arabidopsis, Marand2017Meiotic}.
 
 Furthermore, knockout of \textit{Prdm9} in mice causes hotspots to relocate to promoters \parencite{Brick2012Genetic}.
 \textit{Prdm9} B6 knockout mice are infertile, but this is not true for other strains, and one \textit{Prdm9} homozygous null female human has had three healthy children \parencite{Hayashi2005histone, Mihola2019Histone, Narasimhan2016Health}.
-A partial relocation to promoters is seen in Ankrd31 knockouts \parencite{Boekhout2019REC114, Papanikos2018ANKRD31}.
+A partial relocation to promoters is seen in \textit{Ankrd31} knockouts \parencite{Boekhout2019REC114, Papanikos2018ANKRD31}.
 \textit{Prdm9} is also the cause of infertility in the F1 male hybrids of crosses between \textit{Mus musculus domesticus} (B57BL/6J) and \textit{Mus musculus musculus} (PWD/Ph, differing by only a single finger), representing the only known mammalian speciation gene \parencite{Forejt1974Genetic, Mihola2009Mouse}.
 The cause of this sterility was recently revealed by engineering mice with a humanized version of \textit{Prdm9}, which rescues the fertility of F1 hybrids \parencite{Davies2016Reengineering}.
 Hotspots are gradually eroded by biased gene conversion (the colder allele is used as a template to repair the double strand break occurring on the hotter template), resulting in the paradox of hotspot existence \parencite{Boulton1997hotspot, Coop2007Live, Myers2010Drive, Baker2015PRDM9}.
@@ -407,10 +407,10 @@ In the cap phase (steps four to seven) the acrosomal vesicle flattens to cover o
 
 In the acrosome phase (steps eight to twelve) the acrosome orients towards the base of the tubule in close apposition to the plasma membrane.
 In addition the apical ectoplasmic junction forms, anchoring the sperm head to the Sertoli cell \parencite{Wong2008Biology}.
-The transient skirt like structure of the manchette also forms, consisting of a preinuclear ring important for sperm head shaping, and microtubules emanating towards the tail which are important for protein transport (figure \ref{fig:Spermatids}, \cite{Lehti2016Formation}).
+The transient skirt like structure of the manchette also forms, consisting of a perinuclear ring important for sperm head shaping, and microtubules emanating towards the tail which are important for protein transport (figure \ref{fig:Spermatids}, \cite{Lehti2016Formation}).
 Mitochondria are arranged in a helical sheath in the midpiece of the sperm, terminated at the base by the annulus which is composed of Septin octamer fibres associated with TAT1 and through which the axoneme passes \parencite{Ho2007Three, Toure2011Septins, Kuo2015SEPT12}.
 Nuclear condensation begins with up to 99\% (90\%) of mice (human) histones being replaced with transition proteins and then protamines.
-These short (50aa) highly basic (\textasciitilde50\% Arginine) proteins form a more compact toroid structure enabling a 90\% reduction in nuclear volume \parencite{Balhorn2007protamine, Ward2010Function, Yamaguchi2018Reevaluating}.
+These short (50 a.a.) highly basic (\textasciitilde50\% arginine) proteins form a more compact toroid structure enabling a 90\% reduction in nuclear volume \parencite{Balhorn2007protamine, Ward2010Function, Yamaguchi2018Reevaluating}.
 This nuclear condensation results in transcriptional cessation and therefore requires many mRNAs to be stored for long periods of time.
 For example \textit{Prm1} (Protamine 1) and \textit{Smcp} (Sperm Mitochondria-associated Cysteine-rich Protein) mRNA are stored for three and seven days respectively as free ribonucleic particles before they are translated into protein on polysomes~\parencite{Cullinane2015Mechanisms, Kleene1984Translational, Kleene2004Patterns}.
 
@@ -460,7 +460,7 @@ In fact, the total number of tools to analyse single cell RNAseq data is compara
 %In addition there is large natural variation in expression between comparable cells due to stochastic bursting gene expression kinetics~\cite{Raj2006Stochastic}.
 %These challenges are compounded by inefficiencies and biases at each step of the library preparation procedure (cell lysis, mRNA capture, reverse-transcription, amplification) resulting in losses of 50 to 90\%~\cite{Islam2012Highly}.
 
-There two major analysis modes for scRNAseq, each of which can be applied to either cells or genes.
+There are two major analysis modes for scRNAseq, each of which can be applied to either cells or genes.
 These two analysis ``modes'' are actually extremes of an analysis spectrum ranging from continuous to discrete depending on whether cells are considered to be separate groups or as part of a (developmental) trajectory.
 For the discrete case cells can be clustered into types, and differentially expressed marker genes can be inferred.
 Examples of these kinds of methods include k-means, hierarchical clustering, density clustering, or consensus clustering~\parencite{Zurauskiene2016pcaReduce,Kiselev2017SC3,Guo2015SINCERA,Satija2015Spatial}.

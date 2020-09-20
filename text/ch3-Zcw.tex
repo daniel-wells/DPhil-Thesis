@@ -10,7 +10,7 @@
 \section{Introduction}
 
 Using single cell RNA-sequencing of mouse testis, we identified a set of genes co-expressed in (pre)leptotene cells which are highly enriched for genes involved in meiotic recombination (section \ref{sec:leptotene}).
-Zcwpw1, which ranks 3rd in this set after Prdm9 (2nd), is of unknown function but contains two recognised protein domains: CW and PWWP, shown to individually bind H3K4me3 and H3K36me3 respectively \parencite{He2010Complex, Rona2016PWWP}.
+\textit{Zcwpw1}, which ranks 3rd in this set after \textit{Prdm9} (2nd), is of unknown function but contains two recognised protein domains: CW and PWWP, shown to individually bind H3K4me3 and H3K36me3 respectively \parencite{He2010Complex, Rona2016PWWP}.
 PRDM9 deposits both H3K4me3 and H3K36me3 at sites it binds \parencite{Powers2016Meiotic}, and this methyltransferase activity is essential for its role in double strand break positioning \parencite{Diagouraga2018PRDM9}, suggesting these marks may be recognized by downstream protein(s).
 We therefore hypothesised that ZCWPW1 might co-localise to recombination hotspots, by binding the histone modifications deposited by PRDM9.
 
@@ -27,7 +27,7 @@ Thus, ZCWPW1 represents the first protein directly positioned by PRDM9 binding, 
 \begin{framed}
 \noindent All experimental work in this chapter was performed by Emmanuelle Bitoun, Daniela Moralli, and Gang Zhang.
 Anjali Hinch helped with SSDS processing, and section \ref{sec:coevolution} is by Simon Myers (apart from figure \ref{fig:domains}).
-Much of this chapter has been posted as a preprint \cite{Wells2019ZCWPW1}, on which I am co-first author.
+Much of this chapter has been publushed \cite{Wells2020ZCWPW1}, on which I am co-first author.
 \end{framed}
 
 \section{ZCWPW1 co-evolves with PRDM9}
@@ -70,7 +70,7 @@ Thus, there has been similar (co)evolution of presence/absence of ZCWPW1 and PRD
 
 We observe a greater number of species - 28 - possessing PRDM9 orthologues but having no relative closer than their class possessing an identified ZCWPW1 orthologue.
 All of these are bony fish.
-Strikingly, 24 of these 28 orthologues possess one or more mutations in their SET domain \iffalse supp table \fi, predicted to disrupt H3K4me3 and/or H3K36me3 deposition.
+Strikingly, 24 of these 28 orthologues possess one or more mutations in their SET domain\iffalse supp table \fi, predicted to disrupt H3K4me3 and/or H3K36me3 deposition.
 In strong contrast, 94\% of PRDM9-containing species with non-mutant SET domains have a closer relative possessing ZCWPW1 (odds ratio = 90; indicative $p < 10^{-15}$ by FET, though we note these observations are not all independent).
 This implies that ZCWPW1 is most often lost, whenever mutations occur in the SET domain of PRDM9.
 Interestingly, PRDM9-containing species with non-mutant SET domains are near-identical to those also possessing SSXRD domains, and SSXRD has been reported as essential for PRDM9’s H3K4me3 methyltransferase activity at hotspots in vitro \parencite{Thibault-Sennett2018Interrogating}.
@@ -154,14 +154,8 @@ The expression levels and staining pattern of ZCWPW1 were not visibly altered in
 Comparing levels of DMC1 foci as a proxy for DSB repair, or a potential cause for the asynapsis in \textit{Zcwpw1\textsuperscript{-/-}} males, in both \textit{Zcwpw1\textsuperscript{-/-}} and \textit{Prdm9\textsuperscript{-/-}} mice foci count was significantly elevated from early zygotene onwards, indicating delayed repair of DSBs (Figure \ref{fig:DMC1_count}).
 However, we observed a wider spread for \textit{Zcwpw1\textsuperscript{-/-}} males.
 A similar increase was observed at pachytene stage in the levels of RAD51 (figure \ref{fig:Rad51}), another ssDNA-binding protein which functions in concert with DMC1, with the large majority of RAD51 and DMC1 foci co-localizing \parencite{Brown2015Small, Tarsounas1999RAD51}.
-In contrast, there was no difference in the levels of RPA2.
 In \textit{Zcwpw1\textsuperscript{-/-}} males, like in the \textit{Prdm9\textsuperscript{-/-}} mutant, DSBs form and recruit RPA2, RAD51 and DMC1 in similar numbers \parencite{Li2019histone}, but fail to repair efficiently, accompanied by asynapsis and meiotic arrest at pseudo-pachytene.
 Indeed, we observe late unrepaired DMC1 foci mainly on asynapsed chromosomes\iffalse supp fig 8 \fi.
-
-We also performed analyses of which chromosomes fail to synapse.
-FISH analysis revealed that chromosomes 18 and 19 are most often among these asynapsed chromosomes, while grouping of chromosomes based on their size revealed some asynapsis of all chromosomes, but at higher levels for shorter chromosomes \iffalse supp fig 9 \fi.
-This is similar to results observed for infertile hybrid male mice \parencite{Bhattacharyya2013Mechanistic}, whose asynapsis is driven by lack of binding to the homologous chromosome by PRDM9 \parencite{Davies2016Reengineering}.
-
 
 
 \section{ZCWPW1 recruitment by PRDM9}
@@ -189,14 +183,14 @@ Based on the presence of H3K4me3 and H3K36me3 recognition domains in ZCWPW1, we 
 \end{figure}
 
 To test this, we co-transfected HEK293T cells with full-length human HA-tagged ZCWPW1 and either no other protein, or full-length PRDM9 alleles carrying the human or chimpanzee ZF-array, as studied previously \parencite{Altemose2017map}, and then performed ChIP-seq against the ZCWPW1 HA tag.
-Confirming the recruitment hypothesis, in the presence of human PRDM9 and compared to cells lacking human PRDM9, ZCWPW1 shows a strong enrichment at human PRDM9 binding sites (figure \ref{fig:Allele_Specific}A, B).
-Notably, even without PRDM9 we observed sequence-specific binding of ZCWPW1 to many sites in the genome (Figure \ref{fig:Allele_Specific}C and \ref{fig:Zcw_vs_cotransfection}).
-However, upon transfection, 91\% (98\%) of the strongest 10,132 (3,016) peaks are PRDM9 binding sites (cf. 7\% expected overlap with randomised peaks), so PRDM9 is able to strongly reprogram ZCWPW1 binding, suggesting that non-PRDM9 peaks are bound more weakly.
+Confirming the recruitment hypothesis, in the presence of human PRDM9 and compared to cells lacking human PRDM9, ZCWPW1 shows a strong enrichment at human PRDM9 binding sites with higher enrichment at sites with higher PRDM9 enrichment (figure \ref{fig:Allele_Specific}A, B).
+Notably, even without PRDM9 we observed sequence-specific binding of ZCWPW1 to many sites in the genome, some coinciding with PRDM9 binding sites (Figure \ref{fig:Allele_Specific}C and \ref{fig:Zcw_vs_cotransfection}).
+However, upon transfection, 92\% (98\%) of the strongest 10,000 (3,000) peaks are PRDM9 binding sites (cf. 7\% expected overlap with randomised peaks), so PRDM9 is able to strongly reprogram ZCWPW1 binding, suggesting that non-PRDM9 peaks are bound more weakly.
 Because our transfection has <100\% efficiency (figure \ref{fig:transfection_efficiency}), some cells containing ZCWPW1 will not possess PRDM9, and so it is possible that an even greater fraction of ZCWPW1 is redirected to PRDM9 binding sites in cells where both proteins are present.
 
 Importantly, when co-transfecting with a modified version of PRDM9 in which the zinc finger array is replaced with that from chimp (which binds different locations in the genome \parencite{Altemose2017map}), we find that the enrichment at human binding sites disappears, but instead ZCWPW1 is enriched at chimp PRDM9 binding sites (Figure \ref{fig:Allele_Specific}A and \ref{fig:Heatmaps}).
 This perturbation experiment provides strong evidence that PRDM9 causes recruitment of ZCWPW1 (as opposed to for example independent recruitment of both proteins).
-Notably, the strength of binding of ZCWPW1 at these sites provides a better predictor of DSB formation (DMC1 sites) than does PRDM9 binding strength itself (figure \ref{fig:ROC}): although we show (see below) that ZCWPW1 is not directly involved in DSB positioning, this might suggest involvement of similar features to those it recognizes, in recruiting DSBs.
+Notably, the strength of binding of ZCWPW1 at these sites provides a better predictor of DSB formation (DMC1 sites) than does PRDM9 binding strength itself (figure \ref{fig:ROC}): although we show (see below) that ZCWPW1 is not directly involved in DSB positioning, this might suggest involvement of similar features to those it recognizes, in recruiting DSBs formation machinery.
 
 We tested whether this recruitment might be mediated by the dual histone modifications H3K4me3 and H3K36me3.
 Consistent with this idea, ZCWPW1 binding is positively associated with levels of both H3K4me3 and H3K36me3 marks (figures \ref{fig:histone_corr} and \ref{fig:histone_corr2}).
@@ -232,10 +226,10 @@ Moreover, individual wild-type hotspots appear always to be active in the \texti
 Thus DSBs occur in unchanged hotspot regions in \textit{Zcwpw1\textsuperscript{-/-}} males.
 To check if they occur at the same locations within hotspot regions, we leveraged data for SPO11-mapped DSB sites \parencite{Lange2016Landscape}.
 Specifically, we identified three sets of hotspots whose respective mapped breaks occur mainly upstream, central, or downstream of the PRDM9 binding site (Methods), and compared their DMC1 ChIP-Seq signal profiles, as well as their SPO11 signals (figure \ref{fig:DMC1_positions}).
-This revealed that in the \textit{Zcwpw1\textsuperscript{-/-}} males, as in the wild-type, DMC1 signals, though broader, mirror this break positioning.
+This revealed that in the \textit{Zcwpw1\textsuperscript{-/-}} males, as in the wild-type, DMC1 signals, mirror this break positioning.
 Therefore, ZCWPW1 is not required to specify hotspot locations, and neither does it strongly influence where DSBs occur within hotspots.
 
-One perhaps important difference between the \textit{Zcwpw1\textsuperscript{-/-}} and wild-type DMC1 profiles is that the latter signal grows slightly (up to \textasciitilde200bp) wider in hotspots with increasing PRDM9-induced H3K4me3 (Figure \ref{fig:DMC1_SSDS}B), while this effect is absent in the \textit{Zcwpw1\textsuperscript{-/-}} case.
+One perhaps important difference between the \textit{Zcwpw1\textsuperscript{-/-}} and wild-type DMC1 profiles is that the latter signal is slightly wider (up to \textasciitilde200bp) in hotspots with increasing PRDM9-induced H3K4me3 (Figure \ref{fig:DMC1_SSDS}B), while this effect is absent in the \textit{Zcwpw1\textsuperscript{-/-}} case.
 This might be explained by small differences in chromatin accessibility subtly impacting SPO11 locations, DNA end resection which generates the 3’ ssDNA tail to which DMC1 binds, or downstream processing differences altering DMC1 span in the mutant mice.
 
 \begin{figure}[H]
@@ -505,7 +499,7 @@ ZCWPW1 ChIP and input libraries from transfected cells were prepared by the Oxfo
 DMC1 ChIP libraries from \textit{Zcwpw1\textsuperscript{-/-}} testes were prepared and sequenced as described previously \parencite{Davies2016Reengineering} on an Illumina HiSeq2500 platform (Rapid Run, 51bp paired end reads, 110 million reads/sample).
 
 \subsubsection{Read Mapping}
-For the HEK293 experiments, reads were mapped to either hg38 (NCBI’s GCA 000001405.15 GRCh38 no alt's plus hs38d1 analysis set) using bwa mem (version 0.7.17-r1188) (Li, 2013).
+For the HEK293 experiments, reads were mapped to hg38 (NCBI’s GCA 000001405.15 GRCh38 no alt's plus hs38d1 analysis set) using bwa mem (version 0.7.17-r1188) (Li, 2013).
 Duplicates were removed using picard’s markDuplicates (version 2.20.4-SNAPSHOT).
 Unmapped, mate unmapped, non primary alignment, failing platform, and low MAPQ reads were removed using samtools with parameters “-q 30 -F 3852 -f 2 -u” (version 1.9 (using htslib 1.9)).
 Other unmapped reads and secondary alignments were removed using samtools fixmate.
@@ -576,7 +570,7 @@ In addition the following R packages were used: data.table \parencite{Dowle2019d
 
 \subsection{Data and Code availability}
 Code is available at \url{www.github.com/MyersGroup/Zcwpw1} archived at Zenodo (DOI: \href{http://www.doi.org/10.5281/zenodo.3559758}{10.5281/zenodo.3559758}).
-Raw and processed data from ZCWPW1 and DMC1 ChIPseq is available at GEO accession GSE141516 (access token \url{urehiygebxqltaj}).
+Raw and processed data from ZCWPW1 and DMC1 ChIPseq is available at GEO accession GSE141516.
 
 DMC1 SSDS ChIPseq from human testis is from \parencite{Pratto2014DNA} (GSE59836).
 H3K4me3 ChIPseq from mice testis is from \parencite{Davies2016Reengineering} (GSE73833).
