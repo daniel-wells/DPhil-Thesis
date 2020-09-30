@@ -289,8 +289,8 @@ During meiosis there is an extended prophase I (lasting 14 days in mice), which 
 
 However, with the discovery of the synaptonemal complex (figure \ref{fig:synaptonemal_complex}, a proteinaceous scaffold that forms along the chromosomes, \cite{Moses1956Chromosomal, Fawcett1956FINE}), the stages are also now defined by the configuration of this structure \parencite{Zickler2015Recombination}.
 Lepotene being the stage in which the lateral elements form along the axis of homologous chromosomes, Zygotene starts at the formation of the first transverse filaments and the central element between the homologous chromosomes \parencite{Moens1968structure}, Pachytene is defined as the stage in which all chromosomes (excepting the sex) are fully synapsed, and Diplotene when the synaptonemal complex starts to disassemble \parencite{Moses1958Relation, Moses1977Synaptonemal}.
-The lateral elements are formed of SYCP2 \& SYCP3 proteins, whereas the central element is formed of SYCE1, SYCE2, SYCE3, SIX6OS1, and TEX12, with SYCP1 forming the transverse elements connecting the two \parencite[reviewed in][]{Zickler2015Recombination, Gao2018Zipping, Kaniecki2018change, Dunce2018Structural}.
-The formation of the axis is dependent on a meiosis specific cohesin complex (comprised of REC8, RAD21L, SMC1B, STAG3) which encircles the sister chromatids \parencite[reviewed in][]{Rankin2015Complex, Ishiguro2019cohesin}.
+The lateral elements are formed of SYCP2 (Red1 in \texit{S. cerevisiae}) & SYCP3 proteins, whereas the central element is formed of SYCE1, SYCE2, SYCE3, SIX6OS1, and TEX12, with SYCP1 forming the transverse elements connecting the two \parencite[reviewed in][]{Zickler2015Recombination, Gao2018Zipping, Kaniecki2018change, Dunce2018Structural}.
+The formation of the axis is dependent on a meiosis specific cohesin complex (comprised of REC8, RAD21L, SMC1B, STAG3) which encircles the sister chromatids during premeiotic S phase \parencite[reviewed in][]{Rankin2015Complex, Ishiguro2019cohesin}.
 
 \begin{figure}[H]
 	\centering
@@ -299,11 +299,13 @@ The formation of the axis is dependent on a meiosis specific cohesin complex (co
 	\label{fig:synaptonemal_complex}
 \end{figure}
 
-In Leptotene SPO11, a conserved topoisomerase like protein, acts with mTopVIB (GM960 in mice) to create \textasciitilde300 programmed double-strand breaks (DSBs) \parencite{Sun1989Doublestrand, Keeney1997MeiosisSpecific, Bergerat1997atypical, Cole2012Homeostatic, Vrielynck2016DNA, Robert2016TopoVIBLike, Li2019highresolution}.
-In species able to pair homologues without recombination (\textit{Drosophila melanogaster} and \textit{Caenorhabditis elegans}) only ~20-30 breaks are formed, while in other species such as Lily over 2,000 DSBs are formed (as assessed by RAD51 foci counts) \parencite{Terasawa1995Localization}.
+At the start of prophase I in Leptotene, SPO11, a conserved topoisomerase like protein, acts with mTopVIB (GM960 in mice) to create programmed double-strand breaks (DSBs) \parencite{Sun1989Doublestrand, Keeney1997MeiosisSpecific, Bergerat1997atypical, Cole2012Homeostatic, Vrielynck2016DNA, Robert2016TopoVIBLike, Li2019highresolution}.
 Like other topoisomerases the two SPO11 molecules form covalent bonds with each end of the DNA \parencite{Neale2005Endonucleolytic}.
 
 The activity of SPO11 depends on pre-DSB recombinosomes containing MEI4, REC114, IHO1 (aka CCDC36, MER2) and ANKRD31 which are bound to unsynapsed axes via HORMAD1/2 \parencite{Kumar2010Functional,Panizza2011Spo11Accessory, Stanzione2016Meiotic, Kumar2018Mouse, Papanikos2019Mouse, Boekhout2019REC114}.
+However most DSBs are inflicted on the DNA within one of the many loops that form a linear array, rather than the DNA secured to the central axis from which the loops emanate.
+Therefore, before DSBs occur, the sites destined to be broken are brought to the axis to form a tethered loop axis complex (figure \ref{fig:synaptonemal_complex}) \parencite{Blat,Panizza2011Spo11Accessory}.
+In \texit{S. cerevisiae} Spp1 provides the link by binding both H3K4me3 and Mer2 (IHO1), however the mouse orthologue CXXC1 does not appear to play the same role, and so it is unclear which protein(s) provide this link in mice \cite{Acquaviva2013COMPASS,Sommermeyer2013Spp1,Tian2018CXXC1}.
 MEI1 is also required for DSBs, and WDR61 is hypothesised to be required as it is a homologue of Ski8/Rec14 which is required in \textit{S. cerevisiae} \parencite[reviewed in][]{Kumar2010Initiation, Lam2015Mechanism}.
 pre-DSB recombinosome recruitment also depends on meiotic cohesin \parencite{Bhattacharyya2019Prdm9}.
 
@@ -326,6 +328,9 @@ This filament is brought / binds to duplex DNA (perhaps helped by RAD51AP1, PALB
 This search likely involves a combination of 3D search, 1D sliding, and length dependent (>8bp) recognition of micro-homology, reminiscent of Cas9 search \parencite{Ragunathan2012RecA,Forget2012Singlemolecule,Renkawitz2013Monitoring,Qi2015DNA,Lee2015Base}, \parencite[reviewed in][]{Barzel2008Finding, Renkawitz2014Mechanisms, Greene2016DNA, Kaniecki2018change, Haber2018DNA}.
 The filament is likely released from non-homologous interactions by ATP hydrolysis \parencite{Lee2016ATP}, and is stabilised by MCMDC2 for homologous interactions \parencite{McNairn2017Repair}. 
 
+At this point the homologous chromosomes are aligned at a distance of approximately 400nm with the invading filament visible as an interaxis bridge.
+As the synaptonemal complex forms, nucleated at sites designated to become crossovers, the axes are brought closer together to a distance of around 100nm \ref[reviewed in][]{Zickler2015Recombination}.
+
 Successful single strand invasion causes a displacement (D) loop (coated by RPA), and a Holliday junction (figure \ref{fig:molecular_recombination}).
 DNA synthesis proceeds using the homologous template DNA, possibly by polymerase eta \parencite{McIlwraith2005Human, Kawamoto2005Dual} and then branch migration (catalysed by RAD54, RECQ1, and BLM) causes either D loop extension or dissociation \parencite{Bugreev2006Rad54,Bugreev2008RECQ1, Mazina2012Polarity}.
 In the case of dissociation, the newly synthesised strand can re-anneal to the resected DNA overhang to be repaired by further DNA synthesis and ligation, forming a non-crossover gene conversion (a processed called Synthesis Dependent Strand Annealing, figure \ref{fig:molecular_recombination}).
@@ -341,7 +346,7 @@ This includes MSH4 and MSH5 that as a heterodimer (MutSγ) form a sliding clamp 
 
 % HORMAD1/2, MORC2B
 
-The locations at which these double-strand breaks occur are not uniformly distributed across the genome, although the nonuniformity and locations varies by species.
+The locations at which these double-strand breaks occur are not uniformly distributed across the genome, although the nonuniformity and locations vary by species.
 \textit{Caenorhabditis elegans} has quite a uniform distribution with little fine scale structure (Gini coefficient of 0.28) \parencite{Rockman2009Recombinational, Kaur2014Crossover}.
 \textit{Drosophila melanogaster} is similar with a Gini coefficient of 0.5 \parencite{Chan2012GenomeWide, SmukowskiHeil2015Recombining}.
 In other species recombination occurs at a small subset of the genome in clusters called ``recombination hotspots'', originally named from work on the Chi sequence which can specify recombination in E. coli \parencite{Lam1974RecMediated, Myers1994RecBC}.
@@ -377,8 +382,16 @@ Additionally asymmetric hotspots have greater DMC1-ChIPseq signal compared to H4
 This work also implies that PRDM9 plays a role not just in DSB positioning but DSB repair in a manner depending on symmetric binding.
 Further work using hybrid mice pedigrees and single sperm sequencing demonstrated that at sites with asymmetric PRDM9 binding, homologue templated repair was depleted compared to PRDM9-symmetric sites, showing that PRDM9 influences repair as well as positioning of DSBs \parencite{Li2019highresolution, Hinch2019Factors}.
 
-While \textit{Prdm9} specifies the location of DSBs in a given meiosis (around 250/300 in male/female mice \parencite{Baudat2007Regulating}), only a subset of these form crossovers further shaping the recombination landscape \parencite{Youds2011choice}.
-Additionally, crossovers are prevented from occurring too close to one another (interference), secondly at least one crossover is required per chromosome (assurance/obligate) \parencite{Fledel-Alon2009BroadScale, Hunter2015Meiotic, Otto2019Crossover}.
+While there are many potential binding sites for PRDM9 (>170,000 in a HEK293T overexpression system \cite{Altemose2017map}) and hence potential crossover locations, there are only tens of thousands of hotspots \parencite{Myers2005FineScale, Pratto2014Recombination}, and only 1-2 crossovers form per chromosome in a single meiosis.
+At each stage of recombination the number of potential crossover sites is reduced, and at each stage various factors influence the likelihood of a site surviving to the next stage of selection.
+While PRDM9 likely deposits H3K4me3 at almost all locations it binds, at some regions such as promoters recombination is suppresed, plausibly due to poor H3K36me3 deposition or active removal of this mark \parencite{Altemose2017map}.
+Sequence motifs outside the PRDM9 binding footprint also influence recombination, some acting to repress recombination by recruitment of KRAB-ZNF proteins which recruit TRIM28 which in turn deposits H3K9me3 \parencite{Altemose2017map}.
+H3K9me3 is a marker of heterochromatin, which is more often found in the gene poor 'B' compartments of chromosomes and laminin associated domains, and is associated with lower PRDM9 binding and recombination \parencite{Walker2015Affinityseq,Patel2019Dynamic,Yamada2017Genomic}.
+Furthermore few if any DSBs occur in the pericentromeric heterochromatin \parencite{Verver2013Role}, and disruption of H3K9me2 and non-CG DNA methylation pathways in \textit{Arabidopsis thaliana} results in increased recombination at the previously heterochromatic centromeres \parencite{Underwood2018Epigenetic}.
+In mice SPO11 creates \textasciitilde250/300 DSBs in males/females \parencite{Baudat2007Regulating}.
+However these numbers and direction of sex bias vary by species, for example in Lily over 2,000 DSBs are formed (as assessed by RAD51 foci counts) \parencite{Terasawa1995Localization}, while in species able to pair homologues without recombination (\textit{Drosophila melanogaster} and \textit{Caenorhabditis elegans}) only ~20-30 breaks are formed.
+Resolution of a DSB as a crossover is more likely if it occurs closer to the telomere, has higher local GC content, has higher H3K4me3, and has more symmetric binding of PRDM9 \parencite{Hinch2019Factors}.
+Additionally, crossovers are prevented from occurring too close to one another (interference), and at least one crossover is required per chromosome (assurance/obligate) \parencite{Fledel-Alon2009BroadScale, Hunter2015Meiotic, Otto2019Crossover}.
 
 
 
