@@ -88,9 +88,10 @@ To investigate the role of ZCWPW1 during meiosis in vivo, we produced an antibod
 	\caption[Zcwpw1 Expression]{
 		Expression of ZCWPW1 across meiosis prophase I in mouse testis.
 		Nuclear spreads were immunostained with antibodies against ZCWPW1 (red) and the synaptonemal complex protein SYCP3 (green) which labels the chromosome axis, and counterstained with DAPI (blue) to visualise nuclei.
-		Developmental stages indicated above.
+		Developmental stages indicated above and below.
 		Yellow arrows show apparent ZCWPW1 foci at both ends of the synaptonemal complex.
 		The dashed circle shows staining in the XY body.
+		Scale bar: 10 \textmu m
 		Imaging by Daniela Moralli.
 	}
 	\label{fig:ZCWPW1_expression}
@@ -100,7 +101,7 @@ In testes from wild-type (WT) mice, we observe a dynamic localisation of ZCWPW1 
 ZCWPW1 shows a strong, punctate nuclear staining excluding the pericentromeric regions (clustered into chromocenters brightly stained with DAPI) in zygotene and early pachytene cells; we detected transcript expression in earlier pre-leptotene to leptotene cells \parencite{Jung2019Unified}.
 In pachytene cells, ZCWPW1 expression drops, with the protein now mainly localised in the XY body and as bright foci at the ends of the synaptonemal complex labelled by SYCP3, not previously observed using an antibody raised against a 174 base-pair (bp) C-terminal region of the protein \parencite{Li2019histone}.
 By diplotene, little expression is visible.
-Using FISH to label telomeric ends of chromosomes, we established that these discrete foci of ZCWPW1 are located at subtelomeric regions (figure \ref{fig:telofish}).
+Using FISH to label telomeric and centromeric ends of chromosomes, we established that these discrete foci of ZCWPW1 are located at the ends of the synaptonemal complex (figure \ref{fig:telofish}).
 
 We next studied mice from a constitutive \textit{Zcwpw1} KO line (methods section \ref{sec:komice}), carrying a \textasciitilde1.5kb frameshift deletion encompassing exons 5 to 7 upstream of the CW domain, creating a premature stop codon resulting in the production and predicted degradation (by RNA-mediated decay) of a short 492bp (vs 1893bp for WT) transcript (figure \ref{fig:Fertility}A).
 Confirming this, ZCWPW1 expression was completely absent in testis protein extracts \iffalse supp fig \fi and chromosome spreads from \textit{Zcwpw1\textsuperscript{-/-}} mice, in zygotene cells (Figure \ref{fig:Fertility}B) and all other meiotic stages of prophase I where expression is detected in WT mice \iffalse supp fig \fi.
@@ -110,7 +111,7 @@ As in \cite{Li2019histone}, we observe widespread asynapsed chromosomes in male 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/zcwpw1/Fertility.png}
+	\includegraphics[width=\textwidth]{figures/zcwpw1/Fertility.pdf}
 	\caption[Zcwpw1 KO Phenotypes]{
 		Male \textit{Zcwpw1\textsuperscript{-/-}} mice show reduced testis size and asynapsis, similar to the \textit{Prdm9\textsuperscript{-/-}} mutant.
 		\textbf{(A)} Schematic of the Zcwpw1 knockout mouse line.
@@ -118,7 +119,7 @@ As in \cite{Li2019histone}, we observe widespread asynapsed chromosomes in male 
 			Sanger sequencing DNA chromatograms of wild-type (WT) and knockout (KO) mice encompassing the deletion are shown.
 			The intron-exon organization is not to scale.
 		\textbf{(B)} Immunofluorescence staining of testis nuclear spreads from \textit{Zcwpw1\textsuperscript{+/+}} and \textit{Zcwpw1\textsuperscript{-/-}} mice for ZCWPW1, the synaptonemal complex protein SYCP3 which labels the chromosome axis, or HORMAD2 which marks unsynapsed chromosomes.
-		\textbf{(C)} Representative testes from 9-10 weeks old WT (+/+), Het (+/-) and Hom (-/-) Zcwpw1 KO mice are shown.
+		\textbf{(C)} Representative testes from 9-10 weeks old WT (+/+), Het (+/-) and Hom (-/-) \textit{Zcwpw1} KO mice are shown.
 		\textbf{(D)} Paired testes weight was normalized to lean body weight.
 			The p-value is from Welch’s two sided, two sample t-test. \iffalse supp table 3 \fi
 		\textbf{(E)} Synapsis quantification in testis chromosome spreads immunostained with HORMAD2, as in (B).
@@ -130,7 +131,7 @@ As in \cite{Li2019histone}, we observe widespread asynapsed chromosomes in male 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/zcwpw1/DMC1_counts.png}
+	\includegraphics[width=\textwidth]{figures/zcwpw1/DMC1_counts.pdf}
 	\caption[DMC1 Counts]{
 		Similar DMC1 count elevation in \textit{Zcwpw1\textsuperscript{-/-}} and \textit{Prdm9\textsuperscript{-/-}} mice, compared to wild-type.
 		\textbf{(A)} Testis chromosome spreads from wild-type and \textit{Zcwpw1\textsuperscript{-/-}} mice were immunostained for DMC1 and SYCP3.
@@ -203,7 +204,8 @@ We conclude that H3K4me3 alone endows only relatively weak binding, while PRDM9 
 	\centering
 	\includegraphics[width=\textwidth]{figures/zcwpw1/H3K4strength_binned_allchr_copy.pdf}
 	\caption[Dual mark recruitment]{
-		PRDM9 (H3K4me3 and H3K36me3) is a stronger recruiter of ZCWPW1 than promoters (H3K4me3 only).
+		PRDM9-bound regions (H3K4me3 and H3K36me3) are a stronger recruiter of ZCWPW1 than promoters (H3K4me3 only).
+		For any given level of H3K4me3 (x-axis), ZCWPW1 enrichment (y-axis) is higher at PRDM9-bound regions (red) than regions with pre-existing H3K4me3 (promoters, blue).
 		H3K4me3 and ZCWPW1 were force called in 100bp windows.
 		Each subset is defined as indicated in the legend with the additional constraint of requiring input fragment coverage >5 for ZCWPW1 and >15 for H3K4me3.
 		For each subset H3K4me3 was split into 25 bins with equal number of data points.
@@ -239,11 +241,15 @@ This might be explained by small differences in chromatin accessibility subtly i
 		\textbf{(A)} DSBs occur at normal hotspot locations in the \textit{Zcwpw1\textsuperscript{-/-}} mouse.
 			Average coverage of reads from DMC1 SSDS ChIP-seq at previously mapped regions (methods section \ref{sec:chip}) in B6 WT (left) and \textit{Prdm9\textsuperscript{-/-}} (right) mice is shown, centered at the PRDM9 motif (left).
 			DMC1 profiles from a WT mouse are shown in red, data from \parencite{Brick2012Genetic}.
-		\textbf{(B)} Normalised DMC1 profile is plotted for WT and \textit{Zcwpw1\textsuperscript{-/-}}, stratified by H3K4me3.
-			Greyed out lines show the alternative genotype for comparison.
+		\textbf{(B)} Normalised DMC1 profile (both strands combined) is plotted for WT and \textit{Zcwpw1\textsuperscript{-/-}}, stratified by H3K4me3 (a proxy for PRDM9 binding).
+			Low: <50th percentile cumulative enrichment, High: >75th percentile cumulative enrichment, with Medium being the remaining data.
+			Dashed lines show the alternative genotype for comparison.
 		\textbf{(C)} Altered DMC1 signals in \textit{Zcwpw1\textsuperscript{-/-}} mice.
-			Relationship between SPO11-oligos (measuring the number of DSBs) vs DMC1 (a measure of the number and persistence of DSBs) at each B6 hotspot for WT and \textit{Zcwpw1\textsuperscript{-/-}}.
-			Green line is y=x for reference.
+			Relationship between WT SPO11-oligos (measuring the number of DSBs) vs DMC1 (a measure of the number and persistence of DSBs) at each B6 hotspot for WT and \textit{Zcwpw1\textsuperscript{-/-}}.
+			Unlike WT mice, DMC1 signals in \textit{Zcwpw1\textsuperscript{-/-}} mice are approximately linearly associated with WT SPO11.
+			Black dashed line is y = x for reference.
+			SPO11 and DMC1 enrichment have been scaled by dividing by the mean autosomal enrichment.
+			Large dark blue and dark red points show mean DMC1 signal, binned into groups containing equal numbers of hotspots by WT SPO11 signal, for X (10 bins) and autosomal data (100 bins) respectively (smaller lighter dots represent individual hotspots).
 	}
 	\label{fig:DMC1_SSDS}
 \end{figure} 
@@ -259,17 +265,17 @@ The X-chromosome DMC1 elevation is in a sense an extreme case of slower repair o
 
 However, we see a striking departure in the \textit{Zcwpw1\textsuperscript{-/-}} mouse, where the X-chromosome behaves similarly to the autosomes in terms of DMC1 vs. SPO11 signal strength (figure \ref{fig:DMC1_SSDS}C).
 Moreover, we also see a simple linear relationship between DMC1 and SPO11 binding in this mouse.
-These data imply the relationship between DMC1 removal and PRDM9 binding is eliminated in this mouse, so PRDM9 (whether because ZCWPW1 directly aids the process, or indirectly) appears unable to ``assist'' in homology search in this mouse.
+These data imply the relationship between DMC1 removal and PRDM9 binding is eliminated in this mouse, so PRDM9 (whether because ZCWPW1 directly aids the process, or indirectly) appears unable to ``assist'' in homolog pairing and synapsis in this mouse.
 Indeed, the data imply a widespread perturbation of DSB repair in this mouse, with autosomal DMC1 foci persisting as long as those on the X-chromosome.
 In the previously studied \textit{Hop2\textsuperscript{-/-}} mouse \parencite{Khil2012Sensitive, Petukhova2003Hop2, Smagulova2011Genomewide}, we identified a very similar pattern (figure \ref{fig:HOP2}): in this mouse, DMC1 is loaded onto ssDNA, but DSBs are not repaired at all, indicating that DSB repair pathways in \textit{Zcwpw1\textsuperscript{-/-}} mice are profoundly altered.
 
 These results are consistent with, and extend, our microscopy observations (figure \ref{fig:DMC1_count}) that many DSBs persist in the \textit{Zcwpw1\textsuperscript{-/-}} mouse, and some may never repair.
 We are unable to say whether DSB repair involves the homologue or not in this mouse, but the partial synapsis we observe suggests some repair does likely occur.
 
-To further understand DMC1 persistence at individual hotspots, we estimated the relative DMC1 heat of 9,318 autosomal hotspots in the \textit{Zcwpw1\textsuperscript{-/-}} mouse, compared to the WT mouse.
-Via linear regression, by far the best individual predictor of this ratio among H3K4me3, WT DMC1, and SPO11 was the level of H3K4me3 (r = 0.55, $p < 10^{-15}$; figure \ref{fig:heatRatio}, while r = 0.57 when using all 3 predictors together).
+To further understand DMC1 persistence at individual hotspots, we estimated the relative DMC1 heat of autosomal hotspots in the \textit{Zcwpw1\textsuperscript{-/-}} mouse, compared to the WT mouse.
+The best individual predictor of this ratio among H3K4me3, WT DMC1, and SPO11 was the level of H3K4me3 (r = 0.60, Generalised Additive Model, figure \ref{fig:heatRatio}, while r = 0.63 when using all 3 predictors together).
 The average DMC1 ratio changes around 9-fold from the most weakly to the most strongly H3K4me3-marked hotspots.
-Therefore, if DMC1 signal changes are indeed explained by slower DSB processing in the \textit{Zcwpw1\textsuperscript{-/-}} mouse at hotspots bound strongly by PRDM9, then this implies a very strong effect.
+Therefore, if DMC1 signal changes are indeed explained by slower DSB processing in the \textit{Zcwpw1\textsuperscript{-/-}} mouse at hotspots bound strongly by PRDM9, then this implies a very strong effect of PRDM9's ``assistance'' in aiding repair.
 Whatever the cause, the overall strong correlation implies perturbation of DMC1 behaviour is widespread, rather than impacting any small subset of hotspots.
 Moreover, it appears to be mainly controlled by local levels of PRDM9 histone modification, in keeping with the evidence that ZCWPW1 recognizes this mark at PRDM9-bound sites, on either the broken or (identical) homologous chromosome.
 
@@ -287,7 +293,7 @@ This binding mode was unexpected a priori, and does not appear to be easily expl
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/zcwpw1/CpG_plot_alone.png}
+	\includegraphics[width=\textwidth]{figures/zcwpw1/CpG_plot_alone.pdf}
 	\caption[ZCWPW1 binds CpG rich sequences]{
 		ZCWPW1 binds CpG-rich sequences such as Alu repeats.
 		\textbf{(A)} Fraction of overlap of ZCWPW1 binding peaks with Alus, ordered by enrichment in ZCWPW1 binding.
@@ -297,11 +303,10 @@ This binding mode was unexpected a priori, and does not appear to be easily expl
 		\textbf{(B)} Rate of overlap of Alu repeats with ZCWPW1 peaks, for Alus with different numbers of CpG dinucleotides.
 		\textbf{(C)} The probability of a 300bp window overlapping a ZCWPW1 peak increases with increasing CpG count in that window.
 			Windows overlapping (by 10bp or more) Alus, other repeats, or CpG islands have been excluded.
-			Methylation status of NA is for windows with 0 CpGs.
 			Methylated regions are those with a methylated to unmethylated reads ratio of >0.75, and unmethylated <0.25 (methods section \ref{sec:cpgmeth})
 		\textbf{(D)} Relative proportion of peaks with given numbers of CpGs $\pm150$bp from peak center.
 			ZCWPW1 peaks are enriched in CpGs compared to random peak locations.
-			‘Meth’, methylated; ‘UnMeth’, unmethylated; NA, not applicable.
+			‘Meth’, methylated; ‘UnMeth’, unmethylated.
 	}
 	\label{fig:CpG}
 \end{figure}

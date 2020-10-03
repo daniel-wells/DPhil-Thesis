@@ -16,7 +16,7 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 	\caption[\textit{Zcwpw1} Tissue and Isoform expression]{
 		\textbf{(A)} \textit{Zcwpw1} is highly and specifically expressed in the testis.
 			Data Source: GTEx Analysis Release V7 (dbGaP Accession phs000424.v7.p2).
-		\textbf{(B)} \textit{Zcwpw1} isoform expression in human testits.
+		\textbf{(B)} \textit{Zcwpw1} isoform expression in human testis.
 	}
 	\label{fig:isoforms}
 \end{figure}
@@ -26,10 +26,9 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 	\centering
 	\includegraphics[width=\textwidth]{figures/zcwpw1/TeloFISH_labelled.png}
 	\caption[Telomeric Localisation]{
-		ZCWPW1 localises at subtelomeric regions of chromosomes in pseudo-pachytene cells.
-		Testis chromosome spreads from \textit{Zcwpw1\textsuperscript{-/-}} were immunostained for SYCP3 and ZCWPW1, and hybridised by FISH with a telomeric probe.
-		Note that the ZCWPW1 foci do not always exactly co-localize with the telomeric signal, and generally lie more internally on the synaptonemal complex axis.
-		Right panel: 3x zoom from left image showing the area in the dashed white rectangle.
+		ZCWPW1 localises at subtelomeric and subcentromeric regions of chromosomes in pseudo-pachytene cells.
+		Testis chromosome spreads from WT mice were immunostained for SYCP3 and ZCWPW1, and hybridised by FISH with a telomeric or centromeric probe.
+		Note that the ZCWPW1 foci do not always exactly co-localize with the telomeric signal, and generally lie more internally on the chromosome axis.
 	}
 	\label{fig:telofish}
 \end{figure}
@@ -51,11 +50,12 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/zcwpw1/RAD51.png}
+	\includegraphics[width=\textwidth]{figures/zcwpw1/RAD51.pdf}
 	\caption[RAD51 Counts]{
 		\textbf{(A)} RAD51 staining in \textit{Zcwpw1\textsuperscript{-/-}} mouse testis.
 			Testis chromosome spreads from \textit{Zcwpw1\textsuperscript{+/+}} and \textit{Zcwpw1\textsuperscript{-/-}} mice were immunostained with antibodies against the synaptonemal complex protein SYCP3 and the recombinase RAD51, and counterstained with DAPI to visualise nuclei.
 			Developmental stages are indicated at the top.
+			Scale bar 10 \textmu m.
 		\textbf{(B)} The number of RAD51 foci in cells from the various stages of prophase I were counted.
 			p-values are from Welch’s two sided, two sample t-test.
 			L: Leptotene, Z: Zygotene, P: Pachytene.
@@ -81,7 +81,7 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/zcwpw1/transfection_efficiency.png}
+	\includegraphics[width=\textwidth]{figures/zcwpw1/transfection_efficiency.pdf}
 	\caption[Transfection Efficiency]{
 		Co-transfection of ZCWPW1 and PRDM9 in HEK293T cells.
 		Immunofluorescence staining against the protein tags shows high expression levels of each protein and a reasonable proportion of co-expressing cells with merged overlapping signals (ranging from light green to yellow and light red depending on the expression ratio of the two proteins).
@@ -92,8 +92,7 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/zcwpw1/HeatmapA.png}
-	\includegraphics[width=\textwidth]{figures/zcwpw1/HeatmapB.png}
+	\includegraphics[width=\textwidth]{figures/zcwpw1/Heatmaps.pdf}
 	\caption[Zcwpw1 Heatmaps]{
 		\textbf{(A)} Profiles and heatmaps of reads at locations of chimp PRDM9.
 			Heatmaps show log fold change of sample (as indicated in the title of each column, methods) vs input, for the top ¼ of peaks of chimp (c) PRDM9, for various samples, ordered by chimp PRDM9.
@@ -163,10 +162,12 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 	\centering
 	\includegraphics[width=\textwidth]{figures/zcwpw1/Hotspotsharing.pdf}
 	\caption[Hotspot Sharing]{
-		Fraction of B6 hotspot locations seen in \textit{Zcwpw1\textsuperscript{-/-}} DMC1 ChIP-seq at different p-values.
-		Heat refers to DMC1 signal.
-		Black rung bars across the top each represent a single peak.
-		We observe almost all of the peaks seen in B6 wild type, especially for the hottest hotspots.
+		Fraction of WT hotspot locations seen in \textit{Zcwpw1\textsuperscript{-/-}} DMC1 ChIP-seq at different p-values.
+		Black bars along the top of the plot show the heat of individual hotspots relative to the hottest, according to the DMC1 data, in the WT male mouse.
+		Y-axis values at x = 0 show the fraction of all hotspots falling into the buckets shown in the inset colour legend.
+		As the x-axis increases the y-axis values show the same thing, but only for those hotspots with a heat greater than or equal to the x-axis value, that is those black bars further to the right.
+		Therefore, almost all WT hotspots with activity >20\% of the hottest hotspot are observed, and non-observed hotspots show only weak activity in WT, and so our power to detect them is expected to be reduced.
+		`DMC1>0' refers to the hotspot locations at which DMC1 signal is observed in \textit{Zcwpw1\textsuperscript{-/-}} DMC1 ChIP-seq, but with significance level (p-value) greater than or equal to 0.05, `p<0.05' refers to the locations at which this significance level is less than 0.05 but greater or equal to 0.001, and `p<0.001' refers to locations at which the p-value is less than 0.001.
 	}
 	\label{fig:hotspotsharing}
 \end{figure}
@@ -174,7 +175,7 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/zcwpw1/DMC1_positions.png}
+	\includegraphics[width=\textwidth]{figures/zcwpw1/DMC1_positions.pdf}
 	\caption[DMC1 positions]{
 		DSBs in \textit{Zcwpw1\textsuperscript{-/-}} are positioned at WT locations within hotspots.
 		DMC1 signal (left and center) is stratified by SPO11 (right).
@@ -197,14 +198,15 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{figures/zcwpw1/heatRatio.pdf}
+	\includegraphics[width=0.8\textwidth]{figures/zcwpw1/heatRatio.pdf}
 	\caption[DMC1 ratio regression]{
-		Regression of DMC1 ratio on H3K4me3.
-		For each B6 mouse hotspot (Methods), we calculated the ratio of DMC1 fragment coverage (summed over the central 3.5kb region spanning DMC1 hotspot enrichment in \textit{Zcwpw1\textsuperscript{-/-}} and WT mice, after subtracting mean background over the ±2.5-5kb distal regions, and removing any hotspot with mean SPO11 coverage over the surrounding ±5kb outside the hotspot >1, to exclude nearby hotspots).
+		Regression of DMC1 ratio on H3K4me3, SPO11, and DMC1.
+		The DMC1 signal in the KO relative to the WT increases as H3K4me3 (~PRDM9) increases.
+		We calculated the ratio of KO to WT DMC1 force-called enrichment at each autosomal B6 mouse hotspot not overlapping pre-existing H3K4me3.
 		We excluded weak hotspots whose estimated SPO11 heat (within 2.5kb) or DMC1 WT heats were in the bottom 33\% (because accurate ratio estimation is not possible for these hotspots).
-		Circles: the force-called H3K4me3 signal strength, vs. the ratio, for each of 9,318 resulting hotspots.
-		Blue line: mean H3K4me3 signal versus the ratio of mean DMC1 fragment coverages, after binning by H3K4me3 signal into 50 equal sample size groups of hotspot, within each bin.
-		The points and blue line show a strong and essentially linear relationship.
+		Dots: the force-called signal strength (of either H3K4me3, SPO11 or WT DCM1), vs the ratio, for each of the resulting hotspots.
+		Blue dashed line, linear regression line of best fit (fit in linear space, displayed in log space).
+		Red line: Generalised Additive model (able to fit non-linear effects if present, again fit in linear space).
 	}
 	\label{fig:heatRatio}
 \end{figure}
@@ -215,8 +217,7 @@ In asexual organisms, before the descendants can acquire a combination of benefi
 	\includegraphics[width=\textwidth]{figures/zcwpw1/proportions_plot_v3.pdf}
 	\caption[ChIPseq peaks proportions]{
 		Proportion of ZCWPW1 peaks overlapping various other marks, ordered by enrichment of ZCWPW1 binding over input.
-		hPRDM9: human PRDM9; ut: untransfected.
-		Subset categories are labelled according to the following example: “ZCWPW1 alone, Not hPRDM9, + Not utH3K4me3 + Not Alu” means ZCWPW1 binding peaks in cells transfected with ZCWPW1 alone that do not correspond to human PRDM9 binding peaks, or H3K4me3 peaks (ChIP-seq data in untransfected cells), or Alu repeats.
+		For example dark green peaks are those which overlap with ZCWPW1 peaks when transfected alone, but not overlapping Human PRDM9 peaks, and not overlapping pre-existing H3K4me3 peaks but do overlap with Alu repeats.
 	}
 	\label{fig:proportions}
 \end{figure}
