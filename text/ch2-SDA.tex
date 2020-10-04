@@ -182,7 +182,7 @@ Likewise, the cell loadings of each component frequently highlight specific cell
 		\textbf{(C)} For each method, the fraction of all absolute gene loadings exceeding a ‘no loading’ sparsity threshold is shown, normalized by the maximum absolute loading across all components for that method.
 		\textbf{(D)} t-SNE projection of the cell scores from SDA.
 			Each point is a cell, each coloured by their loading in component 5.
-			Black arrow: the principle curve fit to the germ cell data, corresponding to the developmental ordering of each cell progressing through spermatogenesis.
+			Black arrow: the principal curve fit to the germ cell data, corresponding to the developmental ordering of each cell progressing through spermatogenesis.
 			The coloured segmented line shows broad staging of spermatogenesis.
 		\textbf{(E)} Gene loadings for component 5, plotted along the genome.
 			Red genes: GWAS hits for human recombination rate.
@@ -209,7 +209,7 @@ We find 7 major clusters of components and (as we later show [section \ref{sec:c
 We can see that our manual labelling of the components is consistent with the clusters, for example all components assigned an early label clustering together in the ``Spermatogonia'' cluster.
 
 Visualisation of components through pseudotime shows that transcription during spermatogenesis can be represented as a series of overlapping components, each varying with different timescales (figure \ref{fig:SDA_overlapping}A\&B).
-Furthermore, these components are comprised of distinct gene sets enriched for distinct biological processes (figure \ref{fig:SDA_overlapping}C\&D).
+Furthermore, these components are composed of distinct gene sets enriched for distinct biological processes (figure \ref{fig:SDA_overlapping}C\&D).
 
 \begin{figure}[H]
 	\centering
@@ -451,7 +451,7 @@ This highlights one of the advantages of single cell RNAseq compared to GWAS for
 In addition it directly provides a list of genes rather than SNPs affecting unknown causal genes, For example the previous GWAS had identified a SNP in the intron of \textit{Ccdc43}, however our expression data strongly suggested the adjacent gene \textit{Meioc} (aka \textit{C17orf104}) as the causal gene (ranked 183rd vs 13,651st in component 5) in addition to the subsequent reports that \textit{Meioc} is responsible for maintaining an extended meiotic prophase \parencite{Abby2016Implementation, Kong2014Common, Soh2017Meioc}.
 
 The strong enrichment of genes involved in recombination in this component suggests other highly ranked genes of unknown function could also play key roles in this process.
-This proved to be the case for two such genes during the preparation of the mauscript describing our findings.
+This proved to be the case for two such genes during the preparation of the manuscript describing our findings.
 Firstly \textit{Ankrd31} (ranked 102nd) was found to control the number, timing, and location of double strand breaks in meiosis \parencite{Boekhout2018REC114, Papanikos2018ANKRD31} and \textit{Hsf2bp} (now \textit{Meilb2}, ranked 194th) was found to be a master regulator of meiotic recombinases \parencite{Zhang2019meiosisspecific}.
 After the publication of this work, \textit{Hells} (ranked 44th) was found to be required for PRDM9 binding to hotspots \parencite{Spruce2019HELLS}.
 One candidate, \textit{Zcwpw1}, will be the subject of chapter \ref{ch:3-Zcw}.
@@ -605,7 +605,7 @@ Another possible explanation is that droplet-based sequencing library preparatio
 \subsection{Meiotic Divisions}
 Component 20 contains high loadings for cell cycle associated genes such as the cyclin \textit{Ccna1} (rank 45) which is expressed from late pachytene through until just after the meiotic divisions \parencite{Sweeney1996distinct} for which it is required \parencite{Liu1998Cyclin}.
 The cyclin \textit{Ccnb1} controlling the G2/M transition is also present (rank 8), along with its activators \textit{Aurka}, \textit{Bora}, \textit{Plk1}, and \textit{Cdc25a} (ranks 33, 83, 65, and 75) \parencite[reviewed in][]{Joukov2018AuroraPLK1}.
-The CDK2 inhibitor \textit{Cdkn3} (aka KAP1, \parencite{Poon1995Dephosphorylation}), \textit{Rgcc} (regulator of cell cyle) which is required for G2/M transition \parencite{Saigusa2007RGC32}, anaphase promoting complex activator and \textit{Cdc20} homologue \textit{Fzr1} \parencite{Holt2014APC}, and Mitotic Checkpoint Complex antagonist \textit{Mad2l1bp} (\textit{p31comet}) \parencite{Habu2002Identification} also have highly ranked loadings in component 20 (ranks 4, 35, 90, and 118).
+The CDK2 inhibitor \textit{Cdkn3} (aka KAP1, \parencite{Poon1995Dephosphorylation}), \textit{Rgcc} (regulator of cell cycle) which is required for G2/M transition \parencite{Saigusa2007RGC32}, anaphase promoting complex activator and \textit{Cdc20} homologue \textit{Fzr1} \parencite{Holt2014APC}, and Mitotic Checkpoint Complex antagonist \textit{Mad2l1bp} (\textit{p31comet}) \parencite{Habu2002Identification} also have highly ranked loadings in component 20 (ranks 4, 35, 90, and 118).
 In addition, the positive and negative loadings are marginally significantly enriched for ``spindle checkpoint'' and ``chromosome segregation'' GO terms respectively (q = 0.029 \& 0.015, OR = 10.4 \& 3.7).
 
 This component is also highly enriched for a family of proteins with a domain of unknown function (DUF622): \textit{1700001F09Rik}, \textit{Gm3453}, \textit{Gm10354}, \textit{Gm3149}, \textit{Gm8362}, \textit{Gm3127}, \textit{Gm17019}, \textit{Gm4181}, \textit{Speer4e}, \textit{Speer4b}, \textit{Gm9758}, \textit{Gm8232}, \textit{BC061237}, \textit{Gm5458}, \textit{4930572O03Rik}, \textit{Gm5800}, \textit{Gm7361}, \textit{Gm8220} (18 out of the top 88 genes).
@@ -634,7 +634,7 @@ SPACA4 (SAMP14) showed immunofluorescent staining restricted to the acrosomal re
 Other acrosomal genes not covered by the GO term include Lyzl5, Fam170b, Acrv1 (Spaca2), and Spata31 (AEP1) (rank 320, 56, 4, and 30).
 
 Lyzl5 (Spaca5) is an X linked gene not previously studied apart from being detected by mass spectrometry as mentioned above \parencite{Guyonnet2012Isolation}.
-Fam170b which showed enrichment in the acrosome of round spermatids by immunohistochemistry and immunoflouresence \parencite{Li2015FAM170B}.
+Fam170b which showed enrichment in the acrosome of round spermatids by immunohistochemistry and immunofluorescence \parencite{Li2015FAM170B}.
 Acrv1 (Spaca2) is highly specific to the acrosome as assessed by Immunohistochemistry \parencite{Osuru2014acrosomal}.
 Spata31 (aka AEP1 - Acrosome Expressed Protein) mRNA was detected by in situ hybridisation from postnatal 25 dpp (round spermatids) in rat \parencite{Luk2006Acrosomespecific}.
  
@@ -716,7 +716,7 @@ Spermatocytes have specialised energetic requirements and have developed corresp
 Many of the enzymes involved in the central metabolic pathway of glycolysis have altered expression or specific isozymes during spermatogenesis and especially spermiogenesis.
 The first step in glycolysis is catalysed by Hexokinase encoded by \textit{Hk1} (rank 29, 51, 229 in components 34, 18, and 17), which is expressed as a testis specific isozyme lacking the porin domain in spermiogenesis \parencite{Mori1993Unique,Nakamura2008Spermatogenic}.
 The second step is catalysed by Glucose-6-phosphate isomerase encoded by \textit{Gpi1} (rank 173, 200, and 283 in components 18, 34, and 17) which also has a splice variant specifically expressed in spermatogenesis \parencite{Buehr1981electrophoretically, Vemuganti2010Frequent}.
-\textit{Aldoart2} is a rodent specific retro-tranposed version of \textit{Aldoa} encoding aldolase which catalyses the fourth step of glycolysis (rank 241 and 264 in components 18 and 17) \parencite{Vemuganti2007Three, Vemuganti2010Frequent}.
+\textit{Aldoart2} is a rodent specific retro-transposed version of \textit{Aldoa} encoding aldolase which catalyses the fourth step of glycolysis (rank 241 and 264 in components 18 and 17) \parencite{Vemuganti2007Three, Vemuganti2010Frequent}.
 The products of this reaction can be interconverted by Triosephosphate isomerase which is encoded by \textit{Tpi1} (with ranks 250, 339 and 469 in components 18, 34 and 17) and also has testis specific isozymes \parencite{Ijiri2013Male}.
 The sixth and seventh reactions are catalysed by GAPDH and PGK respectively, and there are testis specific versions of the genes encoding these enzymes (\textit{Gapdhs}, \textit{Pgk2}) that are required for motility and fertility and have high rankings in these components (rank 3 and 46 for component 18, rank 10 and 73 for component 17, and rank 146 and 161 for component 37) \parencite{McCarrey1987Human,Welch1992Expression, Miki2004Glyceraldehyde, Danshina2010Phosphoglycerate}.
 \textit{Pgam2} encoding PGAM-B which catalyses the 8th step, is specifically expressed from pachytene onwards but not earlier (rank 183 and 283 in component 17 and 18) \parencite{Fundele1987Developmental}.
@@ -803,7 +803,7 @@ Other mechanisms which could control the fine-scale patterns of transcription we
 \end{figure}
 
 We discovered that many of the motifs which show similar associations through pseudotime share a common property: the presence of a CpG dinucleotide.
-Many of the motifs with association overlaping dipoid components contain a CpG dinucleotide whereas the motifs mostly overlaping haploid components do not.
+Many of the motifs with association overlapping diploid components contain a CpG dinucleotide whereas the motifs mostly overlapping haploid components do not.
 In fact the motif with the strongest association with pseudotime is not a motif per-se but simply the count of CpGs at the promoter, indicating a major shift away from expression of genes whose promoters contain CpG islands, following the meiotic divisions.
 CpG islands at active promoters are usually unmethylated and methylation can cause silencing \parencite{Li2014DNA}.
 Many of the diploid CpG containing motifs have methylation sensitive transcription factors, including the non-CpG exceptions NFYA and ETV5 \parencite{Domcke2015Competition, Wang2017NRF1}.
