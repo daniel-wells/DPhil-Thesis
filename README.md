@@ -1,6 +1,6 @@
 # Daniel Wells DPhil Thesis
 
-Download the compiled version at the [ORA](https://ora.ox.ac.uk/objects/uuid:8c1f75a8-ecc3-4ffe-b01f-d2e92c75e66c)
+Download the compiled version from the [GitHub release](https://github.com/daniel-wells/DPhil-Thesis/releases/tag/v1.0) or from the [ORA](https://ora.ox.ac.uk/objects/uuid:8c1f75a8-ecc3-4ffe-b01f-d2e92c75e66c).
 
 ## Setup
 This latex template is from https://github.com/mcmanigle/OxThesis
